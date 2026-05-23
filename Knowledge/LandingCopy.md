@@ -1,6 +1,6 @@
-# Renomate — Landing Page Copy (v0.1)
+# Renomate — Landing Page Copy (v1.0)
 
-The draft copy for the marketing landing page. Drop-in usable; treat as a starting point that will tighten after a few rounds of reading aloud and a few founder calls.
+The locked landing-page copy, instantiated as a live preview in [`../landing/preview.html`](../landing/preview.html). When the production landing page is built in Next.js, this is the source of truth for the strings.
 
 Voice rules (from `DesignSystem.md`):
 - Plainspoken, quietly confident, warm but professional, Singapore-direct.
@@ -11,14 +11,14 @@ Voice rules (from `DesignSystem.md`):
 
 ## Hero
 
-**Eyebrow** (small caption above headline):
-> A Singapore-built renovation workspace.
+**Eyebrow** (small chip above headline):
+> Built in Singapore for HDB, condo and landed renovations
 
 **Headline** (Fraunces, display-xl, 1–2 lines max):
 > Your renovation, finally on the record.
 
 **Sub-headline** (Inter, body-lg, max 2 lines):
-> The calm, structured workspace where Singapore homeowners and interior designers track timelines, decisions, prices and invoices — in one place, not scattered across seven WhatsApp groups.
+> Timeline, decisions, prices and invoices — all in one place. Built for Singapore homeowners and the interior designers who run their projects.
 
 **Primary CTA** (clay button): `Join the waitlist`
 **Secondary CTA** (ghost/secondary): `I'm an interior designer →`
@@ -33,11 +33,16 @@ Voice rules (from `DesignSystem.md`):
 
 **Section eyebrow**: `If you've renovated in Singapore, you know.`
 
-**Body** (one paragraph, body-lg):
-> One WhatsApp group with your ID. Another with the carpenter. Another with the aircon vendor. A fourth for the plumber. By month two, no one can answer simple questions: when does hacking finish, what was that tile decision again, did we already pay for the kitchen cabinet upgrade. The renovation costs forty thousand dollars and runs for four months — but the coordination tool is a chat app designed for sharing memes.
+**Section headline** (display-lg):
+> Seven WhatsApp groups, zero answers.
 
-*(Optional callout pull-quote, smaller, gray):*
-> Industry data: 66% of renovation regrets in Singapore trace back to communication failures between homeowners and their designers.
+**Body** (two paragraphs, body-lg):
+> One group with your interior designer. Another with the carpenter. Another with the aircon vendor. A fourth for the plumber. By month two, no one can answer the simple questions: when does hacking finish, what was that tile decision, did we already pay for the cabinet upgrade.
+>
+> The renovation costs forty thousand dollars and runs four months. The coordination tool is a chat app designed for sharing memes.
+
+**Callout pull-quote** (clay left border):
+> Industry data: **66% of renovation regrets in Singapore** trace back to communication failures between homeowners and their designers.
 
 ---
 

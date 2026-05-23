@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Renomate — Your renovation, finally on the record.</title>
+<meta name="description" content="A calm, structured workspace for Singapore renovations. Timeline, decisions, prices and invoices — all in one place." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #161513;
+    --charcoal: #3D3A36;
+    --slate: #6E6963;
+    --mist: #A8A29B;
+    --linen: #EFEAE2;
+    --paper: #FAF7F2;
+    --white: #FFFFFF;
+    --clay: #B85C3C;
+    --clay-soft: #E8C9B8;
+    --clay-deep: #8A4329;
+    --success: #5C7A4F;
+    --success-soft: #D8E4D0;
+    --warning: #C68C3A;
+    --warning-soft: #F0E1C2;
+    --error: #A8453A;
+    --error-soft: #E8C7C2;
+    --info: #3A6680;
+
+    --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+    --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+    --space-9: 96px; --space-10: 128px;
+
+    --radius-sm: 4px; --radius: 8px; --radius-md: 12px; --radius-lg: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  ::selection { background: var(--clay-soft); color: var(--clay-deep); }
+
+  /* Layout */
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 var(--space-5); }
+  .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 var(--space-5); }
+
+  /* Eyebrow / section label */
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+    margin-bottom: var(--space-4);
+    display: inline-block;
+  }
+  .eyebrow-muted { color: var(--slate); }
+
+  /* Type utilities */
+  .display-xl { font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 6vw, 72px); line-height: 1.05; letter-spacing: -0.02em; }
+  .display-lg { font-family: var(--font-display); font-weight: 400; font-size: clamp(28px, 4vw, 44px); line-height: 1.15; letter-spacing: -0.015em; }
+  .display-md { font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 36px; }
+  .heading    { font-family: var(--font-body);    font-weight: 600; font-size: 20px; line-height: 28px; }
+  .body-lg    { font-family: var(--font-body);    font-weight: 400; font-size: 18px; line-height: 28px; color: var(--charcoal); }
+  .body       { font-family: var(--font-body);    font-weight: 400; font-size: 16px; line-height: 24px; color: var(--charcoal); }
+  .body-sm    { font-family: var(--font-body);    font-weight: 400; font-size: 14px; line-height: 20px; color: var(--slate); }
+
+  /* Nav */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 247, 242, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms;
+  }
+  nav.top.scrolled { border-bottom-color: var(--mist); }
+  nav.top .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: var(--space-5); align-items: center; }
+  .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 640px) {
+    .nav-links .nav-link-hide-mobile { display: none; }
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 150ms cubic-bezier(0.2,0,0,1), border-color 150ms, transform 150ms;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary  { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover  { background: var(--charcoal); }
+  .btn-accent   { background: var(--clay); color: var(--paper); }
+  .btn-accent:hover   { background: var(--clay-deep); }
+  .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--mist); }
+  .btn-secondary:hover { background: var(--linen); }
+  .btn-ghost    { background: transparent; color: var(--ink); }
+  .btn-ghost:hover { background: var(--linen); }
+  .btn-lg { padding: 16px 28px; font-size: 16px; }
+
+  /* HERO */
+  .hero {
+    padding: var(--space-10) 0 var(--space-9);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--clay-soft);
+    color: var(--clay-deep);
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-5);
+  }
+  .hero h1 {
+    color: var(--ink);
+    max-width: 900px;
+    margin-bottom: var(--space-5);
+  }
+  .hero .sub {
+    max-width: 640px;
+    margin-bottom: var(--space-7);
+  }
+  .hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+  /* Hero visual mockup */
+  .hero-visual {
+    margin-top: var(--space-9);
+    background: var(--linen);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    border: 1px solid var(--mist);
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .visual-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+  .visual-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    border: 1px solid var(--mist);
+    margin-bottom: var(--space-3);
+  }
+  .visual-card:last-child { margin-bottom: 0; }
+  .vc-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--slate);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+  }
+  .vc-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: var(--space-2);
+  }
+  .vc-meta {
+    font-size: 13px;
+    color: var(--slate);
+    font-variant-numeric: tabular-nums;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .pill-progress { background: var(--clay-soft); color: var(--clay-deep); }
+  .pill-pending  { background: var(--mist); color: var(--charcoal); }
+  .pill-overdue  { background: var(--error-soft); color: var(--error); }
+  .pill-done     { background: var(--success-soft); color: var(--success); }
+
+  /* Problem section */
+  .section-pad { padding: var(--space-10) 0; }
+  .problem {
+    background: var(--paper);
+    text-align: left;
+  }
+  .problem h2 {
+    color: var(--ink);
+    margin-bottom: var(--space-5);
+  }
+  .problem .lede {
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--charcoal);
+    margin-bottom: var(--space-5);
+    font-weight: 400;
+  }
+  .problem .stat {
+    border-left: 3px solid var(--clay);
+    padding-left: var(--space-4);
+    margin-top: var(--space-6);
+    font-size: 15px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* Values grid */
+  .values { background: var(--linen); }
+  .values .header { text-align: left; margin-bottom: var(--space-8); max-width: 700px; }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  @media (max-width: 720px) { .values-grid { grid-template-columns: 1fr; } }
+  .value-card {
+    background: var(--paper);
+    border: 1px solid var(--mist);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+  }
+  .value-number {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--clay-deep);
+    margin-bottom: var(--space-3);
+    letter-spacing: 0.04em;
+  }
+  .value-card h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: var(--space-3);
+  }
+  .value-card p {
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--charcoal);
+  }
+
+  /* How it works */
+  .how { background: var(--paper); }
+  .how .header { margin-bottom: var(--space-8); max-width: 720px; }
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    counter-reset: step;
+  }
+  @media (max-width: 720px) { .how-steps { grid-template-columns: 1fr; } }
+  .how-step .step-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 1;
+    color: var(--clay);
+    margin-bottom: var(--space-3);
+    font-weight: 400;
+  }
+  .how-step h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: var(--space-2);
+  }
+  .how-step p { font-size: 15px; line-height: 24px; color: var(--charcoal); }
+
+  /* ID firm section — distinct linen background */
+  .for-id {
+    background: var(--linen);
+    padding: var(--space-10) 0;
+  }
+  .for-id .header {
+    text-align: left;
+    margin-bottom: var(--space-8);
+    max-width: 720px;
+  }
+  .for-id h2 { color: var(--ink); }
+  .for-id .sub {
+    margin-top: var(--space-3);
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--charcoal);
+  }
+  .id-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+  @media (max-width: 880px) { .id-benefits { grid-template-columns: 1fr; } }
+  .id-benefit h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: var(--space-2);
+  }
+  .id-benefit p { font-size: 15px; line-height: 23px; color: var(--charcoal); }
+  .for-id .cta-row { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; }
+  .for-id .cta-note { font-size: 14px; color: var(--slate); max-width: 480px; line-height: 22px; }
+
+  /* Trust band */
+  .trust-band {
+    background: var(--ink);
+    color: var(--paper);
+    padding: var(--space-7) 0;
+    text-align: center;
+  }
+  .trust-band p {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.4;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* FAQ */
+  .faq { background: var(--paper); }
+  .faq .header { margin-bottom: var(--space-7); }
+  .faq-list { max-width: 760px; }
+  .faq-item {
+    border-top: 1px solid var(--mist);
+    padding: var(--space-5) 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--mist); }
+  .faq-q {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: var(--space-2);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after {
+    content: "+";
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--slate);
+    transition: transform 200ms;
+  }
+  details[open] .faq-q::after { content: "−"; }
+  .faq-a { font-size: 16px; line-height: 24px; color: var(--charcoal); padding-top: var(--space-3); }
+
+  /* Waitlist anchor */
+  .waitlist {
+    background: var(--linen);
+    padding: var(--space-10) 0;
+  }
+  .waitlist-card {
+    max-width: 540px;
+    margin: 0 auto;
+    background: var(--paper);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--mist);
+    padding: var(--space-7);
+  }
+  .waitlist-card h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: var(--space-3);
+  }
+  .waitlist-card .help { font-size: 14px; color: var(--slate); margin-bottom: var(--space-5); }
+  .field { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-4); }
+  .field label { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .input {
+    padding: 12px 16px;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--ink);
+    transition: outline 150ms;
+  }
+  .input:focus { outline: 2px solid var(--clay); outline-offset: -1px; border-color: var(--clay); }
+  textarea.input { resize: vertical; min-height: 80px; font-family: var(--font-body); }
+  .field-help { font-size: 13px; color: var(--slate); }
+
+  /* Footer */
+  footer {
+    background: var(--ink);
+    color: var(--mist);
+    padding: var(--space-8) 0 var(--space-5);
+  }
+  footer .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-7);
+  }
+  @media (max-width: 640px) { footer .grid { grid-template-columns: 1fr; } }
+  footer .wordmark { color: var(--paper); margin-bottom: var(--space-3); display: inline-block; }
+  footer p { font-size: 14px; line-height: 22px; color: var(--mist); max-width: 320px; }
+  footer h5 {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--paper);
+    margin-bottom: var(--space-3);
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: var(--space-2); }
+  footer ul a { color: var(--mist); text-decoration: none; font-size: 14px; }
+  footer ul a:hover { color: var(--paper); }
+  footer .copy {
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--charcoal);
+    font-size: 12px;
+    color: var(--slate);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top" id="topnav">
+  <div class="container row">
+    <a href="#" class="wordmark">renomate</a>
+    <div class="nav-links">
+      <a href="#how" class="nav-link-hide-mobile">How it works</a>
+      <a href="#designers" class="nav-link-hide-mobile">For designers</a>
+      <a href="#faq" class="nav-link-hide-mobile">FAQ</a>
+      <a href="#waitlist" class="btn btn-accent">Join the waitlist</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">Built in Singapore for HDB, condo and landed renovations</span>
+    <h1 class="display-xl">Your renovation,<br/>finally on the record.</h1>
+    <p class="sub body-lg">
+      Timeline, decisions, prices and invoices &mdash; all in one place. Built for Singapore homeowners and the interior designers who run their projects.
+    </p>
+    <div class="hero-actions">
+      <a href="#waitlist" class="btn btn-accent btn-lg">Join the waitlist</a>
+      <a href="#designers" class="btn btn-secondary btn-lg">I'm an interior designer &rarr;</a>
+    </div>
+
+    <!-- Visual mockup placeholder -->
+    <div class="hero-visual">
+      <div class="visual-eyebrow">A glance tells you everything</div>
+      <div class="visual-card">
+        <div class="vc-label">What's next</div>
+        <div class="vc-title">Carpentry starts Mon 02 Jun</div>
+        <div class="vc-meta">Phase 4 of 7 &middot; 1 decision blocking</div>
+      </div>
+      <div class="visual-card">
+        <div class="vc-label" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>Decision blocking next phase</span>
+          <span class="pill pill-overdue">Overdue 2d</span>
+        </div>
+        <div class="vc-title" style="font-size:18px;">Kitchen cabinet handle finish</div>
+        <div class="vc-meta">Brushed brass or matte black</div>
+      </div>
+      <div class="visual-card">
+        <div class="vc-label" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>Outstanding invoice</span>
+          <span class="pill pill-overdue">Overdue</span>
+        </div>
+        <div class="vc-title" style="font-size:18px;font-family:var(--font-mono);">SGD 9,780.00</div>
+        <div class="vc-meta">INV-2026-0014 &middot; Carpentry milestone</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="section-pad problem">
+  <div class="container-narrow">
+    <span class="eyebrow">If you've renovated in Singapore, you know.</span>
+    <h2 class="display-lg">Seven WhatsApp groups, zero answers.</h2>
+    <p class="lede" style="margin-top: var(--space-5);">
+      One group with your interior designer. Another with the carpenter. Another with the aircon vendor. A fourth for the plumber. By month two, no one can answer the simple questions: when does hacking finish, what was that tile decision, did we already pay for the cabinet upgrade.
+    </p>
+    <p class="lede">
+      The renovation costs forty thousand dollars and runs four months. The coordination tool is a chat app designed for sharing memes.
+    </p>
+    <div class="stat">
+      Industry data: <strong style="color:var(--ink);">66% of renovation regrets in Singapore</strong> trace back to communication failures between homeowners and their designers.
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section-pad values">
+  <div class="container">
+    <div class="header">
+      <span class="eyebrow">What Renomate gives you</span>
+      <h2 class="display-lg">Four things WhatsApp cannot.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-number">01 &mdash; TIMELINE</div>
+        <h3>Know exactly where you are.</h3>
+        <p>Every phase laid out &mdash; hacking, masonry, carpentry, painting, defect, handover &mdash; with real dates. A glance tells you what's now, what's next, and what's blocked.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">02 &mdash; DECISIONS</div>
+        <h3>Never miss a decision.</h3>
+        <p>Every choice your designer needs from you &mdash; tile colour, socket position, paint finish &mdash; in one queue with deadlines. No more scrolling through chats trying to remember what was agreed.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">03 &mdash; PRICES</div>
+        <h3>See where every dollar goes.</h3>
+        <p>The full quotation, line by line. Every change order tracked with what changed, when, and by how much. No more "I thought that was included."</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">04 &mdash; INVOICES</div>
+        <h3>Know what's owed, what's paid.</h3>
+        <p>Invoice schedule, payment status, receipts &mdash; all visible in one place. No more chasing on chat or wondering if a transfer went through.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-pad how" id="how">
+  <div class="container">
+    <div class="header">
+      <span class="eyebrow">How it works</span>
+      <h2 class="display-lg">Three steps. No app installs for your contractors.</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">01</div>
+        <h4>Your designer creates the project</h4>
+        <p>They set up the timeline, upload the quotation, and invite you with one tap.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">02</div>
+        <h4>You and your designer work in one place</h4>
+        <p>Decisions, files, invoices, defects &mdash; all live in the project, all timestamped, all searchable.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">03</div>
+        <h4>Sub-contractors join their own channels</h4>
+        <p>Aircon, carpenter, electrical, plumber &mdash; each gets a magic link to their own channel. No new app to install, no new group to manage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR INTERIOR DESIGNERS -->
+<section class="for-id" id="designers">
+  <div class="container">
+    <div class="header">
+      <span class="eyebrow">Interior designers</span>
+      <h2 class="display-lg">Renomate works for you, too.</h2>
+      <p class="sub">
+        The same workspace that keeps your clients informed also protects your firm &mdash; and signals to new clients that you're the organised one.
+      </p>
+    </div>
+    <div class="id-benefits">
+      <div class="id-benefit">
+        <h4>Disputes that don't happen</h4>
+        <p>Every approval, every payment, every change order is timestamped and immutable. When a client says "I never agreed to that," you can pull up the record. The audit log alone has saved firms from CASE complaints worth more than years of subscription.</p>
+      </div>
+      <div class="id-benefit">
+        <h4>Designer turnover, handled</h4>
+        <p>When a designer leaves mid-project, the next person inherits the <em>project</em> &mdash; not a 6,000-message WhatsApp scrollback. Timeline, decisions, files, approvals &mdash; all there, all current.</p>
+      </div>
+      <div class="id-benefit">
+        <h4>A sales signal you can use</h4>
+        <p>"We run every project on Renomate" tells a first-time BTO buyer that you're organised, accountable, and not just another firm with a phone number. Use it in your pitches, on your website, and in your Qanvast profile.</p>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a href="#waitlist" class="btn btn-accent btn-lg">Talk to us about being an early partner</a>
+      <span class="cta-note">We're working with a small number of Singapore ID firms during beta. Early partners help shape the product and pay nothing during this period.</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAND -->
+<section class="trust-band">
+  <div class="container">
+    <p>Built in Singapore. Designed for HDB, condo and landed renovations. Data hosted in Singapore.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad faq" id="faq">
+  <div class="container-narrow">
+    <div class="header">
+      <span class="eyebrow">Common questions</span>
+      <h2 class="display-lg">Before you sign up.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">When can I use it?</summary>
+        <p class="faq-a">We're opening private beta with a small group of Singapore ID firms in the coming months. Join the waitlist to be among the first to get access.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How much will it cost?</summary>
+        <p class="faq-a">Free during beta. After launch, ID firms pay a monthly subscription. Homeowners and sub-contractors will always be free &mdash; they're invited into a project, they don't pay to participate.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does my designer need to use it?</summary>
+        <p class="faq-a">Yes. The designer creates and manages the project, and you join as the homeowner. If your designer isn't on Renomate yet, tell them about us &mdash; we'll onboard them.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What about my existing WhatsApp groups?</summary>
+        <p class="faq-a">Keep them for chat. Renomate handles the structured stuff WhatsApp does badly: tracking decisions, invoices, files, defects, and the project timeline. Most homeowners find they barely need WhatsApp once the project is on Renomate.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is my data safe?</summary>
+        <p class="faq-a">Yes. Your project data lives in a Singapore-hosted database, and only the people invited to your project &mdash; your designer, you, your invited sub-contractors &mdash; can see it. We don't share data with third parties.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Who built this?</summary>
+        <p class="faq-a">A Singapore homeowner who renovated, lived through the WhatsApp chaos, and decided this had to exist.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <div class="waitlist-card">
+      <h2>Join the waitlist.</h2>
+      <p class="help">We'll email you when beta opens. No spam, no sharing.</p>
+
+      <form onsubmit="event.preventDefault(); this.innerHTML='<p style=&quot;font-size:18px;color:var(--success);line-height:1.5;&quot;>You're on the list. We'll be in touch when beta opens.</p>';">
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="bto">BTO key collection date <span style="color:var(--slate);font-weight:400;">(optional)</span></label>
+          <input class="input" id="bto" type="date" />
+          <span class="field-help">Helps us prioritise who to onboard first.</span>
+        </div>
+        <div class="field">
+          <label for="headache">Anything you'd want this app to solve? <span style="color:var(--slate);font-weight:400;">(optional)</span></label>
+          <textarea class="input" id="headache" rows="3" placeholder="One or two sentences is plenty."></textarea>
+        </div>
+        <button type="submit" class="btn btn-accent btn-lg" style="width: 100%;">Join the waitlist</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="grid">
+      <div>
+        <a href="#" class="wordmark">renomate</a>
+        <p>The system of record for Singapore renovations. Built in Singapore by a homeowner who lived the chaos.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#designers">For designers</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:hello@renomate.sg">hello@renomate.sg</a></li>
+          <li><a href="#">Privacy (coming)</a></li>
+          <li><a href="#">Terms (coming)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 Renomate. Built in Singapore.</div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav border on scroll
+  const nav = document.getElementById('topnav');
+  const onScroll = () => {
+    if (window.scrollY > 8) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
