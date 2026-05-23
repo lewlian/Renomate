@@ -22,7 +22,7 @@ Always refer to `Knowledge/` as the source of truth for *why* something is built
 | [`Knowledge/MVP.md`](./Knowledge/MVP.md) | Scope: landing → client app → designer app |
 | [`Knowledge/DesignSystem.md`](./Knowledge/DesignSystem.md) | Visual language, palette, typography, components |
 | [`Knowledge/design-preview.html`](./Knowledge/design-preview.html) | Open in a browser to see the design system rendered |
-| [`Knowledge/LandingCopy.md`](./Knowledge/LandingCopy.md) | Final landing-page copy (drop-in) |
+| [`Knowledge/LandingPlan.md`](./Knowledge/LandingPlan.md) | Full landing-page plan: sections, copy, animations, visual placeholders |
 | [`Knowledge/DataModel.md`](./Knowledge/DataModel.md) | Proposed Postgres schema for Supabase setup |
 | [`Knowledge/Stack.md`](./Knowledge/Stack.md) | Tech stack and per-choice rationale |
 

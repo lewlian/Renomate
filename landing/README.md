@@ -8,16 +8,16 @@ The marketing landing page. Built **first**, before any app code, to:
 
 ## Source-of-truth references
 
-- Copy: [`../Knowledge/LandingCopy.md`](../Knowledge/LandingCopy.md)
+- **Full plan (sections, copy, animations, visuals)**: [`../Knowledge/LandingPlan.md`](../Knowledge/LandingPlan.md) ← read this first
 - Design system: [`../Knowledge/DesignSystem.md`](../Knowledge/DesignSystem.md)
 - Design preview (rendered): [`../Knowledge/design-preview.html`](../Knowledge/design-preview.html)
 - Landing-page scope (Workstream 1): [`../Knowledge/MVP.md`](../Knowledge/MVP.md)
 
 ## Current state
 
-`preview.html` — a self-contained static rendering of the full landing page using the locked design system and v0.1 copy. Open in any browser to see the live landing page. No build step.
+`preview.html` — a self-contained static rendering of the **v1.0** landing page direction. Superseded by `../Knowledge/LandingPlan.md` (v2.0): the v1.0 tone leaned too heavily on positioning against WhatsApp and is being reframed. `preview.html` is kept temporarily as a reference for the design-system-in-use; it will be rebuilt from the v2.0 plan once that plan is approved.
 
-The production landing page will be rebuilt in **Next.js (App Router) + Tailwind** with the same design tokens, deployed on Vercel, with a Supabase backend for the waitlist + contact form submissions (see `../Knowledge/DataModel.md` §11 for the `waitlist` table schema).
+The production landing page will be built in **Next.js (App Router) + Tailwind** with the same design tokens, deployed on Vercel, with a Supabase backend for the waitlist + contact form submissions (see `../Knowledge/DataModel.md` §11 for the `waitlist` table schema).
 
 ## Build plan (when ready)
 

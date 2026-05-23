@@ -37,7 +37,7 @@ See [Research.md](./Research.md) for the full competitive map and market sizing.
 | [MVP.md](./MVP.md) | Proposed scope across three workstreams: landing page (built first), client app, ID firm app — single codebase, role-based. Will evolve as we talk to ID firms. |
 | [DesignSystem.md](./DesignSystem.md) | Visual + interaction language: principles, palette (clay + warm neutrals), typography (Inter + Fraunces), components, accessibility. Shared across landing page and app. |
 | [design-preview.html](./design-preview.html) | Open in a browser to see the design system rendered — palette, type, buttons, pills, real-context examples. The thing to react to before locking design v0.1. |
-| [LandingCopy.md](./LandingCopy.md) | Drop-in landing page copy: hero, four values, ID-firm section, FAQ, form fields. Starting point for the landing page build. |
+| [LandingPlan.md](./LandingPlan.md) | Full landing-page plan: section-by-section breakdown of purpose, copy, animations and interactions, plus visual placeholders. The brief for the landing-page build. |
 | [DataModel.md](./DataModel.md) | Proposed Postgres schema for the MVP app — entities, fields, enums, relationships, RLS intent, Supabase setup order. Implementation-ready when we're ready. |
 | [Stack.md](./Stack.md) | Tech stack recommendation and rationale per choice. |
 
@@ -46,7 +46,7 @@ See [Research.md](./Research.md) for the full competitive map and market sizing.
 **Research + design-system phase.** No app code yet. Next steps (in roughly this order):
 
 1. **Open `design-preview.html` in a browser** — confirm or push back on the clay + Fraunces direction. This is the easiest "react and decide" step.
-2. **Read `LandingCopy.md`** — edit the hero headline, sub, and CTAs to match your voice. Founder-bio paragraph and any specific numbers are TODO.
+2. **Read `LandingPlan.md`** — react to section order, interaction patterns, and copy. Open decisions are listed at the bottom.
 3. **Skim `DataModel.md`** — sanity-check the schema covers what you expect. No Supabase setup yet.
 4. **Build the landing page** (Workstream 1 in `MVP.md`) using the design system + copy.
 5. **Run founder discovery calls** with SG ID firms while landing-page traffic builds.
