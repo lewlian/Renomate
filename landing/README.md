@@ -1,30 +1,68 @@
 # Renomate — Landing Page
 
-The marketing landing page. Built **first**, before any app code, to:
+The marketing landing page. Next.js 14 (App Router) + TypeScript + Tailwind + framer-motion.
 
+Built first per the workstream order in `../Knowledge/MVP.md`:
 1. Validate demand via homeowner waitlist signups.
 2. Capture ID firm leads via contact form.
 3. Force the design system to be real before app development starts.
 
+## Run it locally
+
+```bash
+cd landing
+npm install     # first time only
+npm run dev
+```
+
+Open <http://localhost:3000>.
+
 ## Source-of-truth references
 
-- **Full plan (sections, copy, animations, visuals)**: [`../Knowledge/LandingPlan.md`](../Knowledge/LandingPlan.md) ← read this first
-- Design system: [`../Knowledge/DesignSystem.md`](../Knowledge/DesignSystem.md)
-- Design preview (rendered): [`../Knowledge/design-preview.html`](../Knowledge/design-preview.html)
-- Landing-page scope (Workstream 1): [`../Knowledge/MVP.md`](../Knowledge/MVP.md)
+- **Full plan (sections, copy, animations, visuals)**: [`../Knowledge/LandingPlan.md`](../Knowledge/LandingPlan.md) — the brief this codebase implements.
+- Design system + tokens: [`../Knowledge/DesignSystem.md`](../Knowledge/DesignSystem.md). Tokens are mirrored in `tailwind.config.ts`.
+- Design preview (palette/type only, in HTML): [`../Knowledge/design-preview.html`](../Knowledge/design-preview.html).
+- Landing-page scope (Workstream 1): [`../Knowledge/MVP.md`](../Knowledge/MVP.md).
+- Data model for forms backend: [`../Knowledge/DataModel.md`](../Knowledge/DataModel.md) §11 (`waitlist`).
 
-## Current state
+## Project structure
 
-`preview.html` — a self-contained static rendering of the **v1.0** landing page direction. Superseded by `../Knowledge/LandingPlan.md` (v2.0): the v1.0 tone leaned too heavily on positioning against WhatsApp and is being reframed. `preview.html` is kept temporarily as a reference for the design-system-in-use; it will be rebuilt from the v2.0 plan once that plan is approved.
+```
+landing/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx        # Fonts (Fraunces, Inter, JetBrains Mono), metadata
+│   │   ├── page.tsx          # Composes every section in order
+│   │   └── globals.css       # Tailwind + base styles + reduced-motion override
+│   └── components/
+│       ├── ui/               # Button, Pill, ScrollReveal, AnimatedNumber,
+│       │                     # MagneticButton, ModalShell
+│       ├── modals/           # WaitlistModal, DesignerContactModal, ModalContext
+│       └── sections/         # The 15 page sections (Nav, Hero, ... Footer)
+├── tailwind.config.ts        # Design tokens from DesignSystem.md
+├── tsconfig.json
+├── next.config.mjs
+├── postcss.config.mjs
+└── package.json
+```
 
-The production landing page will be built in **Next.js (App Router) + Tailwind** with the same design tokens, deployed on Vercel, with a Supabase backend for the waitlist + contact form submissions (see `../Knowledge/DataModel.md` §11 for the `waitlist` table schema).
+## What works today
 
-## Build plan (when ready)
+- All 15 sections from `LandingPlan.md` v2.0 implemented.
+- Animations: scroll-triggered reveals (framer-motion), hero parallax + magnetic-style mockup, animated number counters in the stats section, tabbed segmented content with sliding pill indicator (framer `layoutId`), sticky-scroll feature deep-dive with crossfading visuals, animated FAQ accordion, modal forms with backdrop blur + escape-to-close.
+- Both forms (waitlist + designer contact) submit to a stubbed handler that simulates a 600ms request, then shows a success state. **Not wired to Supabase yet.**
+- All animations respect `prefers-reduced-motion`.
 
-1. Scaffold Next.js 14 (App Router) with TypeScript + Tailwind.
-2. Port design system tokens (palette, type scale, spacing) to `tailwind.config.ts`.
-3. Set up Fraunces + Inter via `next/font/google`.
-4. Build sections in this order: hero, problem, four values, how it works, ID firm, FAQ, footer.
-5. Forms: client-side validation → Supabase insert → confirmation state.
-6. Analytics: lightweight (Plausible or Vercel Analytics — no GA).
-7. Deploy to Vercel, custom domain.
+## What's stubbed / next
+
+- Form submissions are stubbed. Wire to Supabase `waitlist` table next (see `../Knowledge/DataModel.md` §11). One table, two `audience` values (`homeowner` / `id_firm`).
+- Visual mockups in cards (Timeline, Decisions, Money, Defects) are styled CSS placeholders showing realistic-looking data. Replace with real screenshots once the app exists.
+- Domain (`renomate.sg`) and email (`hello@renomate.sg`) are placeholders — register/configure before sharing the page publicly.
+- Deploy: Vercel. `npm run build` works; `vercel` CLI for first deploy.
+- Analytics: not added. Suggest Plausible or Vercel Analytics — both lightweight, both PDPA-friendly.
+
+## Notes
+
+- Inter and Fraunces are loaded via `next/font/google` (zero CLS, no FOUT).
+- No images yet (`public/` is empty). When real assets arrive, prefer AVIF/WebP and use `next/image` with proper `sizes`.
+- The previous static `preview.html` has been removed — superseded by this real implementation.

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: theme(colors.paper);
+    color: theme(colors.ink);
+    font-family: theme(fontFamily.body);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background-color: theme(colors.clay.soft);
+    color: theme(colors.clay.deep);
+  }
+
+  /* Native details/summary arrow removal */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  /* Tabular nums for monospace contexts */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .container-narrow {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
