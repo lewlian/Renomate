@@ -75,7 +75,36 @@ The founder's personal experience is the *modal* experience, not an outlier:
 
 ---
 
-## 4. Positioning — The Wedge
+## 4. Why ID Firms Should Care (and Pay)
+
+Sections 1–3 frame the homeowner pain. But ID firms are the paying customer — they have to want this. Here's the firm-side value:
+
+**1. Liability and dispute protection.**
+SG ID firms operate without licensing. When projects go sideways, it's word-against-word in CASE complaints or civil claims. Renomate's audit log (every approval, payment status change, schedule change, render sign-off — timestamped, immutable) is the firm's *evidence*. "Client approved this render on March 12 in-app" ends a class of disputes before they start. This alone is a sellable line item for any firm that's been bitten once.
+
+**2. Designer turnover continuity.**
+Industry data and case studies repeatedly show designers leaving mid-project. Today: the new designer inherits WhatsApp scrollback chaos. With Renomate: the project state is the project — timeline, decisions made, decisions pending, files, approvals — all visible to whoever picks it up. Reduces the most expensive failure mode in SG renovation.
+
+**3. Sales differentiator.**
+Hundreds of SG ID firms are largely undifferentiated to a first-time BTO buyer. "We run every project on Renomate — you'll see the timeline, decisions, and invoices in one place from day one" is a *real* answer to "why should I pick you?" Firms get a trust signal they can put on their website, in their pitch deck, and in their Qanvast profile.
+
+**4. Coordination time savings.**
+Designers spend meaningful hours/week on "where did we discuss X" and "did the client approve Y." A structured per-project workspace replaces that scrolling. Conservatively: 2–4 hours/week saved per designer per active project. At 10–15 active projects per designer, this is significant.
+
+**5. Cleaner sub-contractor handoffs.**
+The ID is currently the human router between client and 4–6 sub-trades. Sub-trade channels mean the aircon vendor talks in the aircon channel, the carpenter in the carpentry channel — the ID monitors, doesn't relay. Less inbox-as-switchboard.
+
+**6. Payment collection.**
+Invoice status visible to the client in-app with reminders reduces the awkwardness of chasing on WhatsApp. Even display-only invoicing (no payment processing in MVP) creates clearer expectations and faster collection cycles.
+
+**7. Onboarding signal at first contact.**
+When a homeowner gets a Renomate invite instead of being added to a WhatsApp group, that's the firm's first impression. It signals "this firm is organised." Reduces the "is this firm legit?" anxiety that drives Qanvast's whole value prop.
+
+**Pricing implication**: this is a per-firm SaaS, not a per-project tool. The firm pays a monthly seat fee; homeowners and sub-contractors are free guests. That mirrors how Buildertrend and Houzz Pro structure their offerings, and it aligns with the firm being the gatekeeper of adoption.
+
+---
+
+## 5. Positioning — The Wedge
 
 > **"The during-renovation operating system for Singapore ID firms and their clients."**
 
@@ -89,7 +118,7 @@ Concretely:
 
 ---
 
-## 5. Risks & Open Questions
+## 6. Risks & Open Questions
 
 - **Qanvast moves first.** They have the audience and brand. If they bolt on a coordination module, the wedge narrows. *Mitigation*: move quickly, build deep on the *during* side, secure ID-firm relationships.
 - **ID firms are the gatekeeper.** Homeowners can't unilaterally adopt — the firm has to be on board. Two-sided cold start. *Likely playbook*: sell firm-first (SaaS seat), firm invites the homeowner free. That's what Buildertrend / Houzz Pro do.

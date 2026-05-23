@@ -33,18 +33,20 @@ See [Research.md](./Research.md) for the full competitive map and market sizing.
 | File | What's in it |
 |---|---|
 | [README.md](./README.md) | You are here. Project overview and orientation. |
-| [Research.md](./Research.md) | Market sizing, competitive landscape, validated pain points, risks. The stable reference. |
-| [MVP.md](./MVP.md) | Proposed feature scope split into MVP / v1.1 / later. Will evolve as we talk to ID firms. |
+| [Research.md](./Research.md) | Market sizing, competitive landscape, validated pain points, ID-firm value prop, risks. The stable reference. |
+| [MVP.md](./MVP.md) | Proposed scope across three workstreams: landing page (built first), client app, ID firm app — single codebase, role-based. Will evolve as we talk to ID firms. |
+| [DesignSystem.md](./DesignSystem.md) | Visual + interaction language: principles, palette (clay + warm neutrals), typography (Inter + Fraunces), components, accessibility. Shared across landing page and app. |
 | [Stack.md](./Stack.md) | Tech stack recommendation and rationale per choice. |
 
 ## Status
 
-**Research phase.** No code yet. Next steps (in roughly this order):
+**Research + design-system phase.** No app code yet. Next steps (in roughly this order):
 
-1. Read the four docs end to end.
-2. Do 5–10 discovery calls with SG ID firm owners — validate willingness-to-pay and which MVP features they'd actually adopt.
-3. Lock MVP scope in `MVP.md` based on those conversations.
-4. New session: build planning + scaffolding.
+1. Read the five docs end to end. React to / edit anything that doesn't match your gut, especially the Design System direction.
+2. Build the **landing page first** (Workstream 1 in `MVP.md`) — it serves as demand validation, ID-firm lead capture, and forces design-system decisions before app work.
+3. Run founder discovery calls with SG ID firms while landing-page traffic builds — validate which MVP features actually matter.
+4. Lock MVP scope in `MVP.md` based on those conversations.
+5. New session: app build planning + scaffolding.
 
 ## Naming
 
