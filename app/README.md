@@ -2,7 +2,15 @@
 
 The mobile app for both homeowners (client role) and interior designers (designer role). **Single codebase, role-based access** — account type determines view and permissions, not separate apps.
 
-Built *after* the landing page is live and at least one ID firm has committed to being a pilot partner.
+## Getting started
+
+```bash
+cd app
+npm install
+npx expo start
+```
+
+Scan the QR code with **Expo Go** (iOS/Android) to run on your phone.
 
 ## Source-of-truth references
 
@@ -13,17 +21,57 @@ Built *after* the landing page is live and at least one ID firm has committed to
 
 ## Current state
 
-Empty. No code yet by design — landing-page validation comes first.
+**PR 1 complete: Scaffolding + Design System + Core UI + All Tabs**
 
-## Build plan (when ready)
+- Expo SDK 56 with Expo Router (file-based navigation)
+- NativeWind (Tailwind CSS for React Native) with design tokens from DesignSystem.md
+- Google Fonts loaded: Fraunces (display), Inter (body), JetBrains Mono (mono)
+- 8 shared UI components: Button, Card, StatusPill, Input, SectionHeader, EmptyState, ListRow, Avatar
+- Full TypeScript types from DataModel.md (16 enums, 19 entity types)
+- Mock data layer with realistic Singapore renovation scenario
+- Mock auth context (placeholder for Supabase Auth)
+- Role switching (client/designer) via avatar tap on home screen
 
-1. Scaffold Expo SDK with EAS Build + EAS Update, TypeScript, Expo Router.
-2. Set up Supabase project in Singapore region, apply migrations from `../Knowledge/DataModel.md` §15.
-3. Share design tokens with `landing/` via a small `packages/ui/` if we go monorepo, else duplicate the token file initially.
-4. Auth: Supabase Auth with role-based RLS per `../Knowledge/DataModel.md` §13.
-5. Build the eight shared-core entities (timeline, decisions, money, channels, files, defects, audit log, invites).
-6. Build the two role views (client tabs, designer tabs) per `../Knowledge/MVP.md`.
-7. EAS Update for OTA releases during beta.
+### Screens implemented
+
+| Tab | Status | Features |
+|---|---|---|
+| Home | Done | Dashboard with project summary, current phase, next decision, outstanding invoice |
+| Timeline | Done | All 7 phases with status, planned/actual dates, progress bar |
+| Decisions | Done | Decision queue with filters (all/pending/overdue/decided), deadline tracking |
+| Money | Done | Quotation line items, invoices with status, change orders with tabs |
+| Defects | Done | Snag list with status, location, trade assignment, photo count |
+| Files | Done | File browser grouped by category (quotation, contract, render, etc.) |
+| Channels | Done | Channel list with last message, thread view with message bubbles |
+| Auth | Done | Login + signup screens with validation |
+
+### Backend placeholders (to be wired later)
+
+- Auth: mock context returns hardcoded user; swap for Supabase Auth
+- Data: mock-data.ts provides all data; swap for TanStack Query + Supabase client
+- File uploads: UI placeholder; wire to Supabase Storage
+- Push notifications: not yet implemented; wire to Expo Push
+- Channels: read-only mock messages; wire to Supabase Realtime
+
+## Project structure
+
+```
+app/
+├── src/
+│   ├── app/                    # Expo Router pages
+│   │   ├── _layout.tsx         # Root: fonts, providers, navigation
+│   │   ├── index.tsx           # Auth redirect
+│   │   ├── (auth)/             # Login + signup
+│   │   └── (tabs)/             # 7-tab layout (home, timeline, decisions, money, defects, files, channels)
+│   ├── components/ui/          # Shared UI primitives
+│   ├── constants/              # Design tokens (colors, typography)
+│   ├── hooks/                  # useAuth
+│   └── lib/                    # Types, mock data, auth context
+├── app.json                    # Expo config
+├── tailwind.config.js          # NativeWind design tokens
+├── metro.config.js             # Metro + NativeWind
+└── babel.config.js             # Babel + Reanimated
+```
 
 ## Why mobile-first?
 
