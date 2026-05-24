@@ -10,7 +10,7 @@
   }
 
   body {
-    background-color: theme(colors.paper);
+    background-color: theme(colors.mint-bg);
     color: theme(colors.ink);
     font-family: theme(fontFamily.body);
     font-size: 16px;
@@ -18,11 +18,10 @@
   }
 
   ::selection {
-    background-color: theme(colors.clay.soft);
-    color: theme(colors.clay.deep);
+    background-color: theme(colors.coral.soft);
+    color: theme(colors.coral.DEFAULT);
   }
 
-  /* Native details/summary arrow removal */
   summary::-webkit-details-marker {
     display: none;
   }
@@ -31,7 +30,6 @@
     cursor: pointer;
   }
 
-  /* Tabular nums for monospace contexts */
   .tabular {
     font-variant-numeric: tabular-nums;
   }
@@ -55,7 +53,6 @@
   }
 }
 
-/* Respect reduced motion globally */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

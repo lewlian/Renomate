@@ -18,7 +18,7 @@ export function ListRow({
 }: ListRowProps) {
   const content = (
     <View
-      className={`flex-row items-center justify-between py-4 px-4 ${showDivider ? "border-b border-mist" : ""}`}
+      className={`flex-row items-center justify-between py-4 px-4 ${showDivider ? "border-b border-cloud" : ""}`}
     >
       <View className="flex-1 mr-3">
         <Text className="font-body text-base text-ink">{title}</Text>
@@ -36,7 +36,7 @@ export function ListRow({
     return (
       <Pressable
         onPress={onPress}
-        className="min-h-[44px]"
+        className="min-h-[48px]"
         style={({ pressed }) => ({ opacity: pressed ? 0.7 : 1 })}
       >
         {content}

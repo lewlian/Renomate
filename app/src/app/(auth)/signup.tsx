@@ -54,14 +54,14 @@ export default function SignupScreen() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      className="flex-1 bg-paper"
+      className="flex-1 bg-mint-bg"
     >
       <ScrollView
         contentContainerClassName="flex-1 justify-center px-6"
         keyboardShouldPersistTaps="handled"
       >
         <View className="mb-10">
-          <Text className="font-display text-4xl text-ink mb-2">
+          <Text className="font-heading text-4xl text-ink mb-2">
             Create your account.
           </Text>
           <Text className="font-body text-lg text-charcoal">
@@ -124,7 +124,7 @@ export default function SignupScreen() {
           </Text>
           <Link href="/(auth)/login" asChild>
             <Pressable>
-              <Text className="font-body text-base text-clay font-semibold">
+              <Text className="font-body text-base text-coral font-semibold">
                 Sign in
               </Text>
             </Pressable>

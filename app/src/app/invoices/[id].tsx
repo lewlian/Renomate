@@ -45,12 +45,12 @@ export default function InvoiceDetailScreen() {
 
   if (!invoice) {
     return (
-      <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+      <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
         <View className="px-6 mt-4">
-          <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mb-4">
-            <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
+          <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
+            <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
           </Pressable>
-          <Text className="font-display text-2xl text-ink">
+          <Text className="font-heading text-2xl text-ink">
             Invoice not found
           </Text>
         </View>
@@ -95,14 +95,14 @@ export default function InvoiceDetailScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
       >
-        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
+        <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
+          <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
         </Pressable>
 
         <View className="mb-4">
@@ -168,7 +168,7 @@ export default function InvoiceDetailScreen() {
               {formatSGD(invoice.amount)}
             </Text>
           </View>
-          <View className="flex-row justify-between pt-2 border-t border-linen">
+          <View className="flex-row justify-between pt-2 border-t border-cloud">
             <Text className="font-body text-sm font-semibold text-charcoal">
               Balance
             </Text>
@@ -177,7 +177,7 @@ export default function InvoiceDetailScreen() {
             </Text>
           </View>
           {invoice.paid_at ? (
-            <Text className="font-body text-xs text-success mt-2">
+            <Text className="font-body text-xs text-sage mt-2">
               Paid on {formatDate(invoice.paid_at)}
             </Text>
           ) : null}
@@ -187,10 +187,10 @@ export default function InvoiceDetailScreen() {
           <View className="gap-3 mt-2">
             <Pressable
               onPress={handlePickReceipt}
-              className="flex-row items-center justify-center rounded border border-mist bg-paper min-h-[44px] px-5 py-3"
+              className="flex-row items-center justify-center rounded border border-cloud bg-mint-bg min-h-[48px] px-5 py-3"
               style={({ pressed }) => ({ opacity: pressed ? 0.7 : 1 })}
             >
-              <Upload size={18} color="#6E6963" strokeWidth={1.5} />
+              <Upload size={18} color="#7C7C8A" strokeWidth={1.5} />
               <Text className="font-body text-sm text-charcoal ml-2">
                 {receiptUri ? "Receipt attached" : "Attach receipt photo"}
               </Text>

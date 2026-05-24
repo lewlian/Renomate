@@ -6,7 +6,7 @@ import {
   type PressableProps,
 } from "react-native";
 
-type ButtonVariant = "primary" | "accent" | "secondary" | "ghost" | "destructive";
+type ButtonVariant = "primary" | "accent" | "dark" | "secondary" | "ghost" | "destructive";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends Omit<PressableProps, "children"> {
@@ -21,39 +21,44 @@ interface ButtonProps extends Omit<PressableProps, "children"> {
 
 const variantClasses: Record<ButtonVariant, { container: string; text: string; spinner: string }> = {
   primary: {
-    container: "bg-ink",
-    text: "text-paper",
-    spinner: "#FAF7F2",
+    container: "bg-coral",
+    text: "text-white",
+    spinner: "#FFFFFF",
   },
   accent: {
-    container: "bg-clay",
-    text: "text-paper",
-    spinner: "#FAF7F2",
+    container: "bg-coral",
+    text: "text-white",
+    spinner: "#FFFFFF",
+  },
+  dark: {
+    container: "bg-ink",
+    text: "text-white",
+    spinner: "#FFFFFF",
   },
   secondary: {
-    container: "bg-paper border border-mist",
+    container: "bg-white border border-cloud",
     text: "text-ink",
-    spinner: "#161513",
+    spinner: "#1A1A2E",
   },
   ghost: {
     container: "bg-transparent",
     text: "text-ink",
-    spinner: "#161513",
+    spinner: "#1A1A2E",
   },
   destructive: {
-    container: "bg-paper border border-mist",
-    text: "text-error",
-    spinner: "#A8453A",
+    container: "bg-coral-soft",
+    text: "text-coral",
+    spinner: "#FF6B6B",
   },
 };
 
 const sizeClasses: Record<ButtonSize, { container: string; text: string }> = {
   sm: {
-    container: "min-h-[44px] px-4 py-2",
+    container: "min-h-[48px] px-4 py-2",
     text: "text-sm",
   },
   md: {
-    container: "min-h-[44px] px-5 py-3",
+    container: "min-h-[48px] px-5 py-3",
     text: "text-base",
   },
   lg: {
@@ -81,7 +86,18 @@ export function Button({
       onPress={onPress}
       disabled={isDisabled}
       className={`flex-row items-center justify-center rounded ${v.container} ${s.container} ${isDisabled ? "opacity-50" : ""} ${className}`}
-      style={({ pressed }) => ({ opacity: pressed && !isDisabled ? 0.7 : isDisabled ? 0.5 : 1 })}
+      style={({ pressed }) => ({
+        opacity: pressed && !isDisabled ? 0.7 : isDisabled ? 0.5 : 1,
+        ...(variant === "primary" || variant === "accent"
+          ? {
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.1,
+              shadowRadius: 4,
+              elevation: 2,
+            }
+          : {}),
+      })}
       {...rest}
     >
       {loading ? (

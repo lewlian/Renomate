@@ -34,7 +34,7 @@ export default function DefectsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -65,7 +65,7 @@ export default function DefectsScreen() {
               return (
                 <Card key={defect.id} onPress={() => router.push(`/defects/${defect.id}`)}>
                   <View className="flex-row items-start justify-between mb-2">
-                    <Text className="font-display text-base text-ink flex-1 mr-3">
+                    <Text className="font-heading text-base text-ink flex-1 mr-3">
                       {defect.title}
                     </Text>
                     <StatusPill variant={pill.status}>{pill.label}</StatusPill>

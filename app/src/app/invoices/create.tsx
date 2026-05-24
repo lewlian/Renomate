@@ -19,12 +19,12 @@ export default function CreateInvoiceScreen() {
 
   if (role !== "designer") {
     return (
-      <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+      <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
         <View className="px-6 mt-4">
-          <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mb-4">
-            <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
+          <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
+            <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
           </Pressable>
-          <Text className="font-display text-2xl text-ink">
+          <Text className="font-heading text-2xl text-ink">
             Access denied
           </Text>
           <Text className="font-body text-base text-charcoal mt-2">
@@ -53,15 +53,15 @@ export default function CreateInvoiceScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
-        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
+        <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
+          <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
         </Pressable>
 
         <View className="mb-6">
@@ -101,7 +101,7 @@ export default function CreateInvoiceScreen() {
               Amount
             </Text>
             <View className="flex-row items-center">
-              <View className="bg-linen rounded-l-sm border border-mist border-r-0 min-h-[44px] px-3 justify-center">
+              <View className="bg-snow rounded-l-sm border border-cloud border-r-0 min-h-[48px] px-3 justify-center">
                 <Text className="font-mono text-base text-slate">SGD</Text>
               </View>
               <View className="flex-1">

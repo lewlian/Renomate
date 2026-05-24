@@ -51,7 +51,7 @@ export default function TimelineScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -79,15 +79,15 @@ export default function TimelineScreen() {
               {phases.filter((p) => p.status === "complete").length}/{phases.length} done
             </Text>
           </View>
-          <View className="mt-3 h-2 bg-linen rounded-full overflow-hidden flex-row">
+          <View className="mt-3 h-2 bg-snow rounded-full overflow-hidden flex-row">
             {phases.map((phase) => (
               <View
                 key={phase.id}
                 className={`h-full ${
                   phase.status === "complete"
-                    ? "bg-success"
+                    ? "bg-sage"
                     : phase.status === "in_progress"
-                      ? "bg-clay"
+                      ? "bg-coral"
                       : "bg-transparent"
                 }`}
                 style={{ flex: 1, marginRight: 2 }}
@@ -105,21 +105,21 @@ export default function TimelineScreen() {
             return (
               <Card
                 key={phase.id}
-                className={isActive ? "border-clay" : ""}
+                className={isActive ? "border-coral" : ""}
               >
                 <View className="flex-row items-start justify-between mb-2">
                   <View className="flex-row items-center gap-3 flex-1">
                     <View
                       className={`w-3 h-3 rounded-full ${
                         phase.status === "complete"
-                          ? "bg-success"
+                          ? "bg-sage"
                           : phase.status === "in_progress"
-                            ? "bg-clay"
+                            ? "bg-coral"
                             : "bg-mist"
                       }`}
                     />
                     <Text
-                      className={`font-display text-lg ${
+                      className={`font-heading text-lg ${
                         isActive ? "text-ink" : "text-charcoal"
                       }`}
                     >
@@ -130,7 +130,7 @@ export default function TimelineScreen() {
                 </View>
 
                 {isActive && (
-                  <Text className="font-body text-xs uppercase tracking-widest text-clay-deep font-medium ml-6 mb-2">
+                  <Text className="font-body text-xs uppercase tracking-widest text-coral font-medium ml-6 mb-2">
                     You are here
                   </Text>
                 )}

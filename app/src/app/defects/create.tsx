@@ -64,18 +64,18 @@ export default function CreateDefectScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
-        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#161513" />
+        <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
+          <ArrowLeft size={24} color="#1A1A2E" />
         </Pressable>
 
-        <Text className="font-display text-2xl text-ink mb-6">
+        <Text className="font-heading text-2xl text-ink mb-6">
           Report a defect
         </Text>
 
@@ -133,16 +133,16 @@ export default function CreateDefectScreen() {
                   onPress={() => handleRemovePhoto(photo.id)}
                   className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-ink items-center justify-center"
                 >
-                  <X size={14} color="#FAF7F2" />
+                  <X size={14} color="#E8F5F0" />
                 </Pressable>
               </View>
             ))}
 
             <Pressable
               onPress={handlePickImages}
-              className="w-24 h-24 rounded border-2 border-dashed border-mist items-center justify-center bg-white"
+              className="w-24 h-24 rounded border-2 border-dashed border-cloud items-center justify-center bg-white"
             >
-              <Plus size={24} color="#A8A29B" />
+              <Plus size={24} color="#B8B8C8" />
               <Text className="font-body text-xs text-slate mt-1">
                 Add photos
               </Text>

@@ -47,7 +47,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
           <View
             className={`w-8 h-8 rounded-full items-center justify-center ${
               step === current
-                ? "bg-clay"
+                ? "bg-coral"
                 : step < current
                   ? "bg-ink"
                   : "bg-mist"
@@ -55,7 +55,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
           >
             <Text
               className={`font-body text-sm font-semibold ${
-                step <= current ? "text-paper" : "text-slate"
+                step <= current ? "text-mint-bg" : "text-slate"
               }`}
             >
               {step}
@@ -91,7 +91,7 @@ function PropertyTypePicker({
             onPress={() => onChange(pt.value)}
             className={`flex-1 items-center justify-center min-h-[44px] rounded border ${
               value === pt.value
-                ? "border-clay bg-clay-soft"
+                ? "border-clay bg-coral-soft"
                 : "border-mist bg-white"
             }`}
           >
@@ -130,7 +130,7 @@ function StepProjectDetails({
 }) {
   return (
     <View className="gap-4">
-      <Text className="font-display text-xl text-ink">Project details</Text>
+      <Text className="font-heading text-xl text-ink">Project details</Text>
       <Input
         label="Project name"
         placeholder="e.g. Tan family — Tampines #04-12"
@@ -183,7 +183,7 @@ function StepTimeline({
 
   return (
     <View className="gap-4">
-      <Text className="font-display text-xl text-ink">Timeline phases</Text>
+      <Text className="font-heading text-xl text-ink">Timeline phases</Text>
       <Text className="font-body text-sm text-slate">
         Pre-populated with common SG renovation phases. Edit names, dates, or
         add and remove as needed.
@@ -250,7 +250,7 @@ function StepInviteClient({
 }) {
   return (
     <View className="gap-4">
-      <Text className="font-display text-xl text-ink">Invite client</Text>
+      <Text className="font-heading text-xl text-ink">Invite client</Text>
       <Text className="font-body text-sm text-slate">
         Send an invitation to your client so they can track the project.
       </Text>
@@ -314,7 +314,7 @@ export default function ProjectSetupScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["bottom"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["bottom"]}>
       <KeyboardAvoidingView
         className="flex-1"
         behavior={Platform.OS === "ios" ? "padding" : undefined}

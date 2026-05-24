@@ -1,119 +1,107 @@
-# Renomate — Design System
+# Renomate — Design System v2.0
 
-The shared visual + interaction language used across every Renomate surface: landing page, mobile app, web dashboard, email templates, exported PDFs. This is a **proposed starting direction** — locked in v0.1 so the landing page can be built, fully expected to evolve as the product takes shape.
+The shared visual + interaction language used across every Renomate surface: landing page, mobile app, web dashboard. Revised from v1.0 based on modern project-management UI references — cleaner, more colorful, more approachable.
 
 ---
 
 ## Design Principles
 
-These shape every visual and copy decision. If a design choice violates a principle, reconsider it.
-
-1. **Calm over loud.** Renovation is already stressful. The product should feel like a steady hand, not a noisy dashboard. Generous whitespace. Restrained colour. No motion for motion's sake.
-2. **Document, don't dramatise.** This is a system of record. State and content take precedence over chrome. Lists, timestamps, and structured fields are the heroes — not gradient buttons.
-3. **Premium without coldness.** ID firms care about how their tools look in front of clients. Aim for the feel of a high-quality architect's drawing set — precise, warm, material-aware — not a generic SaaS template.
-4. **Clarity for non-power-users.** Half the audience (homeowners, sub-contractors) opens the app maybe twice a week. Every screen should pass the "could a 60-year-old contractor understand this in three seconds?" test.
-5. **Singapore-fluent.** SGD currency formatting, DD/MM/YYYY dates, 24-hour optional, English-first with room for Chinese characters in addresses and proper nouns.
+1. **Light and breathable.** Generous whitespace, soft backgrounds, no visual clutter. Every screen should feel spacious and calm.
+2. **Friendly but trustworthy.** Approachable enough for first-time homeowners, polished enough that ID firms are proud to show it to clients. Modern SaaS, not corporate software.
+3. **Color with purpose.** Multiple soft accent colors for categorisation and status, but never competing for attention. Color aids scanning, not decoration.
+4. **Clarity for everyone.** Large touch targets, readable type, obvious hierarchy. A 60-year-old contractor should understand any screen in three seconds.
+5. **Singapore-fluent.** SGD formatting, DD/MM/YYYY dates, English-first with room for Chinese characters.
 
 ---
 
 ## Brand Identity
 
 ### Name and wordmark
-- **Product name**: Renomate (working).
-- **Wordmark**: lowercase wordmark in the display typeface. Avoid a heavy icon-mark in v1 — let the typography do the work.
+- **Product name**: Renomate
+- **Wordmark**: clean sans-serif wordmark in the heading typeface, medium weight. No heavy icon-mark — let the typography do the work.
 
 ### Voice and tone
-- **Plainspoken.** "Your tiles need to be chosen by Friday" — not "Action required: pending selection."
-- **Quietly confident.** State what is, not what *could* be.
-- **Warm but professional.** First-person plural sparingly. No "Hey there!" microcopy. No emoji in product UI (OK on landing page testimonials, in moderation).
-- **Singapore-direct.** No fluff, no "delight," no "magical." A SG contractor reads "we make renovation magical" and closes the tab.
+- **Conversational.** "Good evening, Sarah!" not "Welcome back, User."
+- **Clear and direct.** "Your tiles need to be chosen by Friday" not "Action required: pending selection."
+- **Singapore-direct.** No fluff, no "delight," no "magical."
 
 ---
 
 ## Colour Palette
 
-**Proposed direction: warm neutrals with a single clay accent.**
+**Direction: soft mint background, white card surfaces, multiple pastel accents.**
 
-Reasoning: SG SaaS leans cool-blue (Singpass, Grab, DBS, Carousell). A warm, slightly earthy palette differentiates us in a renovation context (clay, wood, stone are *the* renovation materials) without being twee. One confident accent keeps focus on content.
-
-### Core neutrals (the workhorses)
+### Core neutrals
 
 | Token | Hex | Use |
 |---|---|---|
-| `ink` | `#161513` | Primary text, primary button background. Near-black with a warm undertone. |
-| `charcoal` | `#3D3A36` | Secondary text, headings on light backgrounds. |
-| `slate` | `#6E6963` | Tertiary text, captions, metadata. |
-| `mist` | `#A8A29B` | Disabled text, placeholders, dividers. |
-| `linen` | `#EFEAE2` | Secondary background, card surfaces on darker pages. |
-| `paper` | `#FAF7F2` | Primary background (warm off-white, not stark). |
-| `white` | `#FFFFFF` | Pure surfaces (modals, input fields). |
+| `ink` | `#1A1A2E` | Primary text, dark headings. Deep navy-black. |
+| `charcoal` | `#3A3A4A` | Secondary text, subtitles. |
+| `slate` | `#7C7C8A` | Tertiary text, captions, metadata, placeholders. |
+| `mist` | `#B8B8C8` | Dividers, disabled text, borders. |
+| `cloud` | `#E8E8F0` | Subtle borders, input borders, divider lines. |
+| `snow` | `#F0F4F3` | Secondary background, card hover. |
+| `mint-bg` | `#E8F5F0` | Primary page background. Soft mint. |
+| `white` | `#FFFFFF` | Card surfaces, modals, inputs. |
 
-### Accent: Clay
-
-| Token | Hex | Use |
-|---|---|---|
-| `clay` | `#B85C3C` | Primary accent. Use sparingly: CTAs, active states, key emphasis. |
-| `clay-soft` | `#E8C9B8` | Backgrounds for highlight states, badge backgrounds. |
-| `clay-deep` | `#8A4329` | Hover/pressed state for clay surfaces. |
-
-### Semantic colours (kept muted to fit the palette)
+### Accent palette (multi-color, all soft/pastel)
 
 | Token | Hex | Use |
 |---|---|---|
-| `success` | `#5C7A4F` | Sage green — paid invoices, completed phases, signed-off defects. |
-| `success-soft` | `#D8E4D0` | Success backgrounds. |
-| `warning` | `#C68C3A` | Honey amber — decisions overdue, payments due soon. |
-| `warning-soft` | `#F0E1C2` | Warning backgrounds. |
-| `error` | `#A8453A` | Muted brick — overdue payments, blocked phases. |
-| `error-soft` | `#E8C7C2` | Error backgrounds. |
-| `info` | `#3A6680` | Cool slate-blue — informational tips, audit log entries. |
+| `coral` | `#FF6B6B` | Primary CTA, urgent states, overdue. |
+| `coral-soft` | `#FFE0E0` | Coral background tint. |
+| `sage` | `#7EC8A0` | Success, completed, paid. |
+| `sage-soft` | `#D4F0E0` | Success background tint. |
+| `lavender` | `#B8A9E8` | In-progress, active states. |
+| `lavender-soft` | `#E8E0F8` | Lavender background tint. |
+| `sky` | `#7EC8E3` | Info, links, neutral accent. |
+| `sky-soft` | `#D4EEF8` | Sky background tint. |
+| `sand` | `#F5DEB3` | Warnings, due soon, schedule items. |
+| `sand-soft` | `#FFF5E0` | Sand background tint. |
+| `peach` | `#FFB088` | Secondary highlight, designer features. |
+| `peach-soft` | `#FFE8D8` | Peach background tint. |
 
-### Dark mode (v1.1+, but tokens defined now)
+### Semantic mapping
 
-| Token | Hex |
-|---|---|
-| `ink-dark` | `#F2EFE9` (text inverts) |
-| `paper-dark` | `#1A1816` |
-| `linen-dark` | `#26221E` |
-| `slate-dark` | `#9C968E` |
+| State | Background | Text/Icon | Use |
+|---|---|---|---|
+| Pending | `cloud` | `charcoal` | Awaiting action |
+| Active / In progress | `lavender-soft` | `lavender` | Currently happening |
+| Done / Paid / Complete | `sage-soft` | `sage` | Closed/resolved |
+| Overdue / Urgent | `coral-soft` | `coral` | Needs attention |
+| Warning / Due soon | `sand-soft` | `sand` darkened | Coming up |
+| Info / Neutral | `sky-soft` | `sky` | Informational |
 
 ---
 
 ## Typography
 
-**Proposed: Inter (body) + Fraunces (display).**
+**All sans-serif: Inter for everything.** Clean, modern, highly legible at all sizes. No serif display font — the modern, friendly feel comes from weight contrast and generous sizing.
 
-Both open-source (free, Google Fonts), high-quality, and pair well. Inter is bulletproof for UI legibility at small sizes. Fraunces (a contemporary serif with variable weight and optical sizes) brings the warmth and "designed object" feel that pure-sans SaaS lacks.
+For display impact, use **Inter Bold/Black at large sizes** rather than switching to a different family.
 
-If we want to upgrade later: licensed faces like *Söhne* (body), *General Sans* (display), or *Tiempos* (display serif). But Inter + Fraunces is shippable today.
-
-### Font stacks
+### Font stack
 
 ```css
---font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+--font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 --font-mono:    "JetBrains Mono", "SF Mono", Menlo, monospace;
 ```
 
-### Type scale (mobile-first)
+### Type scale
 
-| Token | Size / Line | Use |
+| Token | Size / Weight | Use |
 |---|---|---|
-| `display-xl` | 48 / 56 | Landing page hero only. Fraunces, weight 400, optical size 144. |
-| `display-lg` | 36 / 44 | Landing section heads, app major page titles. Fraunces 400. |
-| `display-md` | 28 / 36 | Card titles, modal titles. Fraunces 400. |
-| `heading` | 20 / 28 | Section heads in app. Inter 600. |
-| `body-lg` | 18 / 28 | Landing page body, long-form content. Inter 400. |
-| `body` | 16 / 24 | Default UI body. Inter 400. |
-| `body-sm` | 14 / 20 | Secondary UI. Inter 400. |
-| `caption` | 12 / 16 | Metadata, timestamps, labels. Inter 500, uppercase optional. |
-| `mono-sm` | 13 / 18 | SGD amounts, IDs, timestamps in audit log. JetBrains Mono. |
-
-### Typography rules
-
-- **One display family per surface.** Never mix Fraunces weights wildly — stick to 400 for headings, 500 sparingly for emphasis.
-- **Number alignment.** Use `font-variant-numeric: tabular-nums` on currency, dates, and any column of numbers. Critical for the Money tab.
-- **No all-caps for headings.** Only for `caption` tokens at 12px, where the eye expects them.
+| `display-xl` | 48px / 800 (Black) | Landing hero. |
+| `display-lg` | 36px / 700 (Bold) | Landing section headings, major titles. |
+| `display-md` | 28px / 700 (Bold) | Page titles, modal titles. |
+| `heading` | 22px / 600 (SemiBold) | Section heads in app. |
+| `heading-sm` | 18px / 600 (SemiBold) | Card titles, sub-sections. |
+| `body-lg` | 18px / 400 | Landing page body, long-form. |
+| `body` | 16px / 400 | Default UI text. |
+| `body-sm` | 14px / 400 | Secondary UI text. |
+| `caption` | 12px / 500 (Medium) | Labels, metadata, timestamps. Uppercase optional. |
+| `mono-sm` | 13px / 400 | SGD amounts, invoice numbers. JetBrains Mono. |
 
 ---
 
@@ -127,30 +115,25 @@ If we want to upgrade later: licensed faces like *Söhne* (body), *General Sans*
 | `space-2` | 8 |
 | `space-3` | 12 |
 | `space-4` | 16 |
-| `space-5` | 24 |
-| `space-6` | 32 |
-| `space-7` | 48 |
-| `space-8` | 64 |
-| `space-9` | 96 |
-| `space-10` | 128 |
-
-### Layout grid
-
-- **Mobile**: single column, 16px gutters, 16px outer padding.
-- **Web dashboard**: 12-column grid, 24px gutters, max-width 1280px centered.
-- **Landing page**: max-width 1200px content, full-width hero sections.
+| `space-5` | 20 |
+| `space-6` | 24 |
+| `space-7` | 32 |
+| `space-8` | 48 |
+| `space-9` | 64 |
+| `space-10` | 96 |
 
 ### Border radius
 
 | Token | Px | Use |
 |---|---|---|
-| `radius-sm` | 4 | Inputs, small badges, tags. |
-| `radius` | 8 | Default — buttons, cards. |
-| `radius-md` | 12 | Modals, large cards. |
-| `radius-lg` | 16 | Photo containers, feature blocks on landing. |
-| `radius-full` | 9999 | Pills, avatars. |
+| `radius-sm` | 8 | Inputs, small elements. |
+| `radius` | 12 | Default — buttons. |
+| `radius-md` | 16 | Cards, containers. |
+| `radius-lg` | 20 | Large cards, feature blocks. |
+| `radius-xl` | 24 | Hero cards, modals. |
+| `radius-full` | 9999 | Pills, avatars, tags. |
 
-Stay restrained. Don't pile rounded corners everywhere — it makes the product feel cheap.
+**More rounded than v1.** Cards at 16-20px, buttons at 12px, pills fully rounded.
 
 ---
 
@@ -158,106 +141,116 @@ Stay restrained. Don't pile rounded corners everywhere — it makes the product 
 
 ### Buttons
 
-- **Primary**: `ink` background, `paper` text. Used for the single most important action per screen.
-- **Accent**: `clay` background, `paper` text. Used for **conversion CTAs only** (waitlist signup, "create project"). Limit to one per view.
-- **Secondary**: `paper` background, `ink` text, 1px `mist` border. Default for most actions.
-- **Ghost**: transparent background, `ink` text. Tertiary actions, "Cancel" in dialogs.
-- **Destructive**: `error` text, `paper` background, `error` border on hover. No solid red buttons.
+- **Primary**: `coral` background, white text, `radius` border radius. The main CTA.
+- **Secondary**: white background, `ink` text, `cloud` border, `radius`. Most actions.
+- **Dark**: `ink` background, white text, `radius`. High-contrast alternative.
+- **Ghost**: transparent, `ink` text. Cancel, tertiary.
+- **Destructive**: `coral-soft` background, `coral` text.
 
-Padding: 12px vertical, 20px horizontal (default). Touch target ≥44px on mobile.
-
-### Inputs
-
-- 1px `mist` border, `radius-sm`, 12px vertical / 16px horizontal padding.
-- Focus: 2px `clay` outline, no color shift on the input itself.
-- Label always above input (no floating labels).
-- Helper text below, `body-sm` in `slate`. Errors in `error`.
+Padding: 14px vertical, 24px horizontal. Touch target ≥ 48px on mobile. Subtle shadow on primary.
 
 ### Cards
 
-- `paper` background on `linen` page, OR `white` background on `paper` page.
-- `radius-md`, 1px `mist` border (no shadow by default).
-- Padding 16px (mobile) / 24px (web).
-- Hover state for clickable cards: subtle `linen` background shift, no transform / lift.
+- White background on `mint-bg` pages.
+- `radius-md` (16px) border radius.
+- Soft shadow: `0 2px 8px rgba(0,0,0,0.06)`. No visible border by default.
+- Padding: 20px.
+- Hover: slight lift `translateY(-2px)` with shadow increase.
+
+### Inputs
+
+- White background, `cloud` border (1px), `radius-sm` (8px).
+- Focus: `sky` border (2px), subtle blue glow.
+- Label above, `caption` style, `charcoal` color.
+- 48px min height on mobile.
+
+### Pills / Tags
+
+Colorful, fully rounded (`radius-full`). Used for categories, status, and filters.
+
+| Variant | Background | Text |
+|---|---|---|
+| Coral | `coral-soft` | `coral` |
+| Sage | `sage-soft` | darker sage |
+| Lavender | `lavender-soft` | darker lavender |
+| Sky | `sky-soft` | darker sky |
+| Sand | `sand-soft` | darker sand |
+| Peach | `peach-soft` | darker peach |
+| Neutral | `cloud` | `charcoal` |
+| Dark | `ink` | `white` |
+
+### Status pills (semantic)
+
+| State | Style |
+|---|---|
+| Pending | Neutral pill (cloud bg, charcoal text) |
+| In progress | Lavender pill |
+| Complete / Paid | Sage pill |
+| Overdue | Coral pill |
+| Warning | Sand pill |
+| Info | Sky pill |
+
+### Avatars
+
+- Circular, with colored backgrounds (pastel rainbow: coral-soft, sage-soft, lavender-soft, sky-soft, sand-soft, peach-soft).
+- Sizes: sm=32, md=40, lg=56.
+- Support overlap/stacking with negative margin.
 
 ### Lists
 
-- Stacked rows with 1px `mist` divider between (no shadow, no card-per-row).
-- 16px vertical row padding.
-- Tap target: full row width on mobile.
+- Clean rows on white cards.
+- Subtle `cloud` divider between rows.
+- No card-per-row — group in a single card.
 
-### Tables (web dashboard)
+### Progress bars
 
-- Header row in `caption` style on `linen`.
-- Body rows: `body-sm`, 12px vertical padding.
-- Subtle hover state, no zebra striping.
-- Numbers right-aligned, monospaced.
-
-### Status pills
-
-| State | Token | Use |
-|---|---|---|
-| Pending | `mist` bg + `charcoal` text | Decisions / defects awaiting action |
-| In progress | `clay-soft` bg + `clay-deep` text | Active work |
-| Done / Paid | `success-soft` bg + `success` text | Closed states |
-| Overdue | `error-soft` bg + `error` text | Needs urgent attention |
-| Info | `linen` bg + `info` text | Neutral metadata |
+- Rounded-full track (`cloud` background).
+- Colored fill with rounded ends.
+- Support multi-segment (different colors per segment).
 
 ### Motion
 
-- **Duration**: 150ms for state changes (hover, focus). 250ms for layout shifts (modals, sheets). Never longer than 400ms.
-- **Easing**: `cubic-bezier(0.2, 0, 0, 1)` (a calm ease-out). No spring physics, no bounce.
-- **Reduce motion**: respect `prefers-reduced-motion` everywhere.
+- Duration: 150ms for hover/focus, 250ms for layout transitions.
+- Easing: `cubic-bezier(0.2, 0, 0, 1)` (calm ease-out).
+- Hover on cards: subtle lift (translateY -2px) + shadow increase.
+- Respect `prefers-reduced-motion`.
 
 ### Icons
 
-- **Set**: Lucide (free, comprehensive, consistent stroke). 24px default, 20px in dense UI, 16px inline.
+- **Set**: Lucide, 24px default, 20px dense, 16px inline.
 - 1.5px stroke weight.
-- Icons never carry colour meaning alone — always paired with text or a status pill.
+- Use accent colors on icons in feature cards.
 
 ---
 
 ## Imagery
 
-### Photography
-- **Subject matter**: real Singapore interiors. Materials (wood grain, terrazzo, stone, tile). Hands at work (a carpenter measuring, a designer reviewing a sample). *Avoid* stock photos of generic open-plan living rooms — they read as fake immediately.
-- **Treatment**: natural light, slightly warm white balance. No heavy filters. Real, unfussy.
-- **Use on landing page**: full-bleed sections to anchor each value prop.
+### Landing page
+- Clean illustrations or abstract shapes in pastel accent colors.
+- Avoid stock photography — use UI mockup screenshots and illustrated elements.
+- Gradient blobs or soft shapes as background decoration (subtle, not distracting).
 
-### Illustration (if used)
-- Line-style, single-weight strokes, `ink` on `paper`. No gradients, no isometric SaaS art.
-- Use only when a photo isn't possible (abstract concepts: timeline, audit trail).
-
----
-
-## Component Library Implementation
-
-When the build starts:
-
-- **Web (landing + dashboard)**: shadcn/ui as the base, restyled with these tokens. Tailwind config exports the palette and spacing.
-- **Mobile (React Native + Expo)**: NativeWind for shared Tailwind tokens, custom RN components matching the web component API.
-- **Token source**: a single `tokens.json` in `packages/ui/` consumed by both platforms (web Tailwind config + RN theme provider).
-- **Font loading**: Inter and Fraunces from Google Fonts on web; bundled via `expo-font` on mobile.
+### App
+- Colored circular icons for categories (like the reference: each project/category gets a unique pastel background circle with an icon inside).
+- Photo thumbnails with rounded corners.
 
 ---
 
-## Accessibility Baseline
+## Dark Mode (v1.1+)
 
-Non-negotiable from v1:
-
-- **Colour contrast**: WCAG AA minimum. All body text on `paper` clears 4.5:1. `clay` accent on `paper` checked at minimum 3:1 for large text only — use `clay-deep` for body-size text on `paper`.
-- **Touch targets**: 44px minimum on mobile.
-- **Focus states**: visible 2px `clay` outline on every interactive element.
-- **Screen reader labels**: every icon-only button has an `aria-label` / `accessibilityLabel`.
-- **Form labels**: always visible, never placeholder-only.
+| Token | Hex |
+|---|---|
+| `ink-dark` | `#E8E8F0` |
+| `bg-dark` | `#1A1A2E` |
+| `card-dark` | `#252540` |
+| `mist-dark` | `#4A4A5A` |
 
 ---
 
-## Open Decisions
+## Accessibility
 
-These are the calls that need to be made (by you or via user testing) before locking v1:
-
-1. **Accent colour confirmation** — Clay (terracotta) vs. alternatives (Sage green for calm, Deep teal for trust, warm Gold for premium). Sample before committing.
-2. **Display typeface confirmation** — Fraunces (serif, warm) vs. a geometric sans like General Sans (more modern/clean). Fraunces is the proposal; General Sans is the safer-feeling alternative.
-3. **Logo/wordmark direction** — type-only vs. wordmark + symbol. Recommend type-only for v1 to avoid premature brand commitment.
-4. **Photo art direction** — secure a small library of SG-specific shoot or styled stock before landing-page build.
+- Colour contrast: WCAG AA minimum on all text.
+- Touch targets: 48px minimum on mobile (increased from 44px).
+- Focus states: 2px `sky` outline on every interactive element.
+- Screen reader labels on all icon-only buttons.
+- Form labels always visible.

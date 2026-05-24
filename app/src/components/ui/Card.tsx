@@ -8,21 +8,35 @@ interface CardProps {
   className?: string;
 }
 
-export function Card({ variant = "default", children, onPress, className = "" }: CardProps) {
-  const base = "rounded-md border border-mist p-4";
-  const bg = variant === "elevated" ? "bg-white shadow-sm" : "bg-paper";
+const shadowStyle = {
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.06,
+  shadowRadius: 8,
+  elevation: 2,
+};
+
+export function Card({ variant: _variant, children, onPress, className = "" }: CardProps) {
+  const base = "rounded-md bg-white p-5";
 
   if (onPress) {
     return (
       <Pressable
         onPress={onPress}
-        className={`${base} ${bg} ${className}`}
-        style={({ pressed }) => ({ opacity: pressed ? 0.85 : 1 })}
+        className={`${base} ${className}`}
+        style={({ pressed }) => ({
+          ...shadowStyle,
+          opacity: pressed ? 0.85 : 1,
+        })}
       >
         {children}
       </Pressable>
     );
   }
 
-  return <View className={`${base} ${bg} ${className}`}>{children}</View>;
+  return (
+    <View className={`${base} ${className}`} style={shadowStyle}>
+      {children}
+    </View>
+  );
 }

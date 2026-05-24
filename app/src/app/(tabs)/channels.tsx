@@ -25,7 +25,7 @@ export default function ChannelsScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -55,10 +55,10 @@ export default function ChannelsScreen() {
               return (
                 <Card key={ch.id} onPress={() => setSelectedChannel(ch)}>
                   <View className="flex-row items-center gap-3">
-                    <View className="w-10 h-10 bg-linen rounded-full items-center justify-center">
+                    <View className="w-10 h-10 bg-snow rounded-full items-center justify-center">
                       <MessageSquare
                         size={18}
-                        color="#6E6963"
+                        color="#7C7C8A"
                         strokeWidth={1.5}
                       />
                     </View>
@@ -68,8 +68,8 @@ export default function ChannelsScreen() {
                           {ch.name}
                         </Text>
                         {ch.is_main && (
-                          <View className="bg-clay-soft px-2 py-0.5 rounded-full">
-                            <Text className="font-body text-[10px] text-clay-deep font-medium">
+                          <View className="bg-coral-soft px-2 py-0.5 rounded-full">
+                            <Text className="font-body text-[10px] text-coral font-medium">
                               Main
                             </Text>
                           </View>
@@ -120,10 +120,10 @@ function ChannelThread({
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
-      <View className="flex-row items-center gap-3 px-6 py-4 border-b border-mist">
-        <Pressable onPress={onBack} className="min-w-[44px] min-h-[44px] items-start justify-center">
-          <Text className="font-body text-base text-clay">← Back</Text>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+      <View className="flex-row items-center gap-3 px-6 py-4 border-b border-cloud">
+        <Pressable onPress={onBack} className="min-w-[48px] min-h-[48px] items-start justify-center">
+          <Text className="font-body text-base text-coral">← Back</Text>
         </Pressable>
         <Text className="font-body text-base font-semibold text-ink flex-1">
           {channel.name}
@@ -159,7 +159,7 @@ function ChannelThread({
                 </View>
                 <View
                   className={`rounded-lg px-4 py-3 max-w-[85%] ${
-                    isClient ? "bg-clay-soft" : "bg-linen"
+                    isClient ? "bg-coral-soft" : "bg-snow"
                   }`}
                 >
                   <Text className="font-body text-sm text-ink">
@@ -172,17 +172,17 @@ function ChannelThread({
         })}
       </ScrollView>
 
-      <View className="px-6 py-3 border-t border-mist bg-white flex-row items-end gap-3">
+      <View className="px-6 py-3 border-t border-cloud bg-white flex-row items-end gap-3">
         <TextInput
           value={draft}
           onChangeText={setDraft}
           placeholder="Type a message..."
-          placeholderTextColor="#A8A29B"
+          placeholderTextColor="#B8B8C8"
           multiline
-          className="flex-1 font-body text-base text-ink bg-linen rounded-lg px-4 py-3 min-h-[44px] max-h-24"
+          className="flex-1 font-body text-base text-ink bg-snow rounded-lg px-4 py-3 min-h-[48px] max-h-24"
         />
         <Pressable
-          className="w-11 h-11 bg-clay rounded-full items-center justify-center"
+          className="w-11 h-11 bg-coral rounded-full items-center justify-center"
           onPress={() => {
             if (draft.trim().length > 0) {
               Alert.alert("Message sending will be wired to Supabase Realtime.");
@@ -190,7 +190,7 @@ function ChannelThread({
             setDraft("");
           }}
         >
-          <Send size={18} color="#FAF7F2" strokeWidth={1.5} />
+          <Send size={18} color="#E8F5F0" strokeWidth={1.5} />
         </Pressable>
       </View>
     </SafeAreaView>

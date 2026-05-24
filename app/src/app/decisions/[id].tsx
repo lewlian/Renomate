@@ -31,12 +31,12 @@ export default function DecisionDetailScreen() {
 
   if (!decision) {
     return (
-      <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+      <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
         <View className="px-6 mt-4">
-          <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mb-4">
-            <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
+          <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
+            <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
           </Pressable>
-          <Text className="font-display text-2xl text-ink">
+          <Text className="font-heading text-2xl text-ink">
             Decision not found
           </Text>
         </View>
@@ -69,14 +69,14 @@ export default function DecisionDetailScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
       >
-        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
+        <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
+          <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
         </Pressable>
 
         <View className="mb-4">
@@ -100,7 +100,7 @@ export default function DecisionDetailScreen() {
         )}
 
         {decision.decided_at && (
-          <Text className="font-body text-sm text-success mb-2">
+          <Text className="font-body text-sm text-sage mb-2">
             Decided: {formatDate(decision.decided_at)}
           </Text>
         )}
@@ -134,8 +134,8 @@ export default function DecisionDetailScreen() {
                     }
                     className={`rounded-md border p-4 ${
                       isSelected
-                        ? "border-clay bg-clay-soft"
-                        : "border-mist bg-paper"
+                        ? "border-coral bg-coral-soft"
+                        : "border-cloud bg-mint-bg"
                     }`}
                     style={({ pressed }) => ({
                       opacity: canConfirm && pressed ? 0.85 : 1,

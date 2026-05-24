@@ -50,7 +50,7 @@ export default function DecisionsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -84,7 +84,7 @@ export default function DecisionsScreen() {
               className={`px-4 py-2 rounded-full border ${
                 filter === f
                   ? "bg-ink border-ink"
-                  : "bg-paper border-mist"
+                  : "bg-mint-bg border-cloud"
               }`}
             >
               <Text
@@ -114,7 +114,7 @@ export default function DecisionsScreen() {
                   onPress={() => router.push(`/decisions/${decision.id}`)}
                 >
                   <View className="flex-row items-start justify-between mb-2">
-                    <Text className="font-display text-lg text-ink flex-1 mr-3">
+                    <Text className="font-heading text-lg text-ink flex-1 mr-3">
                       {decision.title}
                     </Text>
                     <StatusPill variant={pill.status}>{pill.label}</StatusPill>
@@ -136,7 +136,7 @@ export default function DecisionsScreen() {
                       </Text>
                     )}
                     {decision.decided_at && (
-                      <Text className="font-body text-xs text-success">
+                      <Text className="font-body text-xs text-sage">
                         Decided {formatDate(decision.decided_at)}
                       </Text>
                     )}

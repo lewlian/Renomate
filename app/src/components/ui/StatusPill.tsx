@@ -10,24 +10,24 @@ interface StatusPillProps {
 
 const variantClasses: Record<PillVariant, { container: string; text: string }> = {
   pending: {
-    container: "bg-mist",
+    container: "bg-cloud",
     text: "text-charcoal",
   },
   active: {
-    container: "bg-clay-soft",
-    text: "text-clay-deep",
+    container: "bg-lavender-soft",
+    text: "text-lavender",
   },
   done: {
-    container: "bg-success-soft",
-    text: "text-success",
+    container: "bg-sage-soft",
+    text: "text-sage",
   },
   overdue: {
-    container: "bg-error-soft",
-    text: "text-error",
+    container: "bg-coral-soft",
+    text: "text-coral",
   },
   info: {
-    container: "bg-linen",
-    text: "text-info",
+    container: "bg-sky-soft",
+    text: "text-sky",
   },
 };
 
@@ -35,7 +35,7 @@ export function StatusPill({ variant, children }: StatusPillProps) {
   const v = variantClasses[variant];
 
   return (
-    <View className={`rounded-full px-3 py-1 self-start ${v.container}`}>
+    <View className={`rounded-full px-3 py-1.5 self-start ${v.container}`}>
       <Text className={`font-body text-xs font-medium ${v.text}`}>
         {children}
       </Text>

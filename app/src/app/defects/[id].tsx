@@ -82,12 +82,12 @@ export default function DefectDetailScreen() {
 
   if (!defect) {
     return (
-      <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+      <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
         <View className="px-6 pt-4">
-          <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mb-4">
-            <ArrowLeft size={24} color="#161513" />
+          <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
+            <ArrowLeft size={24} color="#1A1A2E" />
           </Pressable>
-          <Text className="font-display text-xl text-ink">
+          <Text className="font-heading text-xl text-ink">
             Defect not found
           </Text>
         </View>
@@ -99,18 +99,18 @@ export default function DefectDetailScreen() {
   const currentIndex = getTimelineIndex(defect.status);
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
       >
-        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#161513" />
+        <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
+          <ArrowLeft size={24} color="#1A1A2E" />
         </Pressable>
 
         <View className="flex-row items-start justify-between mb-3">
-          <Text className="font-display text-2xl text-ink flex-1 mr-3">
+          <Text className="font-heading text-2xl text-ink flex-1 mr-3">
             {defect.title}
           </Text>
           <StatusPill variant={pill.status}>{pill.label}</StatusPill>
@@ -158,7 +158,7 @@ export default function DefectDetailScreen() {
         </Card>
 
         <Card className="mb-4">
-          <Text className="font-display text-base text-ink mb-3">Photos</Text>
+          <Text className="font-heading text-base text-ink mb-3">Photos</Text>
           {defect.photo_file_ids.length === 0 ? (
             <Text className="font-body text-sm text-slate">
               No photos attached
@@ -179,7 +179,7 @@ export default function DefectDetailScreen() {
                     key={fileId}
                     className="w-24 h-24 rounded bg-mist items-center justify-center"
                   >
-                    <Camera size={24} color="#A8A29B" />
+                    <Camera size={24} color="#B8B8C8" />
                   </View>
                 ))}
               </ScrollView>
@@ -216,7 +216,7 @@ export default function DefectDetailScreen() {
             <View>
               <Pressable
                 onPress={() => setShowTradeList(!showTradeList)}
-                className="bg-white border border-mist rounded p-3 flex-row items-center justify-between"
+                className="bg-white border border-cloud rounded p-3 flex-row items-center justify-between"
               >
                 <Text className="font-body text-base text-ink capitalize">
                   {selectedTrade ?? "Assign trade..."}
@@ -226,7 +226,7 @@ export default function DefectDetailScreen() {
                 </Text>
               </Pressable>
               {showTradeList && (
-                <View className="bg-white border border-mist rounded mt-1">
+                <View className="bg-white border border-cloud rounded mt-1">
                   {allTrades.map((trade) => (
                     <Pressable
                       key={trade}
@@ -238,11 +238,11 @@ export default function DefectDetailScreen() {
                           `Defect assigned to ${trade}.`
                         );
                       }}
-                      className="p-3 border-b border-mist"
+                      className="p-3 border-b border-cloud"
                     >
                       <Text
                         className={`font-body text-base capitalize ${
-                          trade === selectedTrade ? "text-clay" : "text-ink"
+                          trade === selectedTrade ? "text-coral" : "text-ink"
                         }`}
                       >
                         {trade}
@@ -277,7 +277,7 @@ export default function DefectDetailScreen() {
         )}
 
         <Card>
-          <Text className="font-display text-base text-ink mb-4">Timeline</Text>
+          <Text className="font-heading text-base text-ink mb-4">Timeline</Text>
           <View className="gap-0">
             {timelineSteps.map((step, index) => {
               const isReached = currentIndex >= index;
@@ -290,10 +290,10 @@ export default function DefectDetailScreen() {
                     <View
                       className={`w-4 h-4 rounded-full border-2 ${
                         isCurrent
-                          ? "bg-clay border-clay"
+                          ? "bg-coral border-clay"
                           : isReached
                             ? "bg-ink border-ink"
-                            : "bg-paper border-mist"
+                            : "bg-mint-bg border-cloud"
                       }`}
                     />
                     {!isLast && (
@@ -310,7 +310,7 @@ export default function DefectDetailScreen() {
                     <Text
                       className={`font-body text-sm font-medium ${
                         isCurrent
-                          ? "text-clay"
+                          ? "text-coral"
                           : isReached
                             ? "text-ink"
                             : "text-slate"

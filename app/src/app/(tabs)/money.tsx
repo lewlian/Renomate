@@ -58,7 +58,7 @@ export default function MoneyScreen() {
     .reduce((s, i) => s + i.amount - i.paid_amount, 0);
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -74,7 +74,7 @@ export default function MoneyScreen() {
               <Text className="font-body text-xs text-slate uppercase tracking-wider">
                 Total paid
               </Text>
-              <Text className="font-mono text-lg text-success">
+              <Text className="font-mono text-lg text-sage">
                 {formatSGD(totalPaid)}
               </Text>
             </View>
@@ -82,20 +82,20 @@ export default function MoneyScreen() {
               <Text className="font-body text-xs text-slate uppercase tracking-wider">
                 Outstanding
               </Text>
-              <Text className="font-mono text-lg text-error">
+              <Text className="font-mono text-lg text-coral">
                 {formatSGD(totalOutstanding)}
               </Text>
             </View>
           </View>
         </Card>
 
-        <View className="flex-row mb-5 border-b border-mist">
+        <View className="flex-row mb-5 border-b border-cloud">
           {(["quotation", "invoices", "changes"] as Tab[]).map((t) => (
             <Pressable
               key={t}
               onPress={() => setTab(t)}
               className={`flex-1 py-3 items-center border-b-2 ${
-                tab === t ? "border-clay" : "border-transparent"
+                tab === t ? "border-coral" : "border-transparent"
               }`}
             >
               <Text
@@ -119,7 +119,7 @@ export default function MoneyScreen() {
                 <View
                   key={line.id}
                   className={`flex-row justify-between py-3 ${
-                    i > 0 ? "border-t border-linen" : ""
+                    i > 0 ? "border-t border-cloud" : ""
                   }`}
                 >
                   <View className="flex-1">
@@ -171,7 +171,7 @@ export default function MoneyScreen() {
                       <Text className="font-mono text-xs text-slate mb-1">
                         {inv.invoice_number}
                       </Text>
-                      <Text className="font-display text-base text-ink">
+                      <Text className="font-heading text-base text-ink">
                         {inv.title}
                       </Text>
                     </View>
@@ -212,7 +212,7 @@ export default function MoneyScreen() {
               return (
                 <Card key={co.id}>
                   <View className="flex-row items-start justify-between mb-2">
-                    <Text className="font-display text-base text-ink flex-1 mr-3">
+                    <Text className="font-heading text-base text-ink flex-1 mr-3">
                       {co.title}
                     </Text>
                     <StatusPill variant={pill.status}>{pill.label}</StatusPill>
@@ -224,7 +224,7 @@ export default function MoneyScreen() {
                   )}
                   <Text
                     className={`font-mono text-base ${
-                      co.amount_delta >= 0 ? "text-error" : "text-success"
+                      co.amount_delta >= 0 ? "text-coral" : "text-sage"
                     }`}
                   >
                     {co.amount_delta >= 0 ? "+" : ""}

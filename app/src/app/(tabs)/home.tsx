@@ -26,10 +26,10 @@ function ClientHome() {
   return (
     <>
       <View className="mb-2">
-        <Text className="font-body text-xs uppercase tracking-widest text-clay-deep font-medium mb-1">
+        <Text className="font-body text-xs uppercase tracking-widest text-coral font-medium mb-1">
           Your project
         </Text>
-        <Text className="font-display text-lg text-ink" numberOfLines={1}>
+        <Text className="font-heading text-lg text-ink" numberOfLines={1}>
           {project.name}
         </Text>
       </View>
@@ -38,7 +38,7 @@ function ClientHome() {
         <Text className="font-body text-xs uppercase tracking-widest text-slate font-medium mb-2">
           Where you are now
         </Text>
-        <Text className="font-display text-xl text-ink mb-1">
+        <Text className="font-heading text-xl text-ink mb-1">
           {currentPhase?.name ?? "Not started"}
         </Text>
         <Text className="font-body text-sm text-slate">
@@ -47,9 +47,9 @@ function ClientHome() {
             ? ` · ${pendingDecisions.length} decision${pendingDecisions.length > 1 ? "s" : ""} pending`
             : ""}
         </Text>
-        <View className="mt-4 h-1.5 bg-linen rounded-full overflow-hidden">
+        <View className="mt-4 h-1.5 bg-snow rounded-full overflow-hidden">
           <View
-            className="h-full bg-clay rounded-full"
+            className="h-full bg-coral rounded-full"
             style={{
               width: `${phases.length > 0 ? (completedCount / phases.length) * 100 : 0}%`,
             }}
@@ -75,7 +75,7 @@ function ClientHome() {
                 : "Pending"}
             </StatusPill>
           </View>
-          <Text className="font-display text-lg text-ink mb-1">
+          <Text className="font-heading text-lg text-ink mb-1">
             {pendingDecisions[0].title}
           </Text>
           {pendingDecisions[0].deadline && (
@@ -133,15 +133,15 @@ function DesignerHome() {
   return (
     <>
       <View className="mb-2">
-        <Text className="font-body text-xs uppercase tracking-widest text-clay-deep font-medium mb-1">
+        <Text className="font-body text-xs uppercase tracking-widest text-coral font-medium mb-1">
           Managing
         </Text>
-        <Text className="font-display text-lg text-ink" numberOfLines={1}>
+        <Text className="font-heading text-lg text-ink" numberOfLines={1}>
           {project.name}
         </Text>
       </View>
 
-      <Text className="font-display text-xl text-ink mt-4 mb-3">
+      <Text className="font-heading text-xl text-ink mt-4 mb-3">
         Today's overview
       </Text>
 
@@ -186,7 +186,7 @@ function DesignerHome() {
             </Text>
             <StatusPill variant="info">Next</StatusPill>
           </View>
-          <Text className="font-display text-lg text-ink mb-1">
+          <Text className="font-heading text-lg text-ink mb-1">
             {nextPhase.name}
           </Text>
           {nextPhase.planned_start && (
@@ -234,7 +234,7 @@ export default function HomeScreen() {
   const { user, role, switchRole } = useAuth();
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -243,18 +243,18 @@ export default function HomeScreen() {
         <View className="flex-row items-center justify-between mt-4 mb-6">
           <View className="flex-1">
             <Text className="font-body text-sm text-slate">{getGreeting()},</Text>
-            <Text className="font-display text-2xl text-ink">
+            <Text className="font-heading text-2xl text-ink">
               {user?.full_name?.split(" ")[0] ?? "there"}
             </Text>
           </View>
-          <Pressable onPress={switchRole} className="min-w-[44px] min-h-[44px] items-center justify-center">
+          <Pressable onPress={switchRole} className="min-w-[48px] min-h-[48px] items-center justify-center">
             <Avatar name={user?.full_name ?? "U"} size="md" />
           </Pressable>
         </View>
 
         {role === "designer" ? <DesignerHome /> : <ClientHome />}
 
-        <View className="mt-2 py-3 border-t border-mist">
+        <View className="mt-2 py-3 border-t border-cloud">
           <Text className="font-body text-xs text-mist text-center">
             {role === "client" ? "Client" : "Designer"} view · Tap avatar to
             switch

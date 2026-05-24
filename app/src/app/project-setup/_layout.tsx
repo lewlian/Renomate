@@ -10,9 +10,9 @@ export default function ProjectSetupLayout() {
           fontFamily: "Fraunces",
           fontSize: 18,
         },
-        headerTintColor: "#161513",
+        headerTintColor: "#1A1A2E",
         headerStyle: {
-          backgroundColor: "#FAF7F2",
+          backgroundColor: "#E8F5F0",
         },
       }}
     />

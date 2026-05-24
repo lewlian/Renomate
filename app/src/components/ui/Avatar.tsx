@@ -15,11 +15,28 @@ const sizeConfig: Record<AvatarSize, { container: string; text: string; px: numb
   lg: { container: "w-14 h-14", text: "text-lg", px: 56 },
 };
 
+const pastelBackgrounds = [
+  "bg-coral-soft",
+  "bg-sage-soft",
+  "bg-lavender-soft",
+  "bg-sky-soft",
+  "bg-sand-soft",
+  "bg-peach-soft",
+] as const;
+
 function getInitials(name: string): string {
   const parts = name.trim().split(/\s+/);
   if (parts.length === 0) return "";
   if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
   return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+}
+
+function getNameHash(name: string): number {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = (hash * 31 + name.charCodeAt(i)) | 0;
+  }
+  return Math.abs(hash);
 }
 
 export function Avatar({ name, imageUrl, size = "md" }: AvatarProps) {
@@ -35,11 +52,13 @@ export function Avatar({ name, imageUrl, size = "md" }: AvatarProps) {
     );
   }
 
+  const bgClass = pastelBackgrounds[getNameHash(name) % pastelBackgrounds.length];
+
   return (
     <View
-      className={`${s.container} rounded-full bg-linen items-center justify-center`}
+      className={`${s.container} rounded-full ${bgClass} items-center justify-center`}
     >
-      <Text className={`font-body font-medium text-charcoal ${s.text}`}>
+      <Text className={`font-body font-medium text-ink ${s.text}`}>
         {getInitials(name)}
       </Text>
     </View>

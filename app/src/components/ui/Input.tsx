@@ -26,12 +26,12 @@ export function Input({
   const [focused, setFocused] = useState(false);
 
   const borderClass = error
-    ? "border-error"
+    ? "border-coral border-2"
     : focused
-      ? "border-clay border-2"
-      : "border-mist border";
+      ? "border-sky border-2"
+      : "border-cloud border";
 
-  const paddingClass = focused && !error ? "p-[11px]" : "p-3";
+  const paddingClass = (focused || error) ? "p-[11px]" : "p-3";
 
   return (
     <View className="w-full">
@@ -47,16 +47,16 @@ export function Input({
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor="#A8A29B"
+        placeholderTextColor="#B8B8C8"
         multiline={multiline}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className={`font-body text-base text-ink bg-white rounded-sm min-h-[44px] ${borderClass} ${paddingClass} ${multiline ? "min-h-[100px] text-top" : ""}`}
+        className={`font-body text-base text-ink bg-white rounded-sm min-h-[48px] ${borderClass} ${paddingClass} ${multiline ? "min-h-[100px] text-top" : ""}`}
         textAlignVertical={multiline ? "top" : "center"}
         {...rest}
       />
       {error && (
-        <Text className="font-body text-sm text-error mt-1">{error}</Text>
+        <Text className="font-body text-sm text-coral mt-1">{error}</Text>
       )}
       {!error && helper && (
         <Text className="font-body text-sm text-slate mt-1">{helper}</Text>

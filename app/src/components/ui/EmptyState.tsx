@@ -12,8 +12,8 @@ interface EmptyStateProps {
 export function EmptyState({ icon: Icon, title, description, action }: EmptyStateProps) {
   return (
     <View className="flex-1 items-center justify-center px-8 py-12">
-      <Icon size={48} color="#A8A29B" strokeWidth={1.5} />
-      <Text className="font-display text-xl text-ink mt-4 text-center">
+      <Icon size={48} color="#B8B8C8" strokeWidth={1.5} />
+      <Text className="font-heading text-xl text-ink mt-4 text-center">
         {title}
       </Text>
       <Text className="font-body text-base text-slate mt-2 text-center">

@@ -66,7 +66,7 @@ export default function FilesScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -101,15 +101,15 @@ export default function FilesScreen() {
             const Icon = categoryIcon(cat);
             return (
               <View key={cat} className="mb-5">
-                <Text className="font-body text-xs uppercase tracking-widest text-clay-deep font-medium mb-3">
+                <Text className="font-body text-xs uppercase tracking-widest text-coral font-medium mb-3">
                   {categoryLabels[cat]} ({catFiles.length})
                 </Text>
                 <View className="gap-2">
                   {catFiles.map((file) => (
                     <Card key={file.id}>
                       <Pressable className="flex-row items-center gap-3">
-                        <View className="w-10 h-10 bg-linen rounded items-center justify-center">
-                          <Icon size={20} color="#6E6963" strokeWidth={1.5} />
+                        <View className="w-10 h-10 bg-snow rounded items-center justify-center">
+                          <Icon size={20} color="#7C7C8A" strokeWidth={1.5} />
                         </View>
                         <View className="flex-1">
                           <Text
