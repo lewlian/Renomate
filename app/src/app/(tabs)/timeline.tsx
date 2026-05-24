@@ -1,8 +1,10 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Alert, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { StatusPill } from "@/components/ui/StatusPill";
+import { Button } from "@/components/ui/Button";
+import { useAuth } from "@/hooks/useAuth";
 import { getMockPhases, getMockProject } from "@/lib/mock-data";
 import type { PhaseStatus } from "@/lib/types";
 
@@ -14,6 +16,7 @@ const statusToPill: Record<PhaseStatus, { status: "done" | "active" | "pending" 
 };
 
 export default function TimelineScreen() {
+  const { role } = useAuth();
   const phases = getMockPhases();
   const project = getMockProject();
 
@@ -23,6 +26,28 @@ export default function TimelineScreen() {
       day: "numeric",
       month: "short",
     });
+  };
+
+  const handleStartPhase = (phaseName: string) => {
+    Alert.alert(
+      "Start phase",
+      `Mark "${phaseName}" as in progress?`,
+      [
+        { text: "Cancel", style: "cancel" },
+        { text: "Start", onPress: () => Alert.alert("Phase started", `${phaseName} is now in progress.`) },
+      ]
+    );
+  };
+
+  const handleCompletePhase = (phaseName: string) => {
+    Alert.alert(
+      "Complete phase",
+      `Mark "${phaseName}" as complete?`,
+      [
+        { text: "Cancel", style: "cancel" },
+        { text: "Complete", onPress: () => Alert.alert("Phase completed", `${phaseName} has been marked as complete.`) },
+      ]
+    );
   };
 
   return (
@@ -75,6 +100,8 @@ export default function TimelineScreen() {
           {phases.map((phase, i) => {
             const pill = statusToPill[phase.status];
             const isActive = phase.status === "in_progress";
+            const isPending = phase.status === "pending";
+            const isNextPending = isPending && (i === 0 || phases[i - 1].status === "complete" || phases[i - 1].status === "in_progress");
             return (
               <Card
                 key={phase.id}
@@ -135,6 +162,30 @@ export default function TimelineScreen() {
                   <Text className="font-body text-sm text-slate mt-2 ml-6">
                     {phase.description}
                   </Text>
+                )}
+
+                {role === "designer" && isActive && (
+                  <View className="mt-3 ml-6">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onPress={() => handleCompletePhase(phase.name)}
+                    >
+                      Mark as complete
+                    </Button>
+                  </View>
+                )}
+
+                {role === "designer" && isNextPending && !isActive && (
+                  <View className="mt-3 ml-6">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onPress={() => handleStartPhase(phase.name)}
+                    >
+                      Start phase
+                    </Button>
+                  </View>
                 )}
               </Card>
             );

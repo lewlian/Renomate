@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { View, Text, ScrollView, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { StatusPill } from "@/components/ui/StatusPill";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { ListChecks } from "lucide-react-native";
+import { useAuth } from "@/hooks/useAuth";
 import { getMockDecisions } from "@/lib/mock-data";
 import type { DecisionStatus } from "@/lib/types";
 
@@ -23,6 +26,7 @@ const statusToPill: Record<
 
 export default function DecisionsScreen() {
   const [filter, setFilter] = useState<Filter>("all");
+  const { role } = useAuth();
   const allDecisions = getMockDecisions();
 
   const filtered =
@@ -55,6 +59,17 @@ export default function DecisionsScreen() {
         <View className="mt-4 mb-4">
           <SectionHeader overline="Decisions" title="Your decision queue" />
         </View>
+
+        {role === "designer" && (
+          <View className="mb-4">
+            <Button
+              variant="accent"
+              onPress={() => router.push("/decisions/create")}
+            >
+              Create decision
+            </Button>
+          </View>
+        )}
 
         <ScrollView
           horizontal
@@ -94,7 +109,10 @@ export default function DecisionsScreen() {
             {filtered.map((decision) => {
               const pill = statusToPill[decision.status];
               return (
-                <Card key={decision.id}>
+                <Card
+                  key={decision.id}
+                  onPress={() => router.push(`/decisions/${decision.id}`)}
+                >
                   <View className="flex-row items-start justify-between mb-2">
                     <Text className="font-display text-lg text-ink flex-1 mr-3">
                       {decision.title}

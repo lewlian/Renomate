@@ -1,5 +1,6 @@
 import { View, Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { StatusPill } from "@/components/ui/StatusPill";
@@ -47,7 +48,7 @@ export default function DefectsScreen() {
           />
         </View>
 
-        <Button variant="secondary" size="md" onPress={() => {}} className="mb-5">
+        <Button variant="secondary" size="md" onPress={() => router.push("/defects/create")} className="mb-5">
           Report a defect
         </Button>
 
@@ -62,7 +63,7 @@ export default function DefectsScreen() {
             {defects.map((defect) => {
               const pill = statusToPill[defect.status];
               return (
-                <Card key={defect.id}>
+                <Card key={defect.id} onPress={() => router.push(`/defects/${defect.id}`)}>
                   <View className="flex-row items-start justify-between mb-2">
                     <Text className="font-display text-base text-ink flex-1 mr-3">
                       {defect.title}

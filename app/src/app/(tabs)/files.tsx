@@ -1,16 +1,18 @@
-import { View, Text, ScrollView, Pressable } from "react-native";
+import { View, Text, ScrollView, Pressable, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
-import { StatusPill } from "@/components/ui/StatusPill";
+import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { useAuth } from "@/hooks/useAuth";
 import {
   FolderOpen,
   FileText,
   Image,
   FileCheck,
-  File as FileIcon,
+  Upload,
 } from "lucide-react-native";
+import * as ImagePicker from "expo-image-picker";
 import { getMockFiles } from "@/lib/mock-data";
 import type { FileCategory } from "@/lib/types";
 
@@ -45,9 +47,24 @@ const formatBytes = (bytes: number) => {
 };
 
 export default function FilesScreen() {
+  const { role } = useAuth();
   const files = getMockFiles();
-
   const categories = Array.from(new Set(files.map((f) => f.category)));
+
+  const handleUpload = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ["images", "videos"],
+      allowsMultipleSelection: true,
+      quality: 0.8,
+    });
+
+    if (!result.canceled && result.assets.length > 0) {
+      Alert.alert(
+        "File selected",
+        `${result.assets.length} file${result.assets.length > 1 ? "s" : ""} ready to upload.\n\nUpload will be wired to Supabase Storage.`
+      );
+    }
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
@@ -63,6 +80,15 @@ export default function FilesScreen() {
             subtitle="All quotations, contracts, renders, permits, and photos in one place."
           />
         </View>
+
+        <Button
+          variant="secondary"
+          size="md"
+          onPress={handleUpload}
+          className="mb-5"
+        >
+          Upload file
+        </Button>
 
         {files.length === 0 ? (
           <EmptyState

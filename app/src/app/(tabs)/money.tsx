@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { View, Text, ScrollView, Pressable } from "react-native";
+import { View, Text, ScrollView, Pressable, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { StatusPill } from "@/components/ui/StatusPill";
+import { Button } from "@/components/ui/Button";
+import { useAuth } from "@/hooks/useAuth";
 import {
   getMockQuotation,
   getMockInvoices,
@@ -39,6 +42,7 @@ const formatSGD = (amount: number) =>
   `SGD ${amount.toLocaleString("en-SG", { minimumFractionDigits: 2 })}`;
 
 export default function MoneyScreen() {
+  const { role } = useAuth();
   const [tab, setTab] = useState<Tab>("quotation");
   const quotationData = getMockQuotation();
   const quotation = quotationData;
@@ -147,10 +151,21 @@ export default function MoneyScreen() {
 
         {tab === "invoices" && (
           <View className="gap-3">
+            {role === "designer" && (
+              <Button
+                variant="accent"
+                onPress={() => router.push("/invoices/create")}
+              >
+                Issue invoice
+              </Button>
+            )}
             {invoices.map((inv) => {
               const pill = invoiceStatusPill[inv.status];
               return (
-                <Card key={inv.id}>
+                <Card
+                  key={inv.id}
+                  onPress={() => router.push(`/invoices/${inv.id}`)}
+                >
                   <View className="flex-row items-start justify-between mb-2">
                     <View className="flex-1 mr-3">
                       <Text className="font-mono text-xs text-slate mb-1">
@@ -184,6 +199,14 @@ export default function MoneyScreen() {
 
         {tab === "changes" && (
           <View className="gap-3">
+            {role === "designer" && (
+              <Button
+                variant="accent"
+                onPress={() => router.push("/invoices/create-change-order")}
+              >
+                Propose change
+              </Button>
+            )}
             {changeOrders.map((co) => {
               const pill = changeStatusPill[co.status];
               return (
@@ -207,6 +230,38 @@ export default function MoneyScreen() {
                     {co.amount_delta >= 0 ? "+" : ""}
                     {formatSGD(co.amount_delta)}
                   </Text>
+                  {role === "client" && co.status === "proposed" && (
+                    <View className="flex-row gap-3 mt-3">
+                      <View className="flex-1">
+                        <Button
+                          variant="accent"
+                          size="sm"
+                          onPress={() =>
+                            Alert.alert(
+                              "Approved",
+                              `"${co.title}" has been approved.`
+                            )
+                          }
+                        >
+                          Approve
+                        </Button>
+                      </View>
+                      <View className="flex-1">
+                        <Button
+                          variant="destructive"
+                          size="sm"
+                          onPress={() =>
+                            Alert.alert(
+                              "Rejected",
+                              `"${co.title}" has been rejected.`
+                            )
+                          }
+                        >
+                          Reject
+                        </Button>
+                      </View>
+                    </View>
+                  )}
                 </Card>
               );
             })}

@@ -56,6 +56,13 @@ export default function RootLayout() {
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(auth)" />
           <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="decisions" />
+          <Stack.Screen name="defects" />
+          <Stack.Screen name="invoices" />
+          <Stack.Screen
+            name="project-setup"
+            options={{ headerShown: false, presentation: "modal" }}
+          />
         </Stack>
       </AuthProvider>
     </QueryClientProvider>
