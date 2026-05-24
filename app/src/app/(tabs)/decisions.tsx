@@ -89,7 +89,7 @@ export default function DecisionsScreen() {
             >
               <Text
                 className={`font-body text-sm capitalize ${
-                  filter === f ? "text-paper font-medium" : "text-charcoal"
+                  filter === f ? "text-mint-bg font-medium" : "text-charcoal"
                 }`}
               >
                 {f} ({counts[f]})

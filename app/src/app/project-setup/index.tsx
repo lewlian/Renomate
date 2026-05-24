@@ -89,15 +89,15 @@ function PropertyTypePicker({
           <Pressable
             key={pt.value}
             onPress={() => onChange(pt.value)}
-            className={`flex-1 items-center justify-center min-h-[44px] rounded border ${
+            className={`flex-1 items-center justify-center min-h-[48px] rounded border ${
               value === pt.value
-                ? "border-clay bg-coral-soft"
-                : "border-mist bg-white"
+                ? "border-coral bg-coral-soft"
+                : "border-cloud bg-white"
             }`}
           >
             <Text
               className={`font-body text-sm font-medium ${
-                value === pt.value ? "text-clay-deep" : "text-charcoal"
+                value === pt.value ? "text-coral" : "text-charcoal"
               }`}
             >
               {pt.label}
@@ -197,7 +197,7 @@ function StepTimeline({
             </Text>
             {phases.length > 1 && (
               <Pressable onPress={() => removePhase(phase.id)}>
-                <Text className="font-body text-sm text-error font-medium">
+                <Text className="font-body text-sm text-coral font-medium">
                   Remove
                 </Text>
               </Pressable>
@@ -354,7 +354,7 @@ export default function ProjectSetupScreen() {
           )}
         </ScrollView>
 
-        <View className="px-6 pb-4 pt-2 border-t border-mist">
+        <View className="px-6 pb-4 pt-2 border-t border-cloud">
           <View className="flex-row gap-3">
             {step > 1 && (
               <View className="flex-1">
