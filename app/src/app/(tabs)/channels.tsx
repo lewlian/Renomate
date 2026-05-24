@@ -6,10 +6,12 @@ import { Card } from "@/components/ui/Card";
 import { Avatar } from "@/components/ui/Avatar";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { MessageSquare, Send } from "lucide-react-native";
+import { useAuth } from "@/hooks/useAuth";
 import { getMockChannels, mockMessages, mockClient, mockDesigner } from "@/lib/mock-data";
-import type { Channel, Message } from "@/lib/types";
+import type { Channel } from "@/lib/types";
 
 export default function ChannelsScreen() {
+  const { role } = useAuth();
   const channels = getMockChannels();
   const [selectedChannel, setSelectedChannel] = useState<Channel | null>(null);
 
@@ -33,7 +35,7 @@ export default function ChannelsScreen() {
           <SectionHeader
             overline="Channels"
             title="Project conversations"
-            subtitle="One channel per trade. Sub-contractors join their own."
+            subtitle={role === "designer" ? "You manage all channels. Sub-contractors join via invite link." : "One channel per trade. Sub-contractors join their own."}
           />
         </View>
 

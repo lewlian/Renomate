@@ -21,37 +21,57 @@ Scan the QR code with **Expo Go** (iOS/Android) to run on your phone.
 
 ## Current state
 
-**PR 1 complete: Scaffolding + Design System + Core UI + All Tabs**
+**Full MVP scope implemented** (frontend only — backend placeholders in place).
 
 - Expo SDK 56 with Expo Router (file-based navigation)
 - NativeWind (Tailwind CSS for React Native) with design tokens from DesignSystem.md
-- Google Fonts loaded: Fraunces (display), Inter (body), JetBrains Mono (mono)
+- Google Fonts: Fraunces (display), Inter (body), JetBrains Mono (mono)
 - 8 shared UI components: Button, Card, StatusPill, Input, SectionHeader, EmptyState, ListRow, Avatar
-- Full TypeScript types from DataModel.md (16 enums, 19 entity types)
-- Mock data layer with realistic Singapore renovation scenario
-- Mock auth context (placeholder for Supabase Auth)
-- Role switching (client/designer) via avatar tap on home screen
+- Full TypeScript types from DataModel.md (16 enums, 19 entities)
+- Mock data layer with realistic Singapore HDB renovation scenario
+- Mock auth context with role switching (placeholder for Supabase Auth)
 
-### Screens implemented
+### Screens — Client role (homeowner)
 
-| Tab | Status | Features |
-|---|---|---|
-| Home | Done | Dashboard with project summary, current phase, next decision, outstanding invoice |
-| Timeline | Done | All 7 phases with status, planned/actual dates, progress bar |
-| Decisions | Done | Decision queue with filters (all/pending/overdue/decided), deadline tracking |
-| Money | Done | Quotation line items, invoices with status, change orders with tabs |
-| Defects | Done | Snag list with status, location, trade assignment, photo count |
-| Files | Done | File browser grouped by category (quotation, contract, render, etc.) |
-| Channels | Done | Channel list with last message, thread view with message bubbles |
-| Auth | Done | Login + signup screens with validation |
+| Screen | Features |
+|---|---|
+| Home | Dashboard: current phase, next decision, outstanding invoice, progress bar |
+| Timeline | All 7 phases with status, planned/actual dates, segmented progress bar |
+| Decisions | Decision queue with filters, tap for detail view, confirm decision flow |
+| Money | Quotation breakdown, invoices with status, change order approve/reject |
+| Defects | Snag list, create defect with photo picker, sign-off fixed defects |
+| Files | File browser by category, upload via image picker |
+| Channels | Channel list, threaded message view with bubbles |
+
+### Screens — Designer role (ID firm)
+
+| Screen | Features |
+|---|---|
+| Home | Today's overview: stats (pending decisions, overdue $, open defects), upcoming phase, quick actions |
+| Project Setup | 3-step form: project details → timeline phases → invite client |
+| Timeline | Start/complete phase actions |
+| Decisions | Create decision form (title, deadline, options) |
+| Money | Issue invoice, propose change order |
+| Defects | Triage: assign trade, mark as fixed |
+| Files | Upload files |
+| Channels | Admin view |
+
+### Detail screens
+
+| Screen | Features |
+|---|---|
+| Decision detail | View options, select + confirm (client), read-only (designer) |
+| Invoice detail | Payment info, mark paid with receipt upload (client), void (designer) |
+| Defect detail | Status timeline, photo thumbnails, trade assignment, sign-off |
 
 ### Backend placeholders (to be wired later)
 
-- Auth: mock context returns hardcoded user; swap for Supabase Auth
-- Data: mock-data.ts provides all data; swap for TanStack Query + Supabase client
-- File uploads: UI placeholder; wire to Supabase Storage
-- Push notifications: not yet implemented; wire to Expo Push
-- Channels: read-only mock messages; wire to Supabase Realtime
+- Auth → Supabase Auth
+- Data fetching → TanStack Query + Supabase client
+- File uploads → Supabase Storage
+- Push notifications → Expo Push
+- Realtime channels → Supabase Realtime
+- Audit log → Supabase Postgres triggers
 
 ## Project structure
 
@@ -62,7 +82,11 @@ app/
 │   │   ├── _layout.tsx         # Root: fonts, providers, navigation
 │   │   ├── index.tsx           # Auth redirect
 │   │   ├── (auth)/             # Login + signup
-│   │   └── (tabs)/             # 7-tab layout (home, timeline, decisions, money, defects, files, channels)
+│   │   ├── (tabs)/             # 7-tab layout
+│   │   ├── decisions/          # Decision detail + create
+│   │   ├── defects/            # Defect detail + create (with photo picker)
+│   │   ├── invoices/           # Invoice detail + create + change orders
+│   │   └── project-setup/      # Multi-step project creation (designer)
 │   ├── components/ui/          # Shared UI primitives
 │   ├── constants/              # Design tokens (colors, typography)
 │   ├── hooks/                  # useAuth

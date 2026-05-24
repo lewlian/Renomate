@@ -291,6 +291,10 @@ export default function ProjectSetupScreen() {
   const [clientPhone, setClientPhone] = useState("");
 
   const handleNext = () => {
+    if (step === 1 && !name.trim()) {
+      Alert.alert("Required", "Please enter a project name.");
+      return;
+    }
     if (step < 3) {
       setStep(step + 1);
     }

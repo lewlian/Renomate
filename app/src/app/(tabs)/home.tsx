@@ -209,13 +209,13 @@ function DesignerHome() {
         <Button variant="accent" onPress={() => router.push("/project-setup")}>
           New project
         </Button>
-        <Button variant="secondary" onPress={() => router.push("/decisions")}>
+        <Button variant="secondary" onPress={() => router.push("/decisions/create")}>
           Create decision
         </Button>
-        <Button variant="secondary" onPress={() => router.push("/invoices")}>
+        <Button variant="secondary" onPress={() => router.push("/invoices/create")}>
           Issue invoice
         </Button>
-        <Button variant="secondary" onPress={() => router.push("/defects")}>
+        <Button variant="secondary" onPress={() => router.push("/defects/create")}>
           Report defect
         </Button>
       </View>
