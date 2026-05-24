@@ -290,7 +290,7 @@ export default function DefectDetailScreen() {
                     <View
                       className={`w-4 h-4 rounded-full border-2 ${
                         isCurrent
-                          ? "bg-coral border-clay"
+                          ? "bg-coral border-coral"
                           : isReached
                             ? "bg-ink border-ink"
                             : "bg-mint-bg border-cloud"
