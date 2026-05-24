@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, ScrollView, Pressable, TextInput } from "react-native";
+import { Alert, View, Text, ScrollView, Pressable, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
@@ -122,7 +122,7 @@ function ChannelThread({
   return (
     <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
       <View className="flex-row items-center gap-3 px-6 py-4 border-b border-mist">
-        <Pressable onPress={onBack} className="py-2 pr-2">
+        <Pressable onPress={onBack} className="min-w-[44px] min-h-[44px] items-start justify-center">
           <Text className="font-body text-base text-clay">← Back</Text>
         </Pressable>
         <Text className="font-body text-base font-semibold text-ink flex-1">
@@ -179,11 +179,16 @@ function ChannelThread({
           placeholder="Type a message..."
           placeholderTextColor="#A8A29B"
           multiline
-          className="flex-1 font-body text-base text-ink bg-linen rounded-lg px-4 py-3 max-h-24"
+          className="flex-1 font-body text-base text-ink bg-linen rounded-lg px-4 py-3 min-h-[44px] max-h-24"
         />
         <Pressable
           className="w-11 h-11 bg-clay rounded-full items-center justify-center"
-          onPress={() => setDraft("")}
+          onPress={() => {
+            if (draft.trim().length > 0) {
+              Alert.alert("Message sending will be wired to Supabase Realtime.");
+            }
+            setDraft("");
+          }}
         >
           <Send size={18} color="#FAF7F2" strokeWidth={1.5} />
         </Pressable>

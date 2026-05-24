@@ -33,7 +33,7 @@ export default function DecisionDetailScreen() {
     return (
       <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
         <View className="px-6 mt-4">
-          <Pressable onPress={() => router.back()} className="mb-4">
+          <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mb-4">
             <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
           </Pressable>
           <Text className="font-display text-2xl text-ink">
@@ -75,7 +75,7 @@ export default function DecisionDetailScreen() {
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
       >
-        <Pressable onPress={() => router.back()} className="mt-4 mb-4">
+        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
           <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
         </Pressable>
 

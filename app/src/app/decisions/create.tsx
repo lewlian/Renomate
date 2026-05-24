@@ -42,7 +42,7 @@ export default function CreateDecisionScreen() {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
-        <Pressable onPress={() => router.back()} className="mt-4 mb-4">
+        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
           <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
         </Pressable>
 
@@ -95,7 +95,7 @@ export default function CreateDecisionScreen() {
                       onPress={() => removeOption(index)}
                       className="mt-5 p-2"
                     >
-                      <X size={20} color="#6E6A65" strokeWidth={1.5} />
+                      <X size={20} color="#6E6963" strokeWidth={1.5} />
                     </Pressable>
                   )}
                 </View>

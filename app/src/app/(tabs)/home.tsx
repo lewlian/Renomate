@@ -51,7 +51,7 @@ function ClientHome() {
           <View
             className="h-full bg-clay rounded-full"
             style={{
-              width: `${(completedCount / phases.length) * 100}%`,
+              width: `${phases.length > 0 ? (completedCount / phases.length) * 100 : 0}%`,
             }}
           />
         </View>
@@ -223,6 +223,13 @@ function DesignerHome() {
   );
 }
 
+function getGreeting(): string {
+  const hour = new Date().getHours();
+  if (hour < 12) return "Good morning";
+  if (hour < 17) return "Good afternoon";
+  return "Good evening";
+}
+
 export default function HomeScreen() {
   const { user, role, switchRole } = useAuth();
 
@@ -235,12 +242,12 @@ export default function HomeScreen() {
       >
         <View className="flex-row items-center justify-between mt-4 mb-6">
           <View className="flex-1">
-            <Text className="font-body text-sm text-slate">Good morning,</Text>
+            <Text className="font-body text-sm text-slate">{getGreeting()},</Text>
             <Text className="font-display text-2xl text-ink">
               {user?.full_name?.split(" ")[0] ?? "there"}
             </Text>
           </View>
-          <Pressable onPress={switchRole}>
+          <Pressable onPress={switchRole} className="min-w-[44px] min-h-[44px] items-center justify-center">
             <Avatar name={user?.full_name ?? "U"} size="md" />
           </Pressable>
         </View>

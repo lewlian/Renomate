@@ -30,7 +30,7 @@ export default function CreateDefectScreen() {
 
   const handlePickImages = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ["images"],
       allowsMultipleSelection: true,
       quality: 0.8,
     });
@@ -71,7 +71,7 @@ export default function CreateDefectScreen() {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
-        <Pressable onPress={() => router.back()} className="mt-4 mb-4">
+        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
           <ArrowLeft size={24} color="#161513" />
         </Pressable>
 

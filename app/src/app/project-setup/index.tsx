@@ -13,8 +13,7 @@ import { useRouter } from "expo-router";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
-
-type PropertyType = "hdb" | "condo" | "landed" | "commercial";
+import type { PropertyType } from "@/lib/types";
 
 interface PhaseEntry {
   id: string;

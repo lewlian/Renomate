@@ -10,7 +10,6 @@ import {
   FileText,
   Image,
   FileCheck,
-  Upload,
 } from "lucide-react-native";
 import * as ImagePicker from "expo-image-picker";
 import { getMockFiles } from "@/lib/mock-data";

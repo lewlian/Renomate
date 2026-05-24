@@ -47,7 +47,7 @@ export default function InvoiceDetailScreen() {
     return (
       <SafeAreaView className="flex-1 bg-paper" edges={["top"]}>
         <View className="px-6 mt-4">
-          <Pressable onPress={() => router.back()} className="mb-4">
+          <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mb-4">
             <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
           </Pressable>
           <Text className="font-display text-2xl text-ink">
@@ -66,7 +66,7 @@ export default function InvoiceDetailScreen() {
 
   const handlePickReceipt = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ["images"],
       quality: 0.8,
     });
     if (!result.canceled && result.assets.length > 0) {
@@ -101,7 +101,7 @@ export default function InvoiceDetailScreen() {
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
       >
-        <Pressable onPress={() => router.back()} className="mt-4 mb-4">
+        <Pressable onPress={() => router.back()} className="min-w-[44px] min-h-[44px] items-start justify-center mt-4 mb-4">
           <ArrowLeft size={24} color="#161513" strokeWidth={1.5} />
         </Pressable>
 
@@ -190,7 +190,7 @@ export default function InvoiceDetailScreen() {
               className="flex-row items-center justify-center rounded border border-mist bg-paper min-h-[44px] px-5 py-3"
               style={({ pressed }) => ({ opacity: pressed ? 0.7 : 1 })}
             >
-              <Upload size={18} color="#6B6560" strokeWidth={1.5} />
+              <Upload size={18} color="#6E6963" strokeWidth={1.5} />
               <Text className="font-body text-sm text-charcoal ml-2">
                 {receiptUri ? "Receipt attached" : "Attach receipt photo"}
               </Text>
