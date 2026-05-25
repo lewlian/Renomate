@@ -6,3 +6,8 @@ export { SectionHeader } from "./SectionHeader";
 export { EmptyState } from "./EmptyState";
 export { ListRow } from "./ListRow";
 export { Avatar } from "./Avatar";
+export { ProgressBar } from "./ProgressBar";
+export { AvatarStack } from "./AvatarStack";
+export { ColorCard } from "./ColorCard";
+export { StatBlock } from "./StatBlock";
+export { ActivityRing } from "./ActivityRing";

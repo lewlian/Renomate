@@ -223,6 +223,63 @@ Colorful, fully rounded (`radius-full`). Used for categories, status, and filter
 
 ---
 
+## Mobile UI Patterns
+
+Specific mobile screen layout patterns inspired by modern project management app UIs. These patterns define how components compose together on each screen type.
+
+### Home Screen Pattern
+- **Header**: Greeting ("Good evening,") + user first name (large, bold) + notification bell icon (top right) + avatar with add/plus button
+- **Today's Schedule**: Horizontal row of colored background cards (not white — use sand-soft and lavender-soft backgrounds). Each card shows time + event title. Rounded-lg corners.
+- **Quick Stats Row**: Two side-by-side stat blocks with decorative icon backgrounds. Each shows a count + label (e.g., "20 tasks · To do list", "20 tasks · In progress"). Use peach-soft and lavender-soft backgrounds.
+- **Project Section**: "Projects" heading with project list items. Each item: colored circle icon (cycling through accent-soft colors) + project name + horizontal progress bar + count (e.g., "3/7")
+
+### Task/Item Cards
+- **Category pills**: Colorful rounded pills at top of cards for categorisation (use accent-soft backgrounds)
+- **Title**: Bold, 16-18px, ink color
+- **Avatar stack**: Overlapping circular avatars with +N indicator, right-aligned
+- **Stats row**: Icon + count pairs (comments, attachments) in a row at bottom
+- **Progress indicator**: Dashed or segmented progress bar showing completion (e.g., 7/10)
+
+### Detail Screen Pattern
+- **Header**: Back arrow (left) + edit icon (right)
+- **Title block**: Large title + time/date + status pill (e.g., "Ongoing" in lavender)
+- **Description**: Body text with "read more" truncation
+- **Member row**: Overlapping avatar stack + count stats
+- **Activity section**: Donut/arc chart showing completion percentage (e.g., 90% Done) with colored segments (sage for done, sky for in progress, cloud for to do)
+- **Subtasks**: Checklist with checkbox icons + task text
+
+### Create/Form Screen Pattern
+- **Dark-themed modal option**: Dark background (#1A1A2E) with light text for create flows — makes forms feel distinct from browse screens
+- **Input fields**: Clean, minimal, with subtle borders
+- **Date inputs**: Calendar icon prefix, DD/MM/YYYY format
+- **Assignee picker**: Horizontal row of avatar chips with names
+- **Attachment section**: Document icon + add button
+
+### Filter Chips
+- **Selected state**: Dark background (ink) with white text + count badge
+- **Unselected state**: White/transparent background with cloud border + charcoal text
+- **Horizontal scrollable** row, rounded-full shape
+
+### Progress Bars
+- **Segmented style**: Individual colored segments separated by small gaps
+- **Track**: cloud background, rounded-full
+- **Fill**: Accent color matching the status (sage for complete, coral for active, lavender for in progress)
+- **Counter**: "3/7" text right-aligned next to bar
+
+### Avatar Stack
+- Overlapping circular avatars with -8px margin between them
+- Maximum 3-4 visible, then "+N" pill
+- Border: 2px white border on each avatar to create separation
+- Sizes: sm (24px), md (32px)
+
+### Colored Stat Blocks
+- Rounded-lg cards with soft pastel backgrounds (not white)
+- Large number or icon as focal point
+- Label text below in charcoal
+- Use different accent-soft colors for visual variety: sand-soft, lavender-soft, peach-soft, sage-soft
+
+---
+
 ## Imagery
 
 ### Landing page
