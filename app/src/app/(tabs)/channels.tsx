@@ -5,6 +5,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { Avatar } from "@/components/ui/Avatar";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { AvatarStack } from "@/components/ui/AvatarStack";
+import { ColorCard } from "@/components/ui/ColorCard";
 import { MessageSquare, Send } from "lucide-react-native";
 import { useAuth } from "@/hooks/useAuth";
 import { getMockChannels, mockMessages, mockClient, mockDesigner } from "@/lib/mock-data";
@@ -52,8 +54,11 @@ export default function ChannelsScreen() {
                 (m) => m.channel_id === ch.id
               );
               const lastMsg = channelMsgs[channelMsgs.length - 1];
-              return (
-                <Card key={ch.id} onPress={() => setSelectedChannel(ch)}>
+              const participantNames = ch.is_main
+                ? ["Sarah Tan", "Marcus Chen", "Ahmad Razak", "Priya Nair"]
+                : ["Sarah Tan", "Marcus Chen"];
+              const content = (
+                <>
                   <View className="flex-row items-center gap-3">
                     <View className="w-10 h-10 bg-snow rounded-full items-center justify-center">
                       <MessageSquare
@@ -93,6 +98,23 @@ export default function ChannelsScreen() {
                       </Text>
                     )}
                   </View>
+                  <View className="mt-2 ml-[52px]">
+                    <AvatarStack names={participantNames} max={3} size="sm" />
+                  </View>
+                </>
+              );
+
+              if (ch.is_main) {
+                return (
+                  <ColorCard key={ch.id} color="lavender" onPress={() => setSelectedChannel(ch)}>
+                    {content}
+                  </ColorCard>
+                );
+              }
+
+              return (
+                <Card key={ch.id} onPress={() => setSelectedChannel(ch)}>
+                  {content}
                 </Card>
               );
             })}

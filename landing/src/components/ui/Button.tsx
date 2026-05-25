@@ -6,7 +6,7 @@ type Variant = "primary" | "accent" | "secondary" | "ghost" | "destructive";
 type Size = "default" | "lg";
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded font-medium transition-[background,border-color,transform] ease-brand whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:opacity-50 disabled:cursor-not-allowed";
+  "inline-flex items-center justify-center gap-2 rounded font-medium transition-[background,border-color,transform] ease-brand whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-mint-bg disabled:opacity-50 disabled:cursor-not-allowed";
 
 const sizeClasses: Record<Size, string> = {
   default: "px-5 py-3 text-[15px]",
@@ -14,11 +14,11 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const variantClasses: Record<Variant, string> = {
-  primary: "bg-ink text-paper hover:bg-charcoal",
-  accent: "bg-clay text-paper hover:bg-clay-deep",
-  secondary: "bg-paper text-ink border border-mist hover:bg-linen",
-  ghost: "bg-transparent text-ink hover:bg-linen",
-  destructive: "bg-paper text-error hover:border hover:border-error",
+  primary: "bg-ink text-white hover:bg-charcoal",
+  accent: "bg-coral text-white hover:bg-red-400",
+  secondary: "bg-white text-ink border border-cloud hover:bg-snow",
+  ghost: "bg-transparent text-ink hover:bg-snow",
+  destructive: "bg-white text-coral hover:border hover:border-coral",
 };
 
 type ButtonProps = {

@@ -6,6 +6,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { StatusPill } from "@/components/ui/StatusPill";
 import { Button } from "@/components/ui/Button";
+import { ColorCard } from "@/components/ui/ColorCard";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 import { useAuth } from "@/hooks/useAuth";
 import {
   getMockQuotation,
@@ -68,26 +70,24 @@ export default function MoneyScreen() {
           <SectionHeader overline="Money" title="Prices and payments" />
         </View>
 
-        <Card className="mb-5">
-          <View className="flex-row justify-between">
-            <View>
-              <Text className="font-body text-xs text-slate uppercase tracking-wider">
-                Total paid
-              </Text>
-              <Text className="font-mono text-lg text-sage">
-                {formatSGD(totalPaid)}
-              </Text>
-            </View>
-            <View className="items-end">
-              <Text className="font-body text-xs text-slate uppercase tracking-wider">
-                Outstanding
-              </Text>
-              <Text className="font-mono text-lg text-coral">
-                {formatSGD(totalOutstanding)}
-              </Text>
-            </View>
-          </View>
-        </Card>
+        <View className="flex-row gap-3 mb-5">
+          <ColorCard color="sage" className="flex-1">
+            <Text className="font-body text-xs text-slate uppercase tracking-wider">
+              Total paid
+            </Text>
+            <Text className="font-mono text-lg text-ink">
+              {formatSGD(totalPaid)}
+            </Text>
+          </ColorCard>
+          <ColorCard color="coral" className="flex-1">
+            <Text className="font-body text-xs text-slate uppercase tracking-wider">
+              Outstanding
+            </Text>
+            <Text className="font-mono text-lg text-ink">
+              {formatSGD(totalOutstanding)}
+            </Text>
+          </ColorCard>
+        </View>
 
         <View className="flex-row mb-5 border-b border-cloud">
           {(["quotation", "invoices", "changes"] as Tab[]).map((t) => (
@@ -177,7 +177,7 @@ export default function MoneyScreen() {
                     </View>
                     <StatusPill variant={pill.status}>{pill.label}</StatusPill>
                   </View>
-                  <View className="flex-row justify-between items-end">
+                  <View className="flex-row justify-between items-end mb-2">
                     <Text className="font-mono text-lg text-ink">
                       {formatSGD(inv.amount)}
                     </Text>
@@ -191,6 +191,13 @@ export default function MoneyScreen() {
                       </Text>
                     )}
                   </View>
+                  <ProgressBar
+                    completed={Math.round((inv.paid_amount / inv.amount) * 10)}
+                    total={10}
+                    color={inv.status === "overdue" ? "bg-coral" : "bg-sage"}
+                    size="sm"
+                    showCount={false}
+                  />
                 </Card>
               );
             })}

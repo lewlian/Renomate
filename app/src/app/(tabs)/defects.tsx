@@ -24,6 +24,9 @@ const statusToPill: Record<
 
 export default function DefectsScreen() {
   const defects = getMockDefects();
+  const openCount = defects.filter((d) => d.status === "open" || d.status === "acknowledged" || d.status === "scheduled").length;
+  const fixedCount = defects.filter((d) => d.status === "fixed").length;
+  const signedOffCount = defects.filter((d) => d.status === "signed_off").length;
 
   const formatDate = (iso: string | null) => {
     if (!iso) return "";
@@ -46,6 +49,21 @@ export default function DefectsScreen() {
             title="Snag list"
             subtitle="Report and track issues found during or after renovation."
           />
+        </View>
+
+        <View className="flex-row justify-between mb-5 px-2">
+          <View className="items-center">
+            <Text className="font-heading text-2xl text-coral">{openCount}</Text>
+            <Text className="font-body text-xs text-slate">Open</Text>
+          </View>
+          <View className="items-center">
+            <Text className="font-heading text-2xl text-sage">{fixedCount}</Text>
+            <Text className="font-body text-xs text-slate">Fixed</Text>
+          </View>
+          <View className="items-center">
+            <Text className="font-heading text-2xl text-ink">{signedOffCount}</Text>
+            <Text className="font-body text-xs text-slate">Signed off</Text>
+          </View>
         </View>
 
         <Button variant="secondary" size="md" onPress={() => router.push("/defects/create")} className="mb-5">

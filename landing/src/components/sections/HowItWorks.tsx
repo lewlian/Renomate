@@ -23,25 +23,24 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how" className="py-24 md:py-32 bg-paper">
+    <section id="how" className="py-24 md:py-32 bg-mint-bg">
       <div className="container-page">
         <div className="max-w-[720px] mb-12">
           <ScrollReveal>
-            <span className="inline-block text-caption font-medium uppercase tracking-wider text-clay-deep mb-4">
+            <span className="inline-block text-caption font-medium uppercase tracking-wider text-coral mb-4">
               How it works
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="font-display text-display-lg text-ink">
+            <h2 className="font-heading text-display-lg text-ink">
               Three steps to a project that runs itself.
             </h2>
           </ScrollReveal>
         </div>
 
         <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
-          {/* Connecting line (desktop only) */}
           <motion.div
-            className="hidden md:block absolute top-[48px] left-[16%] right-[16%] h-px bg-clay/40 origin-left"
+            className="hidden md:block absolute top-[48px] left-[16%] right-[16%] h-px bg-coral/40 origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -51,7 +50,7 @@ export function HowItWorks() {
           {steps.map((s, i) => (
             <ScrollReveal key={s.n} delay={i * 0.15}>
               <div>
-                <div className="font-display text-[48px] leading-none text-clay mb-3 relative z-10 bg-paper inline-block pr-3">
+                <div className="font-heading text-[48px] leading-none text-coral mb-3 relative z-10 bg-mint-bg inline-block pr-3">
                   {s.n}
                 </div>
                 <h4 className="font-semibold text-heading text-ink mb-2">{s.title}</h4>

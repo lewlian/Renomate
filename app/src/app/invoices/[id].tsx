@@ -8,6 +8,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { StatusPill } from "@/components/ui/StatusPill";
 import { Button } from "@/components/ui/Button";
+import { ProgressBar } from "@/components/ui/ProgressBar";
+import { ColorCard } from "@/components/ui/ColorCard";
 import { useAuth } from "@/hooks/useAuth";
 import { getMockInvoices } from "@/lib/mock-data";
 import type { InvoiceStatus } from "@/lib/types";
@@ -116,20 +118,31 @@ export default function InvoiceDetailScreen() {
           <StatusPill variant={pill.status}>{pill.label}</StatusPill>
         </View>
 
-        {invoice.description ? (
-          <Text className="font-body text-base text-charcoal mb-4">
-            {invoice.description}
-          </Text>
-        ) : null}
-
-        <Card className="mb-4">
+        <ColorCard
+          color={invoice.status === "paid" ? "sage" : invoice.status === "overdue" ? "coral" : "sand"}
+          className="mb-4"
+        >
           <Text className="font-body text-xs text-slate uppercase tracking-wider mb-1">
             Amount
           </Text>
           <Text className="font-mono text-2xl text-ink">
             {formatSGD(invoice.amount)}
           </Text>
-        </Card>
+        </ColorCard>
+
+        <View className="mb-4">
+          <ProgressBar
+            completed={Math.round((invoice.paid_amount / invoice.amount) * 10)}
+            total={10}
+            color={invoice.status === "overdue" ? "bg-coral" : "bg-sage"}
+          />
+        </View>
+
+        {invoice.description ? (
+          <Text className="font-body text-base text-charcoal mb-4">
+            {invoice.description}
+          </Text>
+        ) : null}
 
         <Card className="mb-4">
           <View className="flex-row justify-between mb-3">

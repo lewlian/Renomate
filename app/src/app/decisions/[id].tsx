@@ -7,6 +7,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { StatusPill } from "@/components/ui/StatusPill";
 import { Button } from "@/components/ui/Button";
+import { ActivityRing } from "@/components/ui/ActivityRing";
+import { ColorCard } from "@/components/ui/ColorCard";
 import { useAuth } from "@/hooks/useAuth";
 import { getMockDecisions } from "@/lib/mock-data";
 import type { DecisionStatus } from "@/lib/types";
@@ -26,6 +28,9 @@ export default function DecisionDetailScreen() {
   const { role } = useAuth();
   const decisions = getMockDecisions();
   const decision = decisions.find((d) => d.id === id);
+  const decidedCount = decisions.filter((d) => d.status === "decided").length;
+  const totalDecisions = decisions.length;
+  const completionPct = totalDecisions > 0 ? Math.round((decidedCount / totalDecisions) * 100) : 0;
 
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
@@ -79,6 +84,10 @@ export default function DecisionDetailScreen() {
           <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
         </Pressable>
 
+        <View className="items-center mb-5">
+          <ActivityRing percentage={completionPct} size={100} strokeWidth={8} label="Decided" />
+        </View>
+
         <View className="mb-4">
           <SectionHeader overline="Decision" title={decision.title} />
         </View>
@@ -124,27 +133,21 @@ export default function DecisionDetailScreen() {
               Options
             </Text>
             <View className="gap-2">
-              {options.map((option) => {
+              {options.map((option, idx) => {
                 const isSelected = selectedOption === option.label;
+                const pastelColors: ("sand" | "lavender" | "peach" | "sage" | "sky" | "coral")[] = ["sand", "lavender", "peach", "sage", "sky", "coral"];
+                const colorForOption = pastelColors[idx % pastelColors.length];
                 return (
-                  <Pressable
+                  <ColorCard
                     key={option.label}
-                    onPress={
-                      canConfirm ? () => setSelectedOption(option.label) : undefined
-                    }
-                    className={`rounded-md border p-4 ${
-                      isSelected
-                        ? "border-coral bg-coral-soft"
-                        : "border-cloud bg-mint-bg"
-                    }`}
-                    style={({ pressed }) => ({
-                      opacity: canConfirm && pressed ? 0.85 : 1,
-                    })}
+                    color={isSelected ? "coral" : colorForOption}
+                    onPress={canConfirm ? () => setSelectedOption(option.label) : undefined}
+                    className={isSelected ? "border-2 border-coral" : ""}
                   >
                     <Text className="font-body text-base text-ink">
                       {option.label}
                     </Text>
-                  </Pressable>
+                  </ColorCard>
                 );
               })}
             </View>

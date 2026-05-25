@@ -6,12 +6,12 @@ export function Problem() {
     <section className="py-24 md:py-32">
       <div className="container-narrow">
         <ScrollReveal>
-          <span className="inline-block text-caption font-medium uppercase tracking-wider text-clay-deep mb-4">
+          <span className="inline-block text-caption font-medium uppercase tracking-wider text-coral mb-4">
             The reality of renovating
           </span>
         </ScrollReveal>
         <ScrollReveal delay={0.05}>
-          <h2 className="font-display text-display-lg text-ink mb-5">
+          <h2 className="font-heading text-display-lg text-ink mb-5">
             Renovation is one of the most complex projects a homeowner ever manages.
           </h2>
         </ScrollReveal>
@@ -31,7 +31,7 @@ export function Problem() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <div className="border-l-[3px] border-clay pl-5 mt-7 text-body-lg text-slate leading-relaxed">
+          <div className="border-l-[3px] border-coral pl-5 mt-7 text-body-lg text-slate leading-relaxed">
             Industry data:{" "}
             <strong className="text-ink font-semibold">
               <AnimatedNumber value={66} suffix="%" /> of renovation regrets in Singapore

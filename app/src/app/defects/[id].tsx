@@ -6,6 +6,8 @@ import { ArrowLeft, Camera } from "lucide-react-native";
 import { StatusPill } from "@/components/ui/StatusPill";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { ColorCard } from "@/components/ui/ColorCard";
+import { AvatarStack } from "@/components/ui/AvatarStack";
 import { useAuth } from "@/hooks/useAuth";
 import { getMockDefects } from "@/lib/mock-data";
 import type { DefectStatus, Trade } from "@/lib/types";
@@ -108,6 +110,11 @@ export default function DefectDetailScreen() {
         <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
           <ArrowLeft size={24} color="#1A1A2E" />
         </Pressable>
+
+        <View className="flex-row items-center mb-4">
+          <AvatarStack names={["Sarah Tan", "Marcus Chen", "Ahmad Razak"]} max={3} size="md" />
+          <Text className="font-body text-xs text-slate ml-3">Project team</Text>
+        </View>
 
         <View className="flex-row items-start justify-between mb-3">
           <Text className="font-heading text-2xl text-ink flex-1 mr-3">
@@ -276,7 +283,7 @@ export default function DefectDetailScreen() {
           </View>
         )}
 
-        <Card>
+        <ColorCard color="sage">
           <Text className="font-heading text-base text-ink mb-4">Timeline</Text>
           <View className="gap-0">
             {timelineSteps.map((step, index) => {
@@ -293,7 +300,7 @@ export default function DefectDetailScreen() {
                           ? "bg-coral border-coral"
                           : isReached
                             ? "bg-ink border-ink"
-                            : "bg-mint-bg border-cloud"
+                            : "bg-white border-cloud"
                       }`}
                     />
                     {!isLast && (
@@ -301,7 +308,7 @@ export default function DefectDetailScreen() {
                         className={`w-0.5 h-8 ${
                           isReached && index < currentIndex
                             ? "bg-ink"
-                            : "bg-mist"
+                            : "bg-white"
                         }`}
                       />
                     )}
@@ -323,7 +330,7 @@ export default function DefectDetailScreen() {
               );
             })}
           </View>
-        </Card>
+        </ColorCard>
       </ScrollView>
     </SafeAreaView>
   );

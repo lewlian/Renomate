@@ -30,7 +30,7 @@ export function DesignerContactModal({ open, onClose }: Props) {
     <ModalShell open={open} onClose={reset}>
       {submitted ? (
         <div className="py-6">
-          <h2 className="font-display text-display-md text-ink mb-3">Thank you.</h2>
+          <h2 className="font-heading text-display-md text-ink mb-3">Thank you.</h2>
           <p className="text-charcoal text-body-lg">
             We&rsquo;ll reply within two working days. &mdash; Sean (founder)
           </p>
@@ -40,7 +40,7 @@ export function DesignerContactModal({ open, onClose }: Props) {
         </div>
       ) : (
         <form onSubmit={onSubmit}>
-          <h2 className="font-display text-display-md text-ink mb-2">Become an early partner firm.</h2>
+          <h2 className="font-heading text-display-md text-ink mb-2">Become an early partner firm.</h2>
           <p className="text-body-sm text-slate mb-5">Tell us about your firm. We&rsquo;ll reply within two working days.</p>
 
           <Field label="Your name" required>
@@ -84,18 +84,18 @@ export function DesignerContactModal({ open, onClose }: Props) {
         :global(.input) {
           width: 100%;
           padding: 12px 16px;
-          border: 1px solid #a8a29b;
-          border-radius: 4px;
+          border: 1px solid #E8E8F0;
+          border-radius: 8px;
           background: #ffffff;
           font-family: var(--font-inter);
           font-size: 16px;
-          color: #161513;
+          color: #1A1A2E;
           transition: border-color 150ms;
         }
         :global(.input:focus) {
-          outline: 2px solid #b85c3c;
+          outline: 2px solid #7EC8E3;
           outline-offset: -1px;
-          border-color: #b85c3c;
+          border-color: #7EC8E3;
         }
       `}</style>
     </ModalShell>

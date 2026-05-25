@@ -25,16 +25,16 @@ export function ForDesigners() {
   const { open } = useModal();
 
   return (
-    <section id="designers" className="bg-linen py-24 md:py-32">
+    <section id="designers" className="bg-snow py-24 md:py-32">
       <div className="container-page">
         <div className="max-w-[720px] mb-12">
           <ScrollReveal>
-            <span className="inline-block text-caption font-medium uppercase tracking-wider text-clay-deep mb-4">
+            <span className="inline-block text-caption font-medium uppercase tracking-wider text-coral mb-4">
               For interior design firms
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="font-display text-display-lg text-ink mb-5">
+            <h2 className="font-heading text-display-lg text-ink mb-5">
               Run every project on a system that protects your firm.
             </h2>
           </ScrollReveal>
@@ -49,8 +49,8 @@ export function ForDesigners() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {benefits.map((b, i) => (
             <ScrollReveal key={b.title} delay={i * 0.1}>
-              <div className="bg-paper border border-mist rounded-md p-6 h-full">
-                <h4 className="font-display text-[22px] leading-tight text-ink mb-3">{b.title}</h4>
+              <div className="bg-white rounded-lg p-6 h-full shadow-card">
+                <h4 className="font-heading text-[22px] leading-tight text-ink mb-3">{b.title}</h4>
                 <p className="text-body text-charcoal leading-relaxed">{b.body}</p>
               </div>
             </ScrollReveal>
@@ -61,7 +61,7 @@ export function ForDesigners() {
           <div className="flex flex-wrap items-center gap-5">
             <button
               onClick={() => open("designer")}
-              className="inline-flex items-center px-7 py-4 text-base font-medium rounded bg-clay text-paper hover:bg-clay-deep transition-colors ease-brand"
+              className="inline-flex items-center px-7 py-4 text-base font-medium rounded bg-coral text-white hover:bg-red-400 transition-colors ease-brand"
             >
               Talk to us about being an early partner
             </button>

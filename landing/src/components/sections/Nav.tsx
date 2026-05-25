@@ -18,12 +18,12 @@ export function Nav() {
     <nav
       className={`sticky top-0 z-50 transition-[border-color,background-color] duration-200 ${
         scrolled
-          ? "bg-paper/85 backdrop-blur-md border-b border-mist"
-          : "bg-paper/0 border-b border-transparent"
+          ? "bg-mint-bg/85 backdrop-blur-md border-b border-cloud"
+          : "bg-mint-bg/0 border-b border-transparent"
       }`}
     >
       <div className="container-page flex items-center justify-between py-4">
-        <a href="#" className="font-display text-[22px] tracking-tight text-ink no-underline">
+        <a href="#" className="font-heading text-[22px] tracking-tight text-ink no-underline">
           renomate
         </a>
         <div className="flex items-center gap-5">
@@ -41,7 +41,7 @@ export function Nav() {
           </a>
           <button
             onClick={() => open("waitlist")}
-            className="inline-flex items-center px-5 py-3 text-[15px] font-medium rounded bg-clay text-paper hover:bg-clay-deep transition-colors ease-brand"
+            className="inline-flex items-center px-5 py-3 text-[15px] font-medium rounded bg-coral text-white hover:bg-red-400 transition-colors ease-brand"
           >
             Join the waitlist
           </button>

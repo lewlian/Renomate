@@ -1,14 +1,21 @@
 import type { ReactNode } from "react";
 
-type Variant = "pending" | "progress" | "done" | "overdue" | "info" | "clay";
+type Variant = "pending" | "progress" | "done" | "overdue" | "info" | "coral" | "sage" | "lavender" | "sky" | "sand" | "peach" | "neutral" | "dark";
 
 const variants: Record<Variant, string> = {
-  pending: "bg-mist text-charcoal",
-  progress: "bg-clay-soft text-clay-deep",
-  done: "bg-success-soft text-success",
-  overdue: "bg-error-soft text-error",
-  info: "bg-linen text-info",
-  clay: "bg-clay-soft text-clay-deep",
+  pending: "bg-cloud text-charcoal",
+  progress: "bg-lavender-soft text-lavender",
+  done: "bg-sage-soft text-sage",
+  overdue: "bg-coral-soft text-coral",
+  info: "bg-sky-soft text-sky",
+  coral: "bg-coral-soft text-coral",
+  sage: "bg-sage-soft text-sage",
+  lavender: "bg-lavender-soft text-lavender",
+  sky: "bg-sky-soft text-sky",
+  sand: "bg-sand-soft text-sand",
+  peach: "bg-peach-soft text-peach",
+  neutral: "bg-cloud text-charcoal",
+  dark: "bg-ink text-white",
 };
 
 type Props = {

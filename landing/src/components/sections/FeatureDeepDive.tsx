@@ -33,26 +33,24 @@ const subsections = [
 
 export function FeatureDeepDive() {
   return (
-    <section className="bg-paper py-24 md:py-32">
+    <section className="bg-mint-bg py-24 md:py-32">
       <div className="container-page">
         <div className="max-w-[700px] mb-16">
-          <span className="inline-block text-caption font-medium uppercase tracking-wider text-clay-deep mb-4">
+          <span className="inline-block text-caption font-medium uppercase tracking-wider text-coral mb-4">
             See it in motion
           </span>
-          <h2 className="font-display text-display-lg text-ink">
+          <h2 className="font-heading text-display-lg text-ink">
             The product, at a closer look.
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* LEFT: scrolling text panels */}
           <div className="space-y-32 lg:space-y-48">
             {subsections.map((s, i) => (
               <SubSection key={i} {...s} index={i} />
             ))}
           </div>
 
-          {/* RIGHT: sticky visual stack */}
           <div className="hidden lg:block">
             <StickyVisualStack />
           </div>
@@ -81,12 +79,11 @@ function SubSection({
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: [0.2, 0, 0, 1] }}
       >
-        <div className="font-mono text-[12px] text-clay-deep tracking-wider mb-4">
+        <div className="font-mono text-[12px] text-coral tracking-wider mb-4">
           {String(index + 1).padStart(2, "0")} / {subsections.length.toString().padStart(2, "0")}
         </div>
-        <h3 className="font-display text-[32px] leading-tight text-ink mb-5">{title}</h3>
+        <h3 className="font-heading text-[32px] leading-tight text-ink mb-5">{title}</h3>
         <p className="text-body-lg text-charcoal">{body}</p>
-        {/* Mobile-only visual */}
         <div className="lg:hidden mt-7">
           <VisualForKey vkey={visual} />
         </div>
@@ -95,10 +92,6 @@ function SubSection({
   );
 }
 
-/**
- * Right column: sticky container with all visuals stacked.
- * As user scrolls past sub-sections, we crossfade between visuals using scroll progress.
- */
 function StickyVisualStack() {
   const ref = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -145,8 +138,6 @@ function CrossfadeVisual({
   const mid = start + step / 2;
   const end = start + step;
 
-  // For first card: fully visible from page top until its window ends.
-  // For other cards: fade in just before their window, hold, fade out at end.
   const opacity = useTransform(
     progress,
     index === 0
@@ -179,8 +170,8 @@ function VisualForKey({ vkey }: { vkey: string }) {
 
 function VisualShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-linen rounded-lg p-6 border border-mist">
-      <div className="bg-white rounded-md p-5 border border-mist shadow-sm">{children}</div>
+    <div className="bg-white rounded-lg p-6 shadow-card">
+      <div className="bg-white rounded-lg p-5 shadow-card">{children}</div>
     </div>
   );
 }
@@ -196,7 +187,7 @@ function TimelineVisual() {
             <div className="flex items-center gap-3">
               <span
                 className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${
-                  i < 3 ? "bg-success" : i === 3 ? "bg-clay" : "bg-mist"
+                  i < 3 ? "bg-sage" : i === 3 ? "bg-coral" : "bg-mist"
                 }`}
               />
               <span className={i === 3 ? "text-ink font-semibold" : "text-charcoal"}>
@@ -229,7 +220,7 @@ function DecisionsVisual() {
 
 function DecisionRow({ title, sub, pill }: { title: string; sub: string; pill: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-between gap-3 py-2 border-b border-linen last:border-b-0">
+    <div className="flex items-center justify-between gap-3 py-2 border-b border-snow last:border-b-0">
       <div>
         <div className="text-[14px] font-medium text-ink">{title}</div>
         <div className="text-[12px] text-slate">{sub}</div>
@@ -257,19 +248,19 @@ function MoneyVisual() {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-t border-linen">
+          <tr className="border-t border-snow">
             <td className="py-2 font-mono">INV-001</td>
             <td className="py-2 text-charcoal">Deposit</td>
             <td className="py-2 text-right font-mono">SGD 4,800</td>
             <td className="py-2 text-right"><Pill variant="done">Paid</Pill></td>
           </tr>
-          <tr className="border-t border-linen">
+          <tr className="border-t border-snow">
             <td className="py-2 font-mono">INV-002</td>
             <td className="py-2 text-charcoal">Hacking</td>
             <td className="py-2 text-right font-mono">SGD 9,600</td>
             <td className="py-2 text-right"><Pill variant="done">Paid</Pill></td>
           </tr>
-          <tr className="border-t border-linen">
+          <tr className="border-t border-snow">
             <td className="py-2 font-mono">INV-003</td>
             <td className="py-2 text-charcoal">Carpentry</td>
             <td className="py-2 text-right font-mono">SGD 9,780</td>
@@ -285,9 +276,9 @@ function DefectsVisual() {
   return (
     <VisualShell>
       <div className="text-[11px] uppercase tracking-wider text-slate mb-4 font-medium">Defect #0014</div>
-      <div className="font-display text-[20px] text-ink mb-2">Crack in master bath wall tile</div>
+      <div className="font-heading text-[20px] text-ink mb-2">Crack in master bath wall tile</div>
       <div className="text-[13px] text-slate mb-4">Master bath, left wall behind door</div>
-      <div className="bg-linen rounded h-32 flex items-center justify-center mb-4 text-slate text-[12px]">
+      <div className="bg-snow rounded-lg h-32 flex items-center justify-center mb-4 text-slate text-[12px]">
         [ photo placeholder ]
       </div>
       <div className="flex gap-2 flex-wrap">

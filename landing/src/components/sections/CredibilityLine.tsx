@@ -2,7 +2,7 @@ import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function CredibilityLine() {
   return (
-    <section className="py-12 border-y border-mist/40">
+    <section className="py-12 border-y border-cloud/40">
       <div className="container-page">
         <ScrollReveal>
           <p className="text-center text-body-sm text-slate tracking-wider">
