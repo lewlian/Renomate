@@ -35,7 +35,7 @@ export default function CreateDecisionScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -43,7 +43,7 @@ export default function CreateDecisionScreen() {
         keyboardShouldPersistTaps="handled"
       >
         <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
+          <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
         </Pressable>
 
         <View className="mb-6">
@@ -95,14 +95,14 @@ export default function CreateDecisionScreen() {
                       onPress={() => removeOption(index)}
                       className="mt-5 p-2"
                     >
-                      <X size={20} color="#7C7C8A" strokeWidth={1.5} />
+                      <X size={20} color="#b3b3b3" strokeWidth={1.5} />
                     </Pressable>
                   )}
                 </View>
               ))}
             </View>
             <Pressable onPress={addOption} className="mt-3">
-              <Text className="font-body text-sm font-medium text-coral">
+              <Text className="font-body text-sm font-medium text-violet">
                 + Add option
               </Text>
             </Pressable>

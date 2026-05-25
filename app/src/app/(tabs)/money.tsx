@@ -60,7 +60,7 @@ export default function MoneyScreen() {
     .reduce((s, i) => s + i.amount - i.paid_amount, 0);
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -72,35 +72,35 @@ export default function MoneyScreen() {
 
         <View className="flex-row gap-3 mb-5">
           <ColorCard color="sage" className="flex-1">
-            <Text className="font-body text-xs text-slate uppercase tracking-wider">
+            <Text className="font-body text-xs text-smoke uppercase tracking-wider">
               Total paid
             </Text>
-            <Text className="font-mono text-lg text-ink">
+            <Text className="font-mono text-lg text-deep-charcoal">
               {formatSGD(totalPaid)}
             </Text>
           </ColorCard>
           <ColorCard color="coral" className="flex-1">
-            <Text className="font-body text-xs text-slate uppercase tracking-wider">
+            <Text className="font-body text-xs text-smoke uppercase tracking-wider">
               Outstanding
             </Text>
-            <Text className="font-mono text-lg text-ink">
+            <Text className="font-mono text-lg text-deep-charcoal">
               {formatSGD(totalOutstanding)}
             </Text>
           </ColorCard>
         </View>
 
-        <View className="flex-row mb-5 border-b border-cloud">
+        <View className="flex-row mb-5 border-b border-ash">
           {(["quotation", "invoices", "changes"] as Tab[]).map((t) => (
             <Pressable
               key={t}
               onPress={() => setTab(t)}
               className={`flex-1 py-3 items-center border-b-2 ${
-                tab === t ? "border-coral" : "border-transparent"
+                tab === t ? "border-violet" : "border-transparent"
               }`}
             >
               <Text
                 className={`font-body text-sm capitalize ${
-                  tab === t ? "text-ink font-semibold" : "text-slate"
+                  tab === t ? "text-deep-charcoal font-semibold" : "text-smoke"
                 }`}
               >
                 {t === "changes" ? "Changes" : t.charAt(0).toUpperCase() + t.slice(1)}
@@ -112,36 +112,36 @@ export default function MoneyScreen() {
         {tab === "quotation" && (
           <View>
             <Card className="mb-3">
-              <Text className="font-body text-xs text-slate uppercase tracking-wider mb-3">
+              <Text className="font-body text-xs text-smoke uppercase tracking-wider mb-3">
                 Quotation v{quotation.version}
               </Text>
               {lines.map((line, i) => (
                 <View
                   key={line.id}
                   className={`flex-row justify-between py-3 ${
-                    i > 0 ? "border-t border-cloud" : ""
+                    i > 0 ? "border-t border-ash" : ""
                   }`}
                 >
                   <View className="flex-1">
-                    <Text className="font-body text-sm text-ink">
+                    <Text className="font-body text-sm text-deep-charcoal">
                       {line.category}
                     </Text>
                     {line.description ? (
-                      <Text className="font-body text-xs text-slate" numberOfLines={1}>
+                      <Text className="font-body text-xs text-smoke" numberOfLines={1}>
                         {line.description}
                       </Text>
                     ) : null}
                   </View>
-                  <Text className="font-mono text-sm text-ink">
+                  <Text className="font-mono text-sm text-deep-charcoal">
                     {formatSGD(line.total)}
                   </Text>
                 </View>
               ))}
-              <View className="flex-row justify-between pt-3 border-t border-ink mt-1">
-                <Text className="font-body text-sm font-semibold text-ink">
+              <View className="flex-row justify-between pt-3 border-t border-deep-charcoal mt-1">
+                <Text className="font-body text-sm font-semibold text-deep-charcoal">
                   Total
                 </Text>
-                <Text className="font-mono text-base font-semibold text-ink">
+                <Text className="font-mono text-base font-semibold text-deep-charcoal">
                   {formatSGD(quotation.total_amount)}
                 </Text>
               </View>
@@ -168,21 +168,21 @@ export default function MoneyScreen() {
                 >
                   <View className="flex-row items-start justify-between mb-2">
                     <View className="flex-1 mr-3">
-                      <Text className="font-mono text-xs text-slate mb-1">
+                      <Text className="font-mono text-xs text-smoke mb-1">
                         {inv.invoice_number}
                       </Text>
-                      <Text className="font-heading text-base text-ink">
+                      <Text className="font-heading text-base text-deep-charcoal">
                         {inv.title}
                       </Text>
                     </View>
                     <StatusPill variant={pill.status}>{pill.label}</StatusPill>
                   </View>
                   <View className="flex-row justify-between items-end mb-2">
-                    <Text className="font-mono text-lg text-ink">
+                    <Text className="font-mono text-lg text-deep-charcoal">
                       {formatSGD(inv.amount)}
                     </Text>
                     {inv.due_date && (
-                      <Text className="font-body text-xs text-slate">
+                      <Text className="font-body text-xs text-smoke">
                         Due{" "}
                         {new Date(inv.due_date).toLocaleDateString("en-SG", {
                           day: "numeric",
@@ -194,7 +194,7 @@ export default function MoneyScreen() {
                   <ProgressBar
                     completed={Math.round((inv.paid_amount / inv.amount) * 10)}
                     total={10}
-                    color={inv.status === "overdue" ? "bg-coral" : "bg-sage"}
+                    color={inv.status === "overdue" ? "bg-red-500" : "bg-green-500"}
                     size="sm"
                     showCount={false}
                   />
@@ -219,7 +219,7 @@ export default function MoneyScreen() {
               return (
                 <Card key={co.id}>
                   <View className="flex-row items-start justify-between mb-2">
-                    <Text className="font-heading text-base text-ink flex-1 mr-3">
+                    <Text className="font-heading text-base text-deep-charcoal flex-1 mr-3">
                       {co.title}
                     </Text>
                     <StatusPill variant={pill.status}>{pill.label}</StatusPill>
@@ -231,7 +231,7 @@ export default function MoneyScreen() {
                   )}
                   <Text
                     className={`font-mono text-base ${
-                      co.amount_delta >= 0 ? "text-coral" : "text-sage"
+                      co.amount_delta >= 0 ? "text-red-500" : "text-green-600"
                     }`}
                   >
                     {co.amount_delta >= 0 ? "+" : ""}

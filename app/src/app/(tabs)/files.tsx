@@ -66,7 +66,7 @@ export default function FilesScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -101,24 +101,24 @@ export default function FilesScreen() {
             const Icon = categoryIcon(cat);
             return (
               <View key={cat} className="mb-5">
-                <Text className="font-body text-xs uppercase tracking-widest text-coral font-medium mb-3">
+                <Text className="font-body text-xs uppercase tracking-widest text-violet font-medium mb-3">
                   {categoryLabels[cat]} ({catFiles.length})
                 </Text>
                 <View className="gap-2">
                   {catFiles.map((file) => (
                     <Card key={file.id}>
                       <Pressable className="flex-row items-center gap-3">
-                        <View className="w-10 h-10 bg-snow rounded items-center justify-center">
-                          <Icon size={20} color="#7C7C8A" strokeWidth={1.5} />
+                        <View className="w-10 h-10 bg-hint-sky rounded items-center justify-center">
+                          <Icon size={20} color="#b3b3b3" strokeWidth={1.5} />
                         </View>
                         <View className="flex-1">
                           <Text
-                            className="font-body text-sm text-ink"
+                            className="font-body text-sm text-deep-charcoal"
                             numberOfLines={1}
                           >
                             {file.name}
                           </Text>
-                          <Text className="font-body text-xs text-slate">
+                          <Text className="font-body text-xs text-smoke">
                             {formatBytes(file.size_bytes)} ·{" "}
                             {new Date(file.created_at).toLocaleDateString(
                               "en-SG",

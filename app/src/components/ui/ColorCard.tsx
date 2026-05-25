@@ -10,24 +10,26 @@ interface ColorCardProps {
   className?: string;
 }
 
-const colorMap: Record<ColorName, string> = {
-  sand: "bg-sand-soft",
-  lavender: "bg-lavender-soft",
-  peach: "bg-peach-soft",
-  sage: "bg-sage-soft",
-  sky: "bg-sky-soft",
-  coral: "bg-coral-soft",
+const colorMap: Record<ColorName, { bg: string; borderColor: string }> = {
+  sand: { bg: "bg-hint-sky", borderColor: "#7b68ee" },
+  lavender: { bg: "bg-tint-blue", borderColor: "#7b68ee" },
+  peach: { bg: "bg-tint-blue", borderColor: "#0091ff" },
+  sage: { bg: "bg-hint-sky", borderColor: "#7b68ee" },
+  sky: { bg: "bg-tint-blue", borderColor: "#0091ff" },
+  coral: { bg: "bg-tint-blue", borderColor: "#7b68ee" },
 };
 
 export function ColorCard({ color, children, onPress, className = "" }: ColorCardProps) {
-  const base = `rounded-lg p-5 ${colorMap[color]}`;
+  const c = colorMap[color];
+  const base = `rounded-md p-5 ${c.bg}`;
+  const borderStyle = { borderLeftWidth: 3, borderLeftColor: c.borderColor };
 
   if (onPress) {
     return (
       <Pressable
         onPress={onPress}
         className={`${base} ${className}`}
-        style={({ pressed }) => ({ opacity: pressed ? 0.85 : 1 })}
+        style={({ pressed }) => ({ ...borderStyle, opacity: pressed ? 0.85 : 1 })}
       >
         {children}
       </Pressable>
@@ -35,7 +37,7 @@ export function ColorCard({ color, children, onPress, className = "" }: ColorCar
   }
 
   return (
-    <View className={`${base} ${className}`}>
+    <View className={`${base} ${className}`} style={borderStyle}>
       {children}
     </View>
   );

@@ -29,7 +29,7 @@ export function AvatarStack({ names, max = 3, size = "md" }: AvatarStackProps) {
             height: s.px,
             borderRadius: 9999,
             borderWidth: 2,
-            borderColor: "#FFFFFF",
+            borderColor: "#ffffff",
             zIndex: visible.length - i,
           }}
         >
@@ -38,13 +38,13 @@ export function AvatarStack({ names, max = 3, size = "md" }: AvatarStackProps) {
       ))}
       {remaining > 0 && (
         <View
-          className="bg-cloud items-center justify-center rounded-full"
+          className="bg-ash items-center justify-center rounded-full"
           style={{
             marginLeft: s.overlap,
             width: s.px,
             height: s.px,
             borderWidth: 2,
-            borderColor: "#FFFFFF",
+            borderColor: "#ffffff",
           }}
         >
           <Text className="font-body text-xs font-medium text-charcoal">

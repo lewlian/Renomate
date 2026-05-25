@@ -47,15 +47,15 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
           <View
             className={`w-8 h-8 rounded-full items-center justify-center ${
               step === current
-                ? "bg-coral"
+                ? "bg-violet"
                 : step < current
-                  ? "bg-ink"
-                  : "bg-mist"
+                  ? "bg-onyx"
+                  : "bg-smoke"
             }`}
           >
             <Text
               className={`font-body text-sm font-semibold ${
-                step <= current ? "text-mint-bg" : "text-slate"
+                step <= current ? "text-white" : "text-white"
               }`}
             >
               {step}
@@ -63,7 +63,7 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
           </View>
           {step < total && (
             <View
-              className={`w-8 h-0.5 ${step < current ? "bg-ink" : "bg-mist"}`}
+              className={`w-8 h-0.5 ${step < current ? "bg-onyx" : "bg-smoke"}`}
             />
           )}
         </View>
@@ -89,15 +89,15 @@ function PropertyTypePicker({
           <Pressable
             key={pt.value}
             onPress={() => onChange(pt.value)}
-            className={`flex-1 items-center justify-center min-h-[48px] rounded border ${
+            className={`flex-1 items-center justify-center min-h-[48px] rounded-sm border ${
               value === pt.value
-                ? "border-coral bg-coral-soft"
-                : "border-cloud bg-white"
+                ? "border-violet bg-tint-blue"
+                : "border-ash bg-canvas"
             }`}
           >
             <Text
               className={`font-body text-sm font-medium ${
-                value === pt.value ? "text-coral" : "text-charcoal"
+                value === pt.value ? "text-violet" : "text-charcoal"
               }`}
             >
               {pt.label}
@@ -130,7 +130,7 @@ function StepProjectDetails({
 }) {
   return (
     <View className="gap-4">
-      <Text className="font-heading text-xl text-ink">Project details</Text>
+      <Text className="font-heading text-xl text-deep-charcoal">Project details</Text>
       <Input
         label="Project name"
         placeholder="e.g. Tan family — Tampines #04-12"
@@ -183,8 +183,8 @@ function StepTimeline({
 
   return (
     <View className="gap-4">
-      <Text className="font-heading text-xl text-ink">Timeline phases</Text>
-      <Text className="font-body text-sm text-slate">
+      <Text className="font-heading text-xl text-deep-charcoal">Timeline phases</Text>
+      <Text className="font-body text-sm text-smoke">
         Pre-populated with common SG renovation phases. Edit names, dates, or
         add and remove as needed.
       </Text>
@@ -192,12 +192,12 @@ function StepTimeline({
       {phases.map((phase, index) => (
         <Card key={phase.id} className="gap-3">
           <View className="flex-row items-center justify-between">
-            <Text className="font-body text-xs uppercase tracking-widest text-slate font-medium">
+            <Text className="font-body text-xs uppercase tracking-widest text-smoke font-medium">
               Phase {index + 1}
             </Text>
             {phases.length > 1 && (
               <Pressable onPress={() => removePhase(phase.id)}>
-                <Text className="font-body text-sm text-coral font-medium">
+                <Text className="font-body text-sm text-red-500 font-medium">
                   Remove
                 </Text>
               </Pressable>
@@ -250,8 +250,8 @@ function StepInviteClient({
 }) {
   return (
     <View className="gap-4">
-      <Text className="font-heading text-xl text-ink">Invite client</Text>
-      <Text className="font-body text-sm text-slate">
+      <Text className="font-heading text-xl text-deep-charcoal">Invite client</Text>
+      <Text className="font-body text-sm text-smoke">
         Send an invitation to your client so they can track the project.
       </Text>
       <Input
@@ -314,7 +314,7 @@ export default function ProjectSetupScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["bottom"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["bottom"]}>
       <KeyboardAvoidingView
         className="flex-1"
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -354,7 +354,7 @@ export default function ProjectSetupScreen() {
           )}
         </ScrollView>
 
-        <View className="px-6 pb-4 pt-2 border-t border-cloud">
+        <View className="px-6 pb-4 pt-2 border-t border-ash">
           <View className="flex-row gap-3">
             {step > 1 && (
               <View className="flex-1">

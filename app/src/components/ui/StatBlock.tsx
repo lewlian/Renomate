@@ -16,8 +16,8 @@ export function StatBlock({ value, label, color, icon: Icon }: StatBlockProps) {
   return (
     <ColorCard color={color}>
       <View className="items-center">
-        {Icon && <Icon size={24} color="#7C7C8A" strokeWidth={1.5} />}
-        <Text className="font-heading text-2xl text-ink">{value}</Text>
+        {Icon && <Icon size={24} color="#b3b3b3" strokeWidth={1.5} />}
+        <Text className="font-heading text-2xl text-deep-charcoal">{value}</Text>
         <Text className="font-body text-xs text-charcoal mt-1">{label}</Text>
       </View>
     </ColorCard>

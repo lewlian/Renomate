@@ -50,7 +50,7 @@ export default function DecisionsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -81,15 +81,15 @@ export default function DecisionsScreen() {
             <Pressable
               key={f}
               onPress={() => setFilter(f)}
-              className={`px-4 py-2 rounded-full border ${
+              className={`px-4 py-2 rounded-pill border ${
                 filter === f
-                  ? "bg-ink border-ink"
-                  : "bg-mint-bg border-cloud"
+                  ? "bg-onyx border-onyx"
+                  : "bg-canvas border-ash"
               }`}
             >
               <Text
                 className={`font-body text-sm capitalize ${
-                  filter === f ? "text-mint-bg font-medium" : "text-charcoal"
+                  filter === f ? "text-white font-medium" : "text-charcoal"
                 }`}
               >
                 {f} ({counts[f]})
@@ -114,7 +114,7 @@ export default function DecisionsScreen() {
                   onPress={() => router.push(`/decisions/${decision.id}`)}
                 >
                   <View className="flex-row items-start justify-between mb-2">
-                    <Text className="font-heading text-lg text-ink flex-1 mr-3">
+                    <Text className="font-heading text-lg text-deep-charcoal flex-1 mr-3">
                       {decision.title}
                     </Text>
                     <StatusPill variant={pill.status}>{pill.label}</StatusPill>
@@ -131,12 +131,12 @@ export default function DecisionsScreen() {
 
                   <View className="flex-row items-center gap-4">
                     {decision.deadline && (
-                      <Text className="font-body text-xs text-slate">
+                      <Text className="font-body text-xs text-smoke">
                         Due {formatDate(decision.deadline)}
                       </Text>
                     )}
                     {decision.decided_at && (
-                      <Text className="font-body text-xs text-sage">
+                      <Text className="font-body text-xs text-green-600">
                         Decided {formatDate(decision.decided_at)}
                       </Text>
                     )}

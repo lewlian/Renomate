@@ -37,7 +37,7 @@ export default function DefectsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -53,16 +53,16 @@ export default function DefectsScreen() {
 
         <View className="flex-row justify-between mb-5 px-2">
           <View className="items-center">
-            <Text className="font-heading text-2xl text-coral">{openCount}</Text>
-            <Text className="font-body text-xs text-slate">Open</Text>
+            <Text className="font-heading text-2xl text-red-500">{openCount}</Text>
+            <Text className="font-body text-xs text-smoke">Open</Text>
           </View>
           <View className="items-center">
-            <Text className="font-heading text-2xl text-sage">{fixedCount}</Text>
-            <Text className="font-body text-xs text-slate">Fixed</Text>
+            <Text className="font-heading text-2xl text-green-600">{fixedCount}</Text>
+            <Text className="font-body text-xs text-smoke">Fixed</Text>
           </View>
           <View className="items-center">
-            <Text className="font-heading text-2xl text-ink">{signedOffCount}</Text>
-            <Text className="font-body text-xs text-slate">Signed off</Text>
+            <Text className="font-heading text-2xl text-deep-charcoal">{signedOffCount}</Text>
+            <Text className="font-body text-xs text-smoke">Signed off</Text>
           </View>
         </View>
 
@@ -83,7 +83,7 @@ export default function DefectsScreen() {
               return (
                 <Card key={defect.id} onPress={() => router.push(`/defects/${defect.id}`)}>
                   <View className="flex-row items-start justify-between mb-2">
-                    <Text className="font-heading text-base text-ink flex-1 mr-3">
+                    <Text className="font-heading text-base text-deep-charcoal flex-1 mr-3">
                       {defect.title}
                     </Text>
                     <StatusPill variant={pill.status}>{pill.label}</StatusPill>
@@ -97,7 +97,7 @@ export default function DefectsScreen() {
 
                   {defect.description && (
                     <Text
-                      className="font-body text-sm text-slate mb-2"
+                      className="font-body text-sm text-smoke mb-2"
                       numberOfLines={2}
                     >
                       {defect.description}
@@ -106,15 +106,15 @@ export default function DefectsScreen() {
 
                   <View className="flex-row items-center gap-4">
                     {defect.assigned_trade && (
-                      <Text className="font-body text-xs text-slate capitalize">
+                      <Text className="font-body text-xs text-smoke capitalize">
                         {defect.assigned_trade}
                       </Text>
                     )}
-                    <Text className="font-body text-xs text-slate">
+                    <Text className="font-body text-xs text-smoke">
                       Reported {formatDate(defect.created_at)}
                     </Text>
                     {defect.photo_file_ids.length > 0 && (
-                      <Text className="font-body text-xs text-slate">
+                      <Text className="font-body text-xs text-smoke">
                         {defect.photo_file_ids.length} photo
                         {defect.photo_file_ids.length > 1 ? "s" : ""}
                       </Text>

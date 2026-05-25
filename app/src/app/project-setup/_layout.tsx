@@ -7,12 +7,12 @@ export default function ProjectSetupLayout() {
         headerTitle: "New project",
         headerBackTitle: "Back",
         headerTitleStyle: {
-          fontFamily: "Fraunces",
+          fontFamily: "PlusJakartaSans-Bold",
           fontSize: 18,
         },
-        headerTintColor: "#1A1A2E",
+        headerTintColor: "#090c1d",
         headerStyle: {
-          backgroundColor: "#E8F5F0",
+          backgroundColor: "#ffffff",
         },
       }}
     />

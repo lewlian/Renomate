@@ -24,7 +24,7 @@ export function ActivityRing({
       style={{ width: size, height: size }}
     >
       <View
-        className="rounded-full bg-cloud absolute"
+        className="rounded-full bg-ash absolute"
         style={{ width: size, height: size }}
       />
 
@@ -41,8 +41,8 @@ export function ActivityRing({
               borderRadius: size / 2,
               borderWidth: strokeWidth,
               borderColor: "transparent",
-              borderTopColor: "#7EC8A0",
-              borderRightColor: rotation > 90 ? "#7EC8A0" : "transparent",
+              borderTopColor: "#7b68ee",
+              borderRightColor: rotation > 90 ? "#7b68ee" : "transparent",
               transform: [{ rotate: "-45deg" }],
             }}
           />
@@ -61,11 +61,11 @@ export function ActivityRing({
               height: size,
               borderRadius: size / 2,
               borderWidth: strokeWidth,
-              borderColor: "#7EC8A0",
+              borderColor: "#7b68ee",
               borderBottomColor:
-                rotation < 270 ? "transparent" : "#7EC8A0",
+                rotation < 270 ? "transparent" : "#7b68ee",
               borderLeftColor:
-                rotation < 180 ? "transparent" : "#7EC8A0",
+                rotation < 180 ? "transparent" : "#7b68ee",
               transform: [{ rotate: "-45deg" }],
             }}
           />
@@ -73,13 +73,13 @@ export function ActivityRing({
       )}
 
       <View
-        className="rounded-full bg-white items-center justify-center absolute"
+        className="rounded-full bg-canvas items-center justify-center absolute"
         style={{ width: innerSize, height: innerSize }}
       >
-        <Text className="font-heading text-3xl text-ink">
+        <Text className="font-heading text-3xl text-deep-charcoal">
           {Math.round(clamped)}%
         </Text>
-        <Text className="font-body text-xs text-slate">{label}</Text>
+        <Text className="font-body text-xs text-smoke">{label}</Text>
       </View>
     </View>
   );

@@ -26,10 +26,10 @@ export function Input({
   const [focused, setFocused] = useState(false);
 
   const borderClass = error
-    ? "border-coral border-2"
+    ? "border-red-500 border-2"
     : focused
-      ? "border-sky border-2"
-      : "border-cloud border";
+      ? "border-blue border-2"
+      : "border-ash border";
 
   const paddingClass = (focused || error) ? "p-[11px]" : "p-3";
 
@@ -38,7 +38,7 @@ export function Input({
       <Text className="font-body text-sm font-medium text-charcoal mb-1">
         {label}
         {optional && (
-          <Text className="font-body text-sm font-normal text-slate">
+          <Text className="font-body text-sm font-normal text-smoke">
             {" "}(optional)
           </Text>
         )}
@@ -47,19 +47,19 @@ export function Input({
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor="#B8B8C8"
+        placeholderTextColor="#b3b3b3"
         multiline={multiline}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className={`font-body text-base text-ink bg-white rounded-sm min-h-[48px] ${borderClass} ${paddingClass} ${multiline ? "min-h-[100px] text-top" : ""}`}
+        className={`font-body text-base text-deep-charcoal bg-canvas rounded-sm min-h-[48px] ${borderClass} ${paddingClass} ${multiline ? "min-h-[100px] text-top" : ""}`}
         textAlignVertical={multiline ? "top" : "center"}
         {...rest}
       />
       {error && (
-        <Text className="font-body text-sm text-coral mt-1">{error}</Text>
+        <Text className="font-body text-sm text-red-500 mt-1">{error}</Text>
       )}
       {!error && helper && (
-        <Text className="font-body text-sm text-slate mt-1">{helper}</Text>
+        <Text className="font-body text-sm text-smoke mt-1">{helper}</Text>
       )}
     </View>
   );

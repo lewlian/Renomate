@@ -21,34 +21,34 @@ interface ButtonProps extends Omit<PressableProps, "children"> {
 
 const variantClasses: Record<ButtonVariant, { container: string; text: string; spinner: string }> = {
   primary: {
-    container: "bg-coral",
+    container: "bg-onyx",
     text: "text-white",
     spinner: "#FFFFFF",
   },
   accent: {
-    container: "bg-coral",
+    container: "bg-violet",
     text: "text-white",
     spinner: "#FFFFFF",
   },
   dark: {
-    container: "bg-ink",
+    container: "bg-onyx",
     text: "text-white",
     spinner: "#FFFFFF",
   },
   secondary: {
-    container: "bg-white border border-cloud",
-    text: "text-ink",
-    spinner: "#1A1A2E",
+    container: "bg-canvas border border-ash",
+    text: "text-charcoal",
+    spinner: "#292d34",
   },
   ghost: {
     container: "bg-transparent",
-    text: "text-ink",
-    spinner: "#1A1A2E",
+    text: "text-charcoal",
+    spinner: "#292d34",
   },
   destructive: {
-    container: "bg-coral-soft",
-    text: "text-coral",
-    spinner: "#FF6B6B",
+    container: "bg-red-50",
+    text: "text-red-500",
+    spinner: "#ef4444",
   },
 };
 
@@ -85,15 +85,15 @@ export function Button({
     <Pressable
       onPress={onPress}
       disabled={isDisabled}
-      className={`flex-row items-center justify-center rounded ${v.container} ${s.container} ${isDisabled ? "opacity-50" : ""} ${className}`}
+      className={`flex-row items-center justify-center rounded-sm ${v.container} ${s.container} ${isDisabled ? "opacity-50" : ""} ${className}`}
       style={({ pressed }) => ({
         opacity: pressed && !isDisabled ? 0.7 : isDisabled ? 0.5 : 1,
         ...(variant === "primary" || variant === "accent"
           ? {
               shadowColor: "#000",
-              shadowOffset: { width: 0, height: 2 },
+              shadowOffset: { width: 0, height: 1 },
               shadowOpacity: 0.1,
-              shadowRadius: 4,
+              shadowRadius: 3,
               elevation: 2,
             }
           : {}),

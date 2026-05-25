@@ -16,12 +16,12 @@ const sizeConfig: Record<AvatarSize, { container: string; text: string; px: numb
 };
 
 const pastelBackgrounds = [
-  "bg-coral-soft",
-  "bg-sage-soft",
-  "bg-lavender-soft",
-  "bg-sky-soft",
-  "bg-sand-soft",
-  "bg-peach-soft",
+  "bg-tint-blue",
+  "bg-hint-sky",
+  "bg-tint-blue",
+  "bg-hint-sky",
+  "bg-tint-blue",
+  "bg-hint-sky",
 ] as const;
 
 function getInitials(name: string): string {
@@ -58,7 +58,7 @@ export function Avatar({ name, imageUrl, size = "md" }: AvatarProps) {
     <View
       className={`${s.container} rounded-full ${bgClass} items-center justify-center`}
     >
-      <Text className={`font-body font-medium text-ink ${s.text}`}>
+      <Text className={`font-body font-medium text-deep-charcoal ${s.text}`}>
         {getInitials(name)}
       </Text>
     </View>

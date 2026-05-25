@@ -50,14 +50,14 @@ export default function LoginScreen() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      className="flex-1 bg-mint-bg"
+      className="flex-1 bg-canvas"
     >
       <ScrollView
         contentContainerClassName="flex-1 justify-center px-6"
         keyboardShouldPersistTaps="handled"
       >
         <View className="mb-10">
-          <Text className="font-heading text-4xl text-ink mb-2">
+          <Text className="font-heading text-4xl text-deep-charcoal mb-2">
             Welcome back.
           </Text>
           <Text className="font-body text-lg text-charcoal">
@@ -93,17 +93,17 @@ export default function LoginScreen() {
           />
         </View>
 
-        <Button variant="accent" size="lg" onPress={handleSignIn} loading={loading}>
+        <Button variant="primary" size="lg" onPress={handleSignIn} loading={loading}>
           Sign in
         </Button>
 
         <View className="flex-row items-center justify-center mt-6 gap-1">
-          <Text className="font-body text-base text-slate">
+          <Text className="font-body text-base text-smoke">
             Don&apos;t have an account?
           </Text>
           <Link href="/(auth)/signup" asChild>
             <Pressable>
-              <Text className="font-body text-base text-coral font-semibold">
+              <Text className="font-body text-base text-violet font-semibold">
                 Sign up
               </Text>
             </Pressable>

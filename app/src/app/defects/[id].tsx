@@ -84,12 +84,12 @@ export default function DefectDetailScreen() {
 
   if (!defect) {
     return (
-      <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+      <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
         <View className="px-6 pt-4">
           <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
-            <ArrowLeft size={24} color="#1A1A2E" />
+            <ArrowLeft size={24} color="#090c1d" />
           </Pressable>
-          <Text className="font-heading text-xl text-ink">
+          <Text className="font-heading text-xl text-deep-charcoal">
             Defect not found
           </Text>
         </View>
@@ -101,23 +101,23 @@ export default function DefectDetailScreen() {
   const currentIndex = getTimelineIndex(defect.status);
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
       >
         <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#1A1A2E" />
+          <ArrowLeft size={24} color="#090c1d" />
         </Pressable>
 
         <View className="flex-row items-center mb-4">
           <AvatarStack names={["Sarah Tan", "Marcus Chen", "Ahmad Razak"]} max={3} size="md" />
-          <Text className="font-body text-xs text-slate ml-3">Project team</Text>
+          <Text className="font-body text-xs text-smoke ml-3">Project team</Text>
         </View>
 
         <View className="flex-row items-start justify-between mb-3">
-          <Text className="font-heading text-2xl text-ink flex-1 mr-3">
+          <Text className="font-heading text-2xl text-deep-charcoal flex-1 mr-3">
             {defect.title}
           </Text>
           <StatusPill variant={pill.status}>{pill.label}</StatusPill>
@@ -133,10 +133,10 @@ export default function DefectDetailScreen() {
           <View className="gap-3">
             {defect.location_text && (
               <View>
-                <Text className="font-body text-xs font-medium text-slate uppercase tracking-wider mb-1">
+                <Text className="font-body text-xs font-medium text-smoke uppercase tracking-wider mb-1">
                   Location
                 </Text>
-                <Text className="font-body text-sm text-ink">
+                <Text className="font-body text-sm text-deep-charcoal">
                   {defect.location_text}
                 </Text>
               </View>
@@ -144,20 +144,20 @@ export default function DefectDetailScreen() {
 
             {defect.assigned_trade && (
               <View>
-                <Text className="font-body text-xs font-medium text-slate uppercase tracking-wider mb-1">
+                <Text className="font-body text-xs font-medium text-smoke uppercase tracking-wider mb-1">
                   Assigned trade
                 </Text>
-                <Text className="font-body text-sm text-ink capitalize">
+                <Text className="font-body text-sm text-deep-charcoal capitalize">
                   {defect.assigned_trade}
                 </Text>
               </View>
             )}
 
             <View>
-              <Text className="font-body text-xs font-medium text-slate uppercase tracking-wider mb-1">
+              <Text className="font-body text-xs font-medium text-smoke uppercase tracking-wider mb-1">
                 Reported
               </Text>
-              <Text className="font-body text-sm text-ink">
+              <Text className="font-body text-sm text-deep-charcoal">
                 {formatDate(defect.created_at)}
               </Text>
             </View>
@@ -165,9 +165,9 @@ export default function DefectDetailScreen() {
         </Card>
 
         <Card className="mb-4">
-          <Text className="font-heading text-base text-ink mb-3">Photos</Text>
+          <Text className="font-heading text-base text-deep-charcoal mb-3">Photos</Text>
           {defect.photo_file_ids.length === 0 ? (
-            <Text className="font-body text-sm text-slate">
+            <Text className="font-body text-sm text-smoke">
               No photos attached
             </Text>
           ) : (
@@ -184,9 +184,9 @@ export default function DefectDetailScreen() {
                 {defect.photo_file_ids.map((fileId) => (
                   <View
                     key={fileId}
-                    className="w-24 h-24 rounded bg-mist items-center justify-center"
+                    className="w-24 h-24 rounded bg-hint-sky items-center justify-center"
                   >
-                    <Camera size={24} color="#B8B8C8" />
+                    <Camera size={24} color="#b3b3b3" />
                   </View>
                 ))}
               </ScrollView>
@@ -223,17 +223,17 @@ export default function DefectDetailScreen() {
             <View>
               <Pressable
                 onPress={() => setShowTradeList(!showTradeList)}
-                className="bg-white border border-cloud rounded p-3 flex-row items-center justify-between"
+                className="bg-canvas border border-ash rounded-sm p-3 flex-row items-center justify-between"
               >
-                <Text className="font-body text-base text-ink capitalize">
+                <Text className="font-body text-base text-deep-charcoal capitalize">
                   {selectedTrade ?? "Assign trade..."}
                 </Text>
-                <Text className="font-body text-sm text-slate">
+                <Text className="font-body text-sm text-smoke">
                   {showTradeList ? "▲" : "▼"}
                 </Text>
               </Pressable>
               {showTradeList && (
-                <View className="bg-white border border-cloud rounded mt-1">
+                <View className="bg-canvas border border-ash rounded-sm mt-1">
                   {allTrades.map((trade) => (
                     <Pressable
                       key={trade}
@@ -245,11 +245,11 @@ export default function DefectDetailScreen() {
                           `Defect assigned to ${trade}.`
                         );
                       }}
-                      className="p-3 border-b border-cloud"
+                      className="p-3 border-b border-ash"
                     >
                       <Text
                         className={`font-body text-base capitalize ${
-                          trade === selectedTrade ? "text-coral" : "text-ink"
+                          trade === selectedTrade ? "text-violet" : "text-deep-charcoal"
                         }`}
                       >
                         {trade}
@@ -284,7 +284,7 @@ export default function DefectDetailScreen() {
         )}
 
         <ColorCard color="sage">
-          <Text className="font-heading text-base text-ink mb-4">Timeline</Text>
+          <Text className="font-heading text-base text-deep-charcoal mb-4">Timeline</Text>
           <View className="gap-0">
             {timelineSteps.map((step, index) => {
               const isReached = currentIndex >= index;
@@ -297,18 +297,18 @@ export default function DefectDetailScreen() {
                     <View
                       className={`w-4 h-4 rounded-full border-2 ${
                         isCurrent
-                          ? "bg-coral border-coral"
+                          ? "bg-violet border-violet"
                           : isReached
-                            ? "bg-ink border-ink"
-                            : "bg-white border-cloud"
+                            ? "bg-deep-charcoal border-deep-charcoal"
+                            : "bg-canvas border-ash"
                       }`}
                     />
                     {!isLast && (
                       <View
                         className={`w-0.5 h-8 ${
                           isReached && index < currentIndex
-                            ? "bg-ink"
-                            : "bg-white"
+                            ? "bg-deep-charcoal"
+                            : "bg-canvas"
                         }`}
                       />
                     )}
@@ -317,10 +317,10 @@ export default function DefectDetailScreen() {
                     <Text
                       className={`font-body text-sm font-medium ${
                         isCurrent
-                          ? "text-coral"
+                          ? "text-violet"
                           : isReached
-                            ? "text-ink"
-                            : "text-slate"
+                            ? "text-deep-charcoal"
+                            : "text-smoke"
                       }`}
                     >
                       {step.label}

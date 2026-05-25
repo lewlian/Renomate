@@ -10,14 +10,14 @@ interface CardProps {
 
 const shadowStyle = {
   shadowColor: "#000",
-  shadowOffset: { width: 0, height: 2 },
-  shadowOpacity: 0.06,
-  shadowRadius: 8,
+  shadowOffset: { width: 0, height: 1 },
+  shadowOpacity: 0.1,
+  shadowRadius: 3,
   elevation: 2,
 };
 
 export function Card({ variant: _variant, children, onPress, className = "" }: CardProps) {
-  const base = "rounded-md bg-white p-5";
+  const base = "rounded-md bg-canvas p-5";
 
   if (onPress) {
     return (

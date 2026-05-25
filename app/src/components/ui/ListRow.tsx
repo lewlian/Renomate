@@ -18,12 +18,12 @@ export function ListRow({
 }: ListRowProps) {
   const content = (
     <View
-      className={`flex-row items-center justify-between py-4 px-4 ${showDivider ? "border-b border-cloud" : ""}`}
+      className={`flex-row items-center justify-between py-4 px-4 ${showDivider ? "border-b border-ash" : ""}`}
     >
       <View className="flex-1 mr-3">
-        <Text className="font-body text-base text-ink">{title}</Text>
+        <Text className="font-body text-base text-deep-charcoal">{title}</Text>
         {subtitle && (
-          <Text className="font-body text-sm text-slate mt-0.5">
+          <Text className="font-body text-sm text-smoke mt-0.5">
             {subtitle}
           </Text>
         )}

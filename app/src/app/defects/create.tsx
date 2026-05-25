@@ -64,7 +64,7 @@ export default function CreateDefectScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -72,10 +72,10 @@ export default function CreateDefectScreen() {
         keyboardShouldPersistTaps="handled"
       >
         <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#1A1A2E" />
+          <ArrowLeft size={24} color="#090c1d" />
         </Pressable>
 
-        <Text className="font-heading text-2xl text-ink mb-6">
+        <Text className="font-heading text-2xl text-deep-charcoal mb-6">
           Report a defect
         </Text>
 
@@ -112,7 +112,7 @@ export default function CreateDefectScreen() {
         <View className="mb-6">
           <Text className="font-body text-sm font-medium text-charcoal mb-3">
             Photos{" "}
-            <Text className="font-body text-sm font-normal text-slate">
+            <Text className="font-body text-sm font-normal text-smoke">
               (optional)
             </Text>
           </Text>
@@ -131,19 +131,19 @@ export default function CreateDefectScreen() {
                 />
                 <Pressable
                   onPress={() => handleRemovePhoto(photo.id)}
-                  className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-ink items-center justify-center"
+                  className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-onyx items-center justify-center"
                 >
-                  <X size={14} color="#E8F5F0" />
+                  <X size={14} color="#ffffff" />
                 </Pressable>
               </View>
             ))}
 
             <Pressable
               onPress={handlePickImages}
-              className="w-24 h-24 rounded border-2 border-dashed border-cloud items-center justify-center bg-white"
+              className="w-24 h-24 rounded border-2 border-dashed border-ash items-center justify-center bg-canvas"
             >
-              <Plus size={24} color="#B8B8C8" />
-              <Text className="font-body text-xs text-slate mt-1">
+              <Plus size={24} color="#b3b3b3" />
+              <Text className="font-body text-xs text-smoke mt-1">
                 Add photos
               </Text>
             </Pressable>

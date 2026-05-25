@@ -41,14 +41,14 @@ export default function TabsLayout() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: colors.white,
-          borderTopColor: colors.cloud,
+          borderTopColor: colors.ash,
           borderTopWidth: 1,
           height: 84,
           paddingBottom: 24,
           paddingTop: 8,
         },
-        tabBarActiveTintColor: colors.coral,
-        tabBarInactiveTintColor: colors.slate,
+        tabBarActiveTintColor: colors.violet,
+        tabBarInactiveTintColor: colors.smoke,
         tabBarLabelStyle: {
           fontFamily: "Inter-Medium",
           fontSize: 11,

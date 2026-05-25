@@ -53,7 +53,7 @@ export default function TimelineScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -67,10 +67,10 @@ export default function TimelineScreen() {
         </View>
 
         <Card className="mb-6">
-          <Text className="font-heading text-lg text-ink mb-1">
+          <Text className="font-heading text-lg text-deep-charcoal mb-1">
             {project.name}
           </Text>
-          <Text className="font-body text-sm text-slate mb-3">
+          <Text className="font-body text-sm text-smoke mb-3">
             {project.planned_start_date
               ? formatDate(project.planned_start_date)
               : "TBD"}{" "}
@@ -82,7 +82,7 @@ export default function TimelineScreen() {
           <ProgressBar
             completed={completedCount}
             total={phases.length}
-            color="bg-sage"
+            color="bg-green-500"
             showCount
           />
         </Card>
@@ -96,22 +96,22 @@ export default function TimelineScreen() {
             return (
               <Card
                 key={phase.id}
-                className={isActive ? "border-coral" : ""}
+                className={isActive ? "border-violet" : ""}
               >
                 <View className="flex-row items-start justify-between mb-2">
                   <View className="flex-row items-center gap-3 flex-1">
                     <View
                       className={`w-3 h-3 rounded-full ${
                         phase.status === "complete"
-                          ? "bg-sage"
+                          ? "bg-green-500"
                           : phase.status === "in_progress"
-                            ? "bg-coral"
-                            : "bg-cloud"
+                            ? "bg-violet"
+                            : "bg-ash"
                       }`}
                     />
                     <Text
                       className={`font-heading text-lg ${
-                        isActive ? "text-ink" : "text-charcoal"
+                        isActive ? "text-deep-charcoal" : "text-charcoal"
                       }`}
                     >
                       {String(i + 1).padStart(2, "0")} {phase.name}
@@ -121,14 +121,14 @@ export default function TimelineScreen() {
                 </View>
 
                 <View className="ml-6 mb-1">
-                  <Text className="font-body text-sm text-slate">
+                  <Text className="font-body text-sm text-smoke">
                     {formatDate(phase.planned_start)} –{" "}
                     {formatDate(phase.planned_end)}
                   </Text>
                 </View>
 
                 {isActive && (
-                  <Text className="font-body text-xs uppercase tracking-widest text-coral font-medium ml-6 mt-1 mb-1">
+                  <Text className="font-body text-xs uppercase tracking-widest text-violet font-medium ml-6 mt-1 mb-1">
                     You are here
                   </Text>
                 )}

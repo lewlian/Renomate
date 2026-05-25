@@ -27,7 +27,7 @@ export default function ChannelsScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -60,21 +60,21 @@ export default function ChannelsScreen() {
               const content = (
                 <>
                   <View className="flex-row items-center gap-3">
-                    <View className="w-10 h-10 bg-snow rounded-full items-center justify-center">
+                    <View className="w-10 h-10 bg-hint-sky rounded-full items-center justify-center">
                       <MessageSquare
                         size={18}
-                        color="#7C7C8A"
+                        color="#b3b3b3"
                         strokeWidth={1.5}
                       />
                     </View>
                     <View className="flex-1">
                       <View className="flex-row items-center gap-2">
-                        <Text className="font-body text-base font-semibold text-ink">
+                        <Text className="font-body text-base font-semibold text-deep-charcoal">
                           {ch.name}
                         </Text>
                         {ch.is_main && (
-                          <View className="bg-coral-soft px-2 py-0.5 rounded-full">
-                            <Text className="font-body text-[10px] text-coral font-medium">
+                          <View className="bg-tint-blue px-2 py-0.5 rounded-full">
+                            <Text className="font-body text-[10px] text-violet font-medium">
                               Main
                             </Text>
                           </View>
@@ -82,7 +82,7 @@ export default function ChannelsScreen() {
                       </View>
                       {lastMsg && (
                         <Text
-                          className="font-body text-sm text-slate"
+                          className="font-body text-sm text-smoke"
                           numberOfLines={1}
                         >
                           {lastMsg.body}
@@ -90,7 +90,7 @@ export default function ChannelsScreen() {
                       )}
                     </View>
                     {lastMsg && (
-                      <Text className="font-body text-xs text-mist">
+                      <Text className="font-body text-xs text-smoke">
                         {new Date(lastMsg.created_at).toLocaleDateString(
                           "en-SG",
                           { day: "numeric", month: "short" }
@@ -142,12 +142,12 @@ function ChannelThread({
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
-      <View className="flex-row items-center gap-3 px-6 py-4 border-b border-cloud">
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
+      <View className="flex-row items-center gap-3 px-6 py-4 border-b border-ash">
         <Pressable onPress={onBack} className="min-w-[48px] min-h-[48px] items-start justify-center">
-          <Text className="font-body text-base text-coral">← Back</Text>
+          <Text className="font-body text-base text-violet">← Back</Text>
         </Pressable>
-        <Text className="font-body text-base font-semibold text-ink flex-1">
+        <Text className="font-body text-base font-semibold text-deep-charcoal flex-1">
           {channel.name}
         </Text>
       </View>
@@ -172,7 +172,7 @@ function ChannelThread({
                   <Text className="font-body text-xs font-medium text-charcoal">
                     {name}
                   </Text>
-                  <Text className="font-body text-[10px] text-mist">
+                  <Text className="font-body text-[10px] text-smoke">
                     {new Date(msg.created_at).toLocaleTimeString("en-SG", {
                       hour: "2-digit",
                       minute: "2-digit",
@@ -180,11 +180,11 @@ function ChannelThread({
                   </Text>
                 </View>
                 <View
-                  className={`rounded-lg px-4 py-3 max-w-[85%] ${
-                    isClient ? "bg-coral-soft" : "bg-snow"
+                  className={`rounded-md px-4 py-3 max-w-[85%] ${
+                    isClient ? "bg-tint-blue" : "bg-hint-sky"
                   }`}
                 >
-                  <Text className="font-body text-sm text-ink">
+                  <Text className="font-body text-sm text-deep-charcoal">
                     {msg.body}
                   </Text>
                 </View>
@@ -194,17 +194,17 @@ function ChannelThread({
         })}
       </ScrollView>
 
-      <View className="px-6 py-3 border-t border-cloud bg-white flex-row items-end gap-3">
+      <View className="px-6 py-3 border-t border-ash bg-canvas flex-row items-end gap-3">
         <TextInput
           value={draft}
           onChangeText={setDraft}
           placeholder="Type a message..."
-          placeholderTextColor="#B8B8C8"
+          placeholderTextColor="#b3b3b3"
           multiline
-          className="flex-1 font-body text-base text-ink bg-snow rounded-lg px-4 py-3 min-h-[48px] max-h-24"
+          className="flex-1 font-body text-base text-deep-charcoal bg-hint-sky rounded-md px-4 py-3 min-h-[48px] max-h-24"
         />
         <Pressable
-          className="w-11 h-11 bg-coral rounded-full items-center justify-center"
+          className="w-11 h-11 bg-violet rounded-full items-center justify-center"
           onPress={() => {
             if (draft.trim().length > 0) {
               Alert.alert("Message sending will be wired to Supabase Realtime.");
@@ -212,7 +212,7 @@ function ChannelThread({
             setDraft("");
           }}
         >
-          <Send size={18} color="#E8F5F0" strokeWidth={1.5} />
+          <Send size={18} color="#ffffff" strokeWidth={1.5} />
         </Pressable>
       </View>
     </SafeAreaView>

@@ -11,15 +11,15 @@ export function SectionHeader({ overline, title, subtitle }: SectionHeaderProps)
   return (
     <View className="gap-1">
       {overline && (
-        <Text className="font-body text-xs font-semibold uppercase tracking-wider text-coral">
+        <Text className="font-body text-xs font-semibold uppercase tracking-wider text-violet">
           {overline}
         </Text>
       )}
       {title && (
-        <Text className="font-heading text-3xl text-ink">{title}</Text>
+        <Text className="font-heading text-3xl text-deep-charcoal">{title}</Text>
       )}
       {subtitle && (
-        <Text className="font-body text-lg text-slate">{subtitle}</Text>
+        <Text className="font-body text-lg text-smoke">{subtitle}</Text>
       )}
     </View>
   );

@@ -36,12 +36,12 @@ export default function DecisionDetailScreen() {
 
   if (!decision) {
     return (
-      <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+      <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
         <View className="px-6 mt-4">
           <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
-            <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
+            <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
           </Pressable>
-          <Text className="font-heading text-2xl text-ink">
+          <Text className="font-heading text-2xl text-deep-charcoal">
             Decision not found
           </Text>
         </View>
@@ -74,14 +74,14 @@ export default function DecisionDetailScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
       >
         <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
+          <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
         </Pressable>
 
         <View className="items-center mb-5">
@@ -103,13 +103,13 @@ export default function DecisionDetailScreen() {
         )}
 
         {decision.deadline && (
-          <Text className="font-body text-sm text-slate mb-2">
+          <Text className="font-body text-sm text-smoke mb-2">
             Deadline: {formatDate(decision.deadline)}
           </Text>
         )}
 
         {decision.decided_at && (
-          <Text className="font-body text-sm text-sage mb-2">
+          <Text className="font-body text-sm text-green-600 mb-2">
             Decided: {formatDate(decision.decided_at)}
           </Text>
         )}
@@ -120,7 +120,7 @@ export default function DecisionDetailScreen() {
               Selected option
             </Text>
             <Card variant="elevated">
-              <Text className="font-body text-base text-ink">
+              <Text className="font-body text-base text-deep-charcoal">
                 {decidedValue.label}
               </Text>
             </Card>
@@ -142,9 +142,9 @@ export default function DecisionDetailScreen() {
                     key={option.label}
                     color={isSelected ? "coral" : colorForOption}
                     onPress={canConfirm ? () => setSelectedOption(option.label) : undefined}
-                    className={isSelected ? "border-2 border-coral" : ""}
+                    className={isSelected ? "border-2 border-violet" : ""}
                   >
-                    <Text className="font-body text-base text-ink">
+                    <Text className="font-body text-base text-deep-charcoal">
                       {option.label}
                     </Text>
                   </ColorCard>
@@ -164,7 +164,7 @@ export default function DecisionDetailScreen() {
                 .filter((o) => o.label !== decidedValue.label)
                 .map((option) => (
                   <Card key={option.label}>
-                    <Text className="font-body text-base text-slate">
+                    <Text className="font-body text-base text-smoke">
                       {option.label}
                     </Text>
                   </Card>

@@ -33,13 +33,13 @@ function ClientHome() {
 
   return (
     <>
-      <Text className="font-body text-xs uppercase tracking-widest text-slate font-medium mb-3">
+      <Text className="font-body text-xs uppercase tracking-widest text-smoke font-medium mb-3">
         Today
       </Text>
       <View className="flex-row gap-3 mb-6">
         <Pressable className="flex-1">
           <ColorCard color="sand" className="flex-1">
-            <Text className="font-heading text-lg text-ink mb-1">
+            <Text className="font-heading text-lg text-deep-charcoal mb-1">
               {currentPhase?.name ?? "Not started"}
             </Text>
             <Text className="font-body text-xs text-charcoal mb-3">
@@ -48,7 +48,7 @@ function ClientHome() {
             <ProgressBar
               completed={completedCount}
               total={phases.length}
-              color="bg-sage"
+              color="bg-green-500"
               showCount={false}
               size="sm"
             />
@@ -59,7 +59,7 @@ function ClientHome() {
             {pendingDecisions.length > 0 ? (
               <>
                 <Text
-                  className="font-heading text-lg text-ink mb-1"
+                  className="font-heading text-lg text-deep-charcoal mb-1"
                   numberOfLines={2}
                 >
                   {pendingDecisions[0].title}
@@ -76,7 +76,7 @@ function ClientHome() {
               </>
             ) : (
               <>
-                <Text className="font-heading text-lg text-ink mb-1">
+                <Text className="font-heading text-lg text-deep-charcoal mb-1">
                   All clear
                 </Text>
                 <Text className="font-body text-xs text-charcoal">
@@ -88,49 +88,49 @@ function ClientHome() {
         </Pressable>
       </View>
 
-      <Text className="font-body text-xs uppercase tracking-widest text-slate font-medium mb-3">
+      <Text className="font-body text-xs uppercase tracking-widest text-smoke font-medium mb-3">
         Quick Stats
       </Text>
       <View className="flex-row gap-3 mb-6">
         <View className="flex-1 items-center">
-          <Text className="font-mono text-2xl text-coral">
+          <Text className="font-mono text-2xl text-violet">
             {pendingDecisions.length}
           </Text>
-          <Text className="font-body text-xs text-slate mt-1 text-center">
+          <Text className="font-body text-xs text-smoke mt-1 text-center">
             Decisions pending
           </Text>
         </View>
         <View className="flex-1 items-center">
-          <Text className="font-mono text-2xl text-coral">
+          <Text className="font-mono text-2xl text-violet">
             {overdueTotal > 0
               ? `$${overdueTotal.toLocaleString("en-SG")}`
               : "$0"}
           </Text>
-          <Text className="font-body text-xs text-slate mt-1 text-center">
+          <Text className="font-body text-xs text-smoke mt-1 text-center">
             Invoices due
           </Text>
         </View>
         <View className="flex-1 items-center">
-          <Text className="font-mono text-2xl text-lavender">
+          <Text className="font-mono text-2xl text-violet">
             {openDefects.length}
           </Text>
-          <Text className="font-body text-xs text-slate mt-1 text-center">
+          <Text className="font-body text-xs text-smoke mt-1 text-center">
             Defects open
           </Text>
         </View>
       </View>
 
-      <Text className="font-body text-xs uppercase tracking-widest text-slate font-medium mb-3">
+      <Text className="font-body text-xs uppercase tracking-widest text-smoke font-medium mb-3">
         Project Progress
       </Text>
       <Card className="mb-4">
-        <Text className="font-heading text-lg text-ink mb-3">
+        <Text className="font-heading text-lg text-deep-charcoal mb-3">
           {project.name}
         </Text>
         <ProgressBar
           completed={completedCount}
           total={phases.length}
-          color="bg-sage"
+          color="bg-green-500"
           showCount
         />
         <View className="mt-4 gap-2">
@@ -139,16 +139,16 @@ function ClientHome() {
               <View
                 className={`w-2.5 h-2.5 rounded-full ${
                   phase.status === "complete"
-                    ? "bg-sage"
+                    ? "bg-green-500"
                     : phase.status === "in_progress"
-                      ? "bg-coral"
-                      : "bg-cloud"
+                      ? "bg-violet"
+                      : "bg-ash"
                 }`}
               />
               <Text className="font-body text-sm text-charcoal flex-1">
                 {phase.name}
               </Text>
-              <Text className="font-body text-xs text-slate">
+              <Text className="font-body text-xs text-smoke">
                 {phase.status === "in_progress" ? "Active" : "Upcoming"}
               </Text>
             </View>
@@ -173,15 +173,15 @@ function DesignerHome() {
   const completedCount = phases.filter((p) => p.status === "complete").length;
 
   const quickActions: { label: string; icon: string; bg: string; route: string }[] = [
-    { label: "New project", icon: "+", bg: "bg-coral-soft", route: "/project-setup" },
-    { label: "Create decision", icon: "?", bg: "bg-lavender-soft", route: "/decisions/create" },
-    { label: "Issue invoice", icon: "$", bg: "bg-sage-soft", route: "/invoices/create" },
-    { label: "Report defect", icon: "!", bg: "bg-sky-soft", route: "/defects/create" },
+    { label: "New project", icon: "+", bg: "bg-tint-blue", route: "/project-setup" },
+    { label: "Create decision", icon: "?", bg: "bg-tint-blue", route: "/decisions/create" },
+    { label: "Issue invoice", icon: "$", bg: "bg-hint-sky", route: "/invoices/create" },
+    { label: "Report defect", icon: "!", bg: "bg-hint-sky", route: "/defects/create" },
   ];
 
   return (
     <>
-      <Text className="font-body text-xs uppercase tracking-widest text-slate font-medium mb-3">
+      <Text className="font-body text-xs uppercase tracking-widest text-smoke font-medium mb-3">
         Today&apos;s Schedule
       </Text>
       <ScrollView
@@ -191,7 +191,7 @@ function DesignerHome() {
         contentContainerStyle={{ gap: 12 }}
       >
         <ColorCard color="sand" className="w-48">
-          <Text className="font-heading text-lg text-ink mb-1">
+          <Text className="font-heading text-lg text-deep-charcoal mb-1">
             Review decisions
           </Text>
           <Text className="font-body text-sm text-charcoal">
@@ -199,7 +199,7 @@ function DesignerHome() {
           </Text>
         </ColorCard>
         <ColorCard color="lavender" className="w-48">
-          <Text className="font-heading text-lg text-ink mb-1">
+          <Text className="font-heading text-lg text-deep-charcoal mb-1">
             Overdue invoices
           </Text>
           <Text className="font-body text-sm text-charcoal">
@@ -211,37 +211,37 @@ function DesignerHome() {
         </ColorCard>
       </ScrollView>
 
-      <Text className="font-body text-xs uppercase tracking-widest text-slate font-medium mb-3">
+      <Text className="font-body text-xs uppercase tracking-widest text-smoke font-medium mb-3">
         Stats
       </Text>
       <View className="flex-row gap-3 mb-6">
         <View className="flex-1 items-center">
-          <Text className="font-mono text-2xl text-coral">
+          <Text className="font-mono text-2xl text-violet">
             {pendingDecisions.length}
           </Text>
-          <Text className="font-body text-xs text-slate mt-1 text-center">
+          <Text className="font-body text-xs text-smoke mt-1 text-center">
             Pending decisions
           </Text>
         </View>
         <View className="flex-1 items-center">
-          <Text className="font-mono text-2xl text-coral">
+          <Text className="font-mono text-2xl text-violet">
             {openDefects.length}
           </Text>
-          <Text className="font-body text-xs text-slate mt-1 text-center">
+          <Text className="font-body text-xs text-smoke mt-1 text-center">
             Open defects
           </Text>
         </View>
         <View className="flex-1 items-center">
-          <Text className="font-mono text-2xl text-lavender">
+          <Text className="font-mono text-2xl text-violet">
             {completedCount}/{phases.length}
           </Text>
-          <Text className="font-body text-xs text-slate mt-1 text-center">
+          <Text className="font-body text-xs text-smoke mt-1 text-center">
             Phases done
           </Text>
         </View>
       </View>
 
-      <Text className="font-body text-xs uppercase tracking-widest text-slate font-medium mb-3">
+      <Text className="font-body text-xs uppercase tracking-widest text-smoke font-medium mb-3">
         Quick Actions
       </Text>
       <View className="flex-row flex-wrap gap-3 mb-4">
@@ -252,11 +252,11 @@ function DesignerHome() {
             className="w-[47%]"
           >
             <View className={`w-10 h-10 rounded-full ${action.bg} items-center justify-center mb-3`}>
-              <Text className="font-heading text-lg text-ink">
+              <Text className="font-heading text-lg text-deep-charcoal">
                 {action.icon}
               </Text>
             </View>
-            <Text className="font-heading text-sm text-ink">
+            <Text className="font-heading text-sm text-deep-charcoal">
               {action.label}
             </Text>
           </Card>
@@ -277,7 +277,7 @@ export default function HomeScreen() {
   const { user, role, switchRole } = useAuth();
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -285,8 +285,8 @@ export default function HomeScreen() {
       >
         <View className="flex-row items-center justify-between mt-4 mb-6">
           <View className="flex-1">
-            <Text className="font-body text-sm text-slate">{getGreeting()},</Text>
-            <Text className="font-heading text-2xl text-ink">
+            <Text className="font-body text-sm text-smoke">{getGreeting()},</Text>
+            <Text className="font-heading text-2xl text-deep-charcoal">
               {user?.full_name?.split(" ")[0] ?? "there"}
             </Text>
           </View>
@@ -297,8 +297,8 @@ export default function HomeScreen() {
 
         {role === "designer" ? <DesignerHome /> : <ClientHome />}
 
-        <View className="mt-2 py-3 border-t border-cloud">
-          <Text className="font-body text-xs text-mist text-center">
+        <View className="mt-2 py-3 border-t border-ash">
+          <Text className="font-body text-xs text-smoke text-center">
             {role === "client" ? "Client" : "Designer"} view · Tap avatar to
             switch
           </Text>

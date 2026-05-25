@@ -47,12 +47,12 @@ export default function InvoiceDetailScreen() {
 
   if (!invoice) {
     return (
-      <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+      <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
         <View className="px-6 mt-4">
           <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
-            <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
+            <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
           </Pressable>
-          <Text className="font-heading text-2xl text-ink">
+          <Text className="font-heading text-2xl text-deep-charcoal">
             Invoice not found
           </Text>
         </View>
@@ -97,14 +97,14 @@ export default function InvoiceDetailScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
         showsVerticalScrollIndicator={false}
       >
         <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
+          <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
         </Pressable>
 
         <View className="mb-4">
@@ -122,10 +122,10 @@ export default function InvoiceDetailScreen() {
           color={invoice.status === "paid" ? "sage" : invoice.status === "overdue" ? "coral" : "sand"}
           className="mb-4"
         >
-          <Text className="font-body text-xs text-slate uppercase tracking-wider mb-1">
+          <Text className="font-body text-xs text-smoke uppercase tracking-wider mb-1">
             Amount
           </Text>
-          <Text className="font-mono text-2xl text-ink">
+          <Text className="font-mono text-2xl text-deep-charcoal">
             {formatSGD(invoice.amount)}
           </Text>
         </ColorCard>
@@ -134,7 +134,7 @@ export default function InvoiceDetailScreen() {
           <ProgressBar
             completed={Math.round((invoice.paid_amount / invoice.amount) * 10)}
             total={10}
-            color={invoice.status === "overdue" ? "bg-coral" : "bg-sage"}
+            color={invoice.status === "overdue" ? "bg-red-500" : "bg-green-500"}
           />
         </View>
 
@@ -147,18 +147,18 @@ export default function InvoiceDetailScreen() {
         <Card className="mb-4">
           <View className="flex-row justify-between mb-3">
             <View>
-              <Text className="font-body text-xs text-slate uppercase tracking-wider mb-1">
+              <Text className="font-body text-xs text-smoke uppercase tracking-wider mb-1">
                 Issued
               </Text>
-              <Text className="font-body text-sm text-ink">
+              <Text className="font-body text-sm text-deep-charcoal">
                 {invoice.issued_at ? formatDate(invoice.issued_at) : "Not yet issued"}
               </Text>
             </View>
             <View className="items-end">
-              <Text className="font-body text-xs text-slate uppercase tracking-wider mb-1">
+              <Text className="font-body text-xs text-smoke uppercase tracking-wider mb-1">
                 Due date
               </Text>
-              <Text className="font-body text-sm text-ink">
+              <Text className="font-body text-sm text-deep-charcoal">
                 {invoice.due_date ? formatDate(invoice.due_date) : "N/A"}
               </Text>
             </View>
@@ -166,31 +166,31 @@ export default function InvoiceDetailScreen() {
         </Card>
 
         <Card className="mb-4">
-          <Text className="font-body text-xs text-slate uppercase tracking-wider mb-2">
+          <Text className="font-body text-xs text-smoke uppercase tracking-wider mb-2">
             Payment info
           </Text>
           <View className="flex-row justify-between mb-2">
             <Text className="font-body text-sm text-charcoal">Paid</Text>
-            <Text className="font-mono text-sm text-ink">
+            <Text className="font-mono text-sm text-deep-charcoal">
               {formatSGD(invoice.paid_amount)}
             </Text>
           </View>
           <View className="flex-row justify-between mb-2">
             <Text className="font-body text-sm text-charcoal">Total</Text>
-            <Text className="font-mono text-sm text-ink">
+            <Text className="font-mono text-sm text-deep-charcoal">
               {formatSGD(invoice.amount)}
             </Text>
           </View>
-          <View className="flex-row justify-between pt-2 border-t border-cloud">
+          <View className="flex-row justify-between pt-2 border-t border-ash">
             <Text className="font-body text-sm font-semibold text-charcoal">
               Balance
             </Text>
-            <Text className="font-mono text-sm font-semibold text-ink">
+            <Text className="font-mono text-sm font-semibold text-deep-charcoal">
               {formatSGD(invoice.amount - invoice.paid_amount)}
             </Text>
           </View>
           {invoice.paid_at ? (
-            <Text className="font-body text-xs text-sage mt-2">
+            <Text className="font-body text-xs text-green-600 mt-2">
               Paid on {formatDate(invoice.paid_at)}
             </Text>
           ) : null}
@@ -200,10 +200,10 @@ export default function InvoiceDetailScreen() {
           <View className="gap-3 mt-2">
             <Pressable
               onPress={handlePickReceipt}
-              className="flex-row items-center justify-center rounded border border-cloud bg-mint-bg min-h-[48px] px-5 py-3"
+              className="flex-row items-center justify-center rounded-sm border border-ash bg-canvas min-h-[48px] px-5 py-3"
               style={({ pressed }) => ({ opacity: pressed ? 0.7 : 1 })}
             >
-              <Upload size={18} color="#7C7C8A" strokeWidth={1.5} />
+              <Upload size={18} color="#b3b3b3" strokeWidth={1.5} />
               <Text className="font-body text-sm text-charcoal ml-2">
                 {receiptUri ? "Receipt attached" : "Attach receipt photo"}
               </Text>

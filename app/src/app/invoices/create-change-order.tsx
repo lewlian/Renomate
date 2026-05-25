@@ -20,12 +20,12 @@ export default function CreateChangeOrderScreen() {
 
   if (role !== "designer") {
     return (
-      <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+      <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
         <View className="px-6 mt-4">
           <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
-            <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
+            <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
           </Pressable>
-          <Text className="font-heading text-2xl text-ink">
+          <Text className="font-heading text-2xl text-deep-charcoal">
             Access denied
           </Text>
           <Text className="font-body text-base text-charcoal mt-2">
@@ -64,7 +64,7 @@ export default function CreateChangeOrderScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-mint-bg" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
       <ScrollView
         className="flex-1"
         contentContainerClassName="px-6 pb-8"
@@ -72,7 +72,7 @@ export default function CreateChangeOrderScreen() {
         keyboardShouldPersistTaps="handled"
       >
         <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
-          <ArrowLeft size={24} color="#1A1A2E" strokeWidth={1.5} />
+          <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
         </Pressable>
 
         <View className="mb-6">
@@ -105,8 +105,8 @@ export default function CreateChangeOrderScreen() {
               Amount
             </Text>
             <View className="flex-row items-center">
-              <View className="bg-snow rounded-l-sm border border-cloud border-r-0 min-h-[48px] px-3 justify-center">
-                <Text className="font-mono text-base text-slate">
+              <View className="bg-hint-sky rounded-l-sm border border-ash border-r-0 min-h-[48px] px-3 justify-center">
+                <Text className="font-mono text-base text-smoke">
                   {prefix} SGD
                 </Text>
               </View>
@@ -125,7 +125,7 @@ export default function CreateChangeOrderScreen() {
                 />
               </View>
             </View>
-            <Text className="font-body text-xs text-slate mt-1">
+            <Text className="font-body text-xs text-smoke mt-1">
               Use a negative value to indicate a credit.
             </Text>
           </View>

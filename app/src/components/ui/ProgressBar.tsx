@@ -12,7 +12,7 @@ interface ProgressBarProps {
 export function ProgressBar({
   completed,
   total,
-  color = "bg-sage",
+  color = "bg-green-500",
   showCount = true,
   size = "md",
 }: ProgressBarProps) {
@@ -24,13 +24,13 @@ export function ProgressBar({
         {Array.from({ length: total }).map((_, i) => (
           <View
             key={i}
-            className={`flex-1 rounded-full ${i < completed ? color : "bg-cloud"}`}
+            className={`flex-1 rounded-full ${i < completed ? color : "bg-ash"}`}
             style={{ height }}
           />
         ))}
       </View>
       {showCount && (
-        <Text className="font-mono text-xs text-slate ml-2">
+        <Text className="font-mono text-xs text-smoke ml-2">
           {completed}/{total}
         </Text>
       )}
