@@ -6,7 +6,7 @@ type Variant = "primary" | "accent" | "secondary" | "ghost" | "destructive";
 type Size = "default" | "lg";
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded font-medium transition-[background,border-color,transform] ease-brand whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-mint-bg disabled:opacity-50 disabled:cursor-not-allowed";
+  "inline-flex items-center justify-center gap-2 rounded-sm font-medium transition-[background,border-color,transform] ease-brand whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:opacity-50 disabled:cursor-not-allowed";
 
 const sizeClasses: Record<Size, string> = {
   default: "px-5 py-3 text-[15px]",
@@ -14,11 +14,11 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const variantClasses: Record<Variant, string> = {
-  primary: "bg-ink text-white hover:bg-charcoal",
-  accent: "bg-coral text-white hover:bg-red-400",
-  secondary: "bg-white text-ink border border-cloud hover:bg-snow",
-  ghost: "bg-transparent text-ink hover:bg-snow",
-  destructive: "bg-white text-coral hover:border hover:border-coral",
+  primary: "bg-onyx text-white hover:opacity-90",
+  accent: "bg-onyx text-white hover:opacity-90",
+  secondary: "bg-canvas text-charcoal border border-ash hover:bg-hint-sky",
+  ghost: "bg-transparent text-charcoal hover:bg-hint-sky",
+  destructive: "bg-canvas text-violet hover:border hover:border-violet",
 };
 
 type ButtonProps = {

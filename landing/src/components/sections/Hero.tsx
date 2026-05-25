@@ -44,7 +44,7 @@ export function Hero() {
             }}
             className="mb-5"
           >
-            <Pill variant="coral">Built in Singapore · for HDB, condo and landed renovations</Pill>
+            <Pill variant="violet">Built in Singapore · for HDB, condo and landed renovations</Pill>
           </motion.div>
 
           <motion.h1
@@ -52,7 +52,7 @@ export function Hero() {
               hidden: { opacity: 0, y: 16 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.2, 0, 0, 1] } },
             }}
-            className="font-heading text-display-xl text-ink mb-5 max-w-[900px]"
+            className="font-heading text-display-xl text-deep-charcoal mb-5 max-w-[900px]"
           >
             Your renovation,
             <br />
@@ -80,13 +80,13 @@ export function Hero() {
           >
             <button
               onClick={() => open("waitlist")}
-              className="inline-flex items-center px-7 py-4 text-base font-medium rounded bg-coral text-white hover:bg-red-400 transition-colors ease-brand"
+              className="inline-flex items-center px-7 py-4 text-base font-medium rounded-sm bg-onyx text-white hover:opacity-90 transition-colors ease-brand"
             >
               Join the waitlist
             </button>
             <button
               onClick={() => open("designer")}
-              className="inline-flex items-center px-7 py-4 text-base font-medium rounded bg-white text-ink border border-cloud hover:bg-snow transition-colors ease-brand"
+              className="inline-flex items-center px-7 py-4 text-base font-medium rounded-sm bg-canvas text-charcoal border border-ash hover:bg-hint-sky transition-colors ease-brand"
             >
               I&rsquo;m an interior designer &rarr;
             </button>
@@ -97,7 +97,7 @@ export function Hero() {
               hidden: { opacity: 0, y: 16 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.2, 0, 0, 1] } },
             }}
-            className="text-body-sm text-slate mt-5"
+            className="text-body-sm text-smoke mt-5"
           >
             Free during private beta · Launching late 2026
           </motion.p>
@@ -119,22 +119,22 @@ export function Hero() {
 
 function HeroMockup() {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-card">
-      <div className="text-[11px] uppercase tracking-[0.1em] text-slate font-semibold mb-3">
+    <div className="bg-canvas rounded-md p-6 shadow-subtle">
+      <div className="text-[11px] uppercase tracking-[0.1em] text-smoke font-semibold mb-3">
         A glance tells you everything
       </div>
 
-      <div className="bg-white rounded-lg p-5 shadow-card mb-3">
-        <div className="text-[11px] uppercase tracking-[0.08em] text-slate font-medium mb-2">
+      <div className="bg-canvas rounded-md p-5 shadow-subtle mb-3">
+        <div className="text-[11px] uppercase tracking-[0.08em] text-smoke font-medium mb-2">
           What&rsquo;s next
         </div>
-        <div className="font-heading text-[22px] leading-tight text-ink mb-2">
+        <div className="font-heading text-[22px] leading-tight text-deep-charcoal mb-2">
           Carpentry starts Mon 02 Jun
         </div>
-        <div className="text-[13px] text-slate tabular">Phase 4 of 7 · 1 decision blocking</div>
-        <div className="mt-4 h-1 bg-snow rounded-full overflow-hidden">
+        <div className="text-[13px] text-smoke tabular">Phase 4 of 7 · 1 decision blocking</div>
+        <div className="mt-4 h-1 bg-hint-sky rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-coral"
+            className="h-full bg-violet"
             initial={{ width: "45%" }}
             animate={{ width: ["45%", "47%", "45%"] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -142,28 +142,28 @@ function HeroMockup() {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg p-5 shadow-card mb-3">
+      <div className="bg-canvas rounded-md p-5 shadow-subtle mb-3">
         <div className="flex justify-between items-center mb-2">
-          <div className="text-[11px] uppercase tracking-[0.08em] text-slate font-medium">
+          <div className="text-[11px] uppercase tracking-[0.08em] text-smoke font-medium">
             Decision blocking next phase
           </div>
           <DecisionPillFlip />
         </div>
-        <div className="font-heading text-[18px] leading-tight text-ink mb-1">
+        <div className="font-heading text-[18px] leading-tight text-deep-charcoal mb-1">
           Kitchen cabinet handle finish
         </div>
-        <div className="text-[13px] text-slate">Brushed brass or matte black</div>
+        <div className="text-[13px] text-smoke">Brushed brass or matte black</div>
       </div>
 
-      <div className="bg-white rounded-lg p-5 shadow-card">
+      <div className="bg-canvas rounded-md p-5 shadow-subtle">
         <div className="flex justify-between items-center mb-2">
-          <div className="text-[11px] uppercase tracking-[0.08em] text-slate font-medium">
+          <div className="text-[11px] uppercase tracking-[0.08em] text-smoke font-medium">
             Outstanding invoice
           </div>
           <Pill variant="overdue">Overdue</Pill>
         </div>
-        <div className="font-mono text-[18px] text-ink tabular mb-1">SGD 9,780.00</div>
-        <div className="text-[13px] text-slate tabular">INV-2026-0014 · Carpentry milestone</div>
+        <div className="font-mono text-[18px] text-deep-charcoal tabular mb-1">SGD 9,780.00</div>
+        <div className="text-[13px] text-smoke tabular">INV-2026-0014 · Carpentry milestone</div>
       </div>
     </div>
   );

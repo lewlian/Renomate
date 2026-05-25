@@ -33,13 +33,13 @@ const subsections = [
 
 export function FeatureDeepDive() {
   return (
-    <section className="bg-mint-bg py-24 md:py-32">
+    <section className="bg-canvas py-24 md:py-32">
       <div className="container-page">
         <div className="max-w-[700px] mb-16">
-          <span className="inline-block text-caption font-medium uppercase tracking-wider text-coral mb-4">
+          <span className="inline-block text-caption font-medium uppercase tracking-wider text-violet mb-4">
             See it in motion
           </span>
-          <h2 className="font-heading text-display-lg text-ink">
+          <h2 className="font-heading text-display-lg text-deep-charcoal">
             The product, at a closer look.
           </h2>
         </div>
@@ -79,10 +79,10 @@ function SubSection({
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: [0.2, 0, 0, 1] }}
       >
-        <div className="font-mono text-[12px] text-coral tracking-wider mb-4">
+        <div className="font-mono text-[12px] text-violet tracking-wider mb-4">
           {String(index + 1).padStart(2, "0")} / {subsections.length.toString().padStart(2, "0")}
         </div>
-        <h3 className="font-heading text-[32px] leading-tight text-ink mb-5">{title}</h3>
+        <h3 className="font-heading text-[32px] leading-tight text-deep-charcoal mb-5">{title}</h3>
         <p className="text-body-lg text-charcoal">{body}</p>
         <div className="lg:hidden mt-7">
           <VisualForKey vkey={visual} />
@@ -170,8 +170,8 @@ function VisualForKey({ vkey }: { vkey: string }) {
 
 function VisualShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-card">
-      <div className="bg-white rounded-lg p-5 shadow-card">{children}</div>
+    <div className="bg-canvas rounded-md p-6 shadow-subtle">
+      <div className="bg-canvas rounded-md p-5 shadow-subtle">{children}</div>
     </div>
   );
 }
@@ -180,21 +180,21 @@ function TimelineVisual() {
   const phases = ["Hacking", "Masonry", "Plumbing", "Carpentry", "Painting", "Defect", "Handover"];
   return (
     <VisualShell>
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-4 font-medium">Timeline</div>
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-4 font-medium">Timeline</div>
       <ul className="space-y-3">
         {phases.map((p, i) => (
           <li key={p} className="flex items-center justify-between gap-3 text-[14px]">
             <div className="flex items-center gap-3">
               <span
                 className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${
-                  i < 3 ? "bg-sage" : i === 3 ? "bg-coral" : "bg-mist"
+                  i < 3 ? "bg-violet" : i === 3 ? "bg-violet" : "bg-smoke"
                 }`}
               />
-              <span className={i === 3 ? "text-ink font-semibold" : "text-charcoal"}>
+              <span className={i === 3 ? "text-deep-charcoal font-semibold" : "text-charcoal"}>
                 {String(i + 1).padStart(2, "0")} &middot; {p}
               </span>
             </div>
-            <span className="text-slate text-[12px] tabular">
+            <span className="text-smoke text-[12px] tabular">
               {i < 3 ? "Complete" : i === 3 ? "In progress" : "Pending"}
             </span>
           </li>
@@ -207,7 +207,7 @@ function TimelineVisual() {
 function DecisionsVisual() {
   return (
     <VisualShell>
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-4 font-medium">Decisions queue</div>
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-4 font-medium">Decisions queue</div>
       <div className="space-y-3">
         <DecisionRow title="Kitchen cabinet handle finish" sub="Due in 2 days · Carpentry" pill={<Pill variant="overdue">Overdue</Pill>} />
         <DecisionRow title="Master bath floor tile" sub="Due Fri · Tiling" pill={<Pill variant="pending">Pending</Pill>} />
@@ -220,10 +220,10 @@ function DecisionsVisual() {
 
 function DecisionRow({ title, sub, pill }: { title: string; sub: string; pill: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-between gap-3 py-2 border-b border-snow last:border-b-0">
+    <div className="flex items-center justify-between gap-3 py-2 border-b border-hint-sky last:border-b-0">
       <div>
-        <div className="text-[14px] font-medium text-ink">{title}</div>
-        <div className="text-[12px] text-slate">{sub}</div>
+        <div className="text-[14px] font-medium text-deep-charcoal">{title}</div>
+        <div className="text-[12px] text-smoke">{sub}</div>
       </div>
       {pill}
     </div>
@@ -233,14 +233,14 @@ function DecisionRow({ title, sub, pill }: { title: string; sub: string; pill: R
 function MoneyVisual() {
   return (
     <VisualShell>
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-4 font-medium">Money</div>
-      <div className="text-[13px] text-slate mb-4">
-        SGD <span className="font-mono text-ink">24,180</span> invoiced ·{" "}
-        SGD <span className="font-mono text-ink">14,400</span> paid
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-4 font-medium">Money</div>
+      <div className="text-[13px] text-smoke mb-4">
+        SGD <span className="font-mono text-deep-charcoal">24,180</span> invoiced ·{" "}
+        SGD <span className="font-mono text-deep-charcoal">14,400</span> paid
       </div>
       <table className="w-full text-[13px] tabular">
         <thead>
-          <tr className="text-left text-[11px] uppercase tracking-wider text-slate font-medium">
+          <tr className="text-left text-[11px] uppercase tracking-wider text-smoke font-medium">
             <th className="pb-2">Invoice</th>
             <th className="pb-2">Phase</th>
             <th className="pb-2 text-right">Amount</th>
@@ -248,19 +248,19 @@ function MoneyVisual() {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-t border-snow">
+          <tr className="border-t border-hint-sky">
             <td className="py-2 font-mono">INV-001</td>
             <td className="py-2 text-charcoal">Deposit</td>
             <td className="py-2 text-right font-mono">SGD 4,800</td>
             <td className="py-2 text-right"><Pill variant="done">Paid</Pill></td>
           </tr>
-          <tr className="border-t border-snow">
+          <tr className="border-t border-hint-sky">
             <td className="py-2 font-mono">INV-002</td>
             <td className="py-2 text-charcoal">Hacking</td>
             <td className="py-2 text-right font-mono">SGD 9,600</td>
             <td className="py-2 text-right"><Pill variant="done">Paid</Pill></td>
           </tr>
-          <tr className="border-t border-snow">
+          <tr className="border-t border-hint-sky">
             <td className="py-2 font-mono">INV-003</td>
             <td className="py-2 text-charcoal">Carpentry</td>
             <td className="py-2 text-right font-mono">SGD 9,780</td>
@@ -275,22 +275,22 @@ function MoneyVisual() {
 function DefectsVisual() {
   return (
     <VisualShell>
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-4 font-medium">Defect #0014</div>
-      <div className="font-heading text-[20px] text-ink mb-2">Crack in master bath wall tile</div>
-      <div className="text-[13px] text-slate mb-4">Master bath, left wall behind door</div>
-      <div className="bg-snow rounded-lg h-32 flex items-center justify-center mb-4 text-slate text-[12px]">
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-4 font-medium">Defect #0014</div>
+      <div className="font-heading text-[20px] text-deep-charcoal mb-2">Crack in master bath wall tile</div>
+      <div className="text-[13px] text-smoke mb-4">Master bath, left wall behind door</div>
+      <div className="bg-hint-sky rounded-md h-32 flex items-center justify-center mb-4 text-smoke text-[12px]">
         [ photo placeholder ]
       </div>
       <div className="flex gap-2 flex-wrap">
         <Pill variant="done">Open</Pill>
-        <span className="text-slate text-[12px]">→</span>
+        <span className="text-smoke text-[12px]">→</span>
         <Pill variant="progress">Scheduled</Pill>
-        <span className="text-slate text-[12px]">→</span>
+        <span className="text-smoke text-[12px]">→</span>
         <Pill variant="pending">Fixed</Pill>
-        <span className="text-slate text-[12px]">→</span>
+        <span className="text-smoke text-[12px]">→</span>
         <Pill variant="pending">Signed off</Pill>
       </div>
-      <div className="text-[12px] text-slate mt-4">Assigned to: Tiling team · Scheduled for 28 May</div>
+      <div className="text-[12px] text-smoke mt-4">Assigned to: Tiling team · Scheduled for 28 May</div>
     </VisualShell>
   );
 }

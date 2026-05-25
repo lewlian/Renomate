@@ -23,16 +23,16 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how" className="py-24 md:py-32 bg-mint-bg">
+    <section id="how" className="py-24 md:py-32 bg-canvas">
       <div className="container-page">
         <div className="max-w-[720px] mb-12">
           <ScrollReveal>
-            <span className="inline-block text-caption font-medium uppercase tracking-wider text-coral mb-4">
+            <span className="inline-block text-caption font-medium uppercase tracking-wider text-violet mb-4">
               How it works
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="font-heading text-display-lg text-ink">
+            <h2 className="font-heading text-display-lg text-deep-charcoal">
               Three steps to a project that runs itself.
             </h2>
           </ScrollReveal>
@@ -40,7 +40,7 @@ export function HowItWorks() {
 
         <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
           <motion.div
-            className="hidden md:block absolute top-[48px] left-[16%] right-[16%] h-px bg-coral/40 origin-left"
+            className="hidden md:block absolute top-[48px] left-[16%] right-[16%] h-px bg-violet/40 origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -50,10 +50,10 @@ export function HowItWorks() {
           {steps.map((s, i) => (
             <ScrollReveal key={s.n} delay={i * 0.15}>
               <div>
-                <div className="font-heading text-[48px] leading-none text-coral mb-3 relative z-10 bg-mint-bg inline-block pr-3">
+                <div className="font-heading text-[48px] leading-none text-violet mb-3 relative z-10 bg-canvas inline-block pr-3">
                   {s.n}
                 </div>
-                <h4 className="font-semibold text-heading text-ink mb-2">{s.title}</h4>
+                <h4 className="font-semibold text-heading text-deep-charcoal mb-2">{s.title}</h4>
                 <p className="text-body text-charcoal">{s.body}</p>
               </div>
             </ScrollReveal>
