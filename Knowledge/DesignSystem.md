@@ -1,263 +1,438 @@
-# Renomate — Design System
+# ClickUp™ — Style Reference
+> Vibrant productivity hub: a dynamic workspace with energetic highlights.
 
-The shared visual + interaction language used across every Renomate surface: landing page, mobile app, web dashboard, email templates, exported PDFs. This is a **proposed starting direction** — locked in v0.1 so the landing page can be built, fully expected to evolve as the product takes shape.
+**Theme:** light
 
----
+ClickUp's interface channels a vibrant productivity hub atmosphere: an inviting white canvas contrasts with deep charcoal text, punctuated by vivid accents of violet and electric blue. Its visual identity relies on dynamic, lightweight UI elements, thin borders, and soft shadows, creating a sense of clarity and speed. Typography is confident and modern, leveraging condensed sans-serifs for headings and a highly legible sans-serif for body text, maintaining a tight visual rhythm. Gradients are strategically used for subtle flair and to highlight interactive states, reinforcing an energetic, forward-looking aesthetic.
 
-## Design Principles
+## Tokens — Colors
 
-These shape every visual and copy decision. If a design choice violates a principle, reconsider it.
+| Name | Value | Token | Role |
+|------|-------|-------|------|
+| Canvas White | `#ffffff` | `--color-canvas-white` | Page backgrounds, card surfaces, ghost button backgrounds, default component fills. Creates a bright, expansive foundation |
+| Midnight Charcoal | `#292d34` | `--color-midnight-charcoal` | Primary body text, active state indicators, strong borders. Provides high contrast against light surfaces |
+| Dark Onyx | `linear-gradient(97deg, rgb(32, 32, 32) 43.17%, rgb(143, 143, 143) 110.86%)` | `--color-dark-onyx` | Backgrounds for prominent buttons, card borders, and primary interactive elements. A deep neutral that commands attention when filled; Subtle background for UI elements, transitioning from dark to light gray |
+| Ash Gray | `#e8e8e8` | `--color-ash-gray` | Subtle borders, dividers, disabled states, ghost button borders. Provides separation without visual noise |
+| Smoke Gray | `#b3b3b3` | `--color-smoke-gray` | Muted text, secondary icons, subtle outlines. For less prominent information or decorative details |
+| Hint of Sky | `#e9ebf0` | `--color-hint-of-sky` | Subtle background tint for alternating content sections, providing a soft shift in surface elevation |
+| Shadow Tint Blue | `#edf6fd` | `--color-shadow-tint-blue` | Light background for interactive states or subtle focus elements |
+| Deep Violet | `#7b68ee` | `--color-deep-violet` | Interactive link text, image accents, decorative strokes – a core brand color, active and inviting |
+| Electric Blue | `conic-gradient(rgb(0, 145, 255), rgb(255, 2, 240), rgb(247, 104, 8), rgb(102, 71, 240), rgb(0, 145, 255) 360deg)` | `--color-electric-blue` | Blue accent for outlined action borders, linked labels, and lightweight interactive emphasis. Do not promote it to the primary CTA color; Decorative backgrounds, illustrative elements, and for conveying a dynamic, modern feel with a broad color spectrum |
+| Rich Plum | `#514b81` | `--color-rich-plum` | Background details, subtle decorative elements, less prominent brand mentions. A deeper, more reserved brand color |
+| Vivid Purple | `#6647f0` | `--color-vivid-purple` | Violet outline accent for tags, dividers, and focused UI edges. Do not promote it to the primary CTA color |
+| Deep Space Charcoal | `#090c1d` | `--color-deep-space-charcoal` | Main headings, high-contrast text elements, and specific UI backgrounds where extreme contrast is desired |
+| Warm Fade Gradient | `linear-gradient(rgba(246, 233, 232, 0), rgba(255, 91, 54, 0.23))` | `--color-warm-fade-gradient` | Subtle accent for visual interest or background texture, fading from transparent to a soft orange |
 
-1. **Calm over loud.** Renovation is already stressful. The product should feel like a steady hand, not a noisy dashboard. Generous whitespace. Restrained colour. No motion for motion's sake.
-2. **Document, don't dramatise.** This is a system of record. State and content take precedence over chrome. Lists, timestamps, and structured fields are the heroes — not gradient buttons.
-3. **Premium without coldness.** ID firms care about how their tools look in front of clients. Aim for the feel of a high-quality architect's drawing set — precise, warm, material-aware — not a generic SaaS template.
-4. **Clarity for non-power-users.** Half the audience (homeowners, sub-contractors) opens the app maybe twice a week. Every screen should pass the "could a 60-year-old contractor understand this in three seconds?" test.
-5. **Singapore-fluent.** SGD currency formatting, DD/MM/YYYY dates, 24-hour optional, English-first with room for Chinese characters in addresses and proper nouns.
+## Tokens — Typography
 
----
+### Plus Jakarta Sans — Used for headings and prominent UI elements. Its slightly condensed structure provides a modern, space-efficient feel, especially impactful with subtle negative letter-spacing at larger sizes. · `--font-plus-jakarta-sans`
+- **Substitute:** system-ui, sans-serif
+- **Weights:** 400, 500, 650, 700, 800
+- **Sizes:** 14px, 16px, 26px, 34px, 40px, 42px, 48px, 52px, 60px, 76px
+- **Line height:** 1.05, 1.10, 1.12, 1.14, 1.18, 1.20, 1.25, 1.43, 1.50
+- **Letter spacing:** -0.0500em at 76px, -0.0400em at 60px, -0.0350em at 52px, -0.0110em at 48px
+- **OpenType features:** `"calt" 0`
+- **Role:** Used for headings and prominent UI elements. Its slightly condensed structure provides a modern, space-efficient feel, especially impactful with subtle negative letter-spacing at larger sizes.
 
-## Brand Identity
+### Inter — Dedicated to body text, UI labels, and captions. Its high legibility and variable font features ensure clarity across various sizes, enhancing the information-dense product experience. · `--font-inter`
+- **Substitute:** system-ui, sans-serif
+- **Weights:** 400, 500, 600, 650, 700
+- **Sizes:** 8px, 9px, 12px, 13px, 14px, 15px, 16px, 17px, 18px, 19px
+- **Line height:** 1.00, 1.14, 1.33, 1.37, 1.38, 1.43, 1.50
+- **Letter spacing:** -0.0400em at 19px, -0.0200em at 18px, -0.0190em at 17px, -0.0160em at 16px, -0.0140em at 15px, -0.0110em at 14px
+- **OpenType features:** `"calt" 0, "clig" 0, "liga" 0`
+- **Role:** Dedicated to body text, UI labels, and captions. Its high legibility and variable font features ensure clarity across various sizes, enhancing the information-dense product experience.
 
-### Name and wordmark
-- **Product name**: Renomate (working).
-- **Wordmark**: lowercase wordmark in the display typeface. Avoid a heavy icon-mark in v1 — let the typography do the work.
+### Sometype Mono — Used sparingly for code snippets, timestamps, and specific badge content, providing a technical, precise contrast to the primary sans-serifs. · `--font-sometype-mono`
+- **Substitute:** monospace
+- **Weights:** 400, 500
+- **Sizes:** 12px, 14px, 16px, 24px, 40px
+- **Line height:** 1.25, 1.29, 1.38, 1.43
+- **Letter spacing:** 0.0600em
+- **Role:** Used sparingly for code snippets, timestamps, and specific badge content, providing a technical, precise contrast to the primary sans-serifs.
 
-### Voice and tone
-- **Plainspoken.** "Your tiles need to be chosen by Friday" — not "Action required: pending selection."
-- **Quietly confident.** State what is, not what *could* be.
-- **Warm but professional.** First-person plural sparingly. No "Hey there!" microcopy. No emoji in product UI (OK on landing page testimonials, in moderation).
-- **Singapore-direct.** No fluff, no "delight," no "magical." A SG contractor reads "we make renovation magical" and closes the tab.
+### Type Scale
 
----
+| Role | Size | Line Height | Letter Spacing | Token |
+|------|------|-------------|----------------|-------|
+| caption | 12px | 1.43 | -0.14px | `--text-caption` |
+| body-sm | 14px | 1.43 | -0.15px | `--text-body-sm` |
+| body | 16px | 1.5 | -0.26px | `--text-body` |
+| subheading | 26px | 1.25 | -0.91px | `--text-subheading` |
+| heading-sm | 34px | 1.18 | -1.19px | `--text-heading-sm` |
+| heading | 40px | 1.14 | -1.6px | `--text-heading` |
+| heading-lg | 52px | 1.12 | -1.82px | `--text-heading-lg` |
+| display | 76px | 1.05 | -3.8px | `--text-display` |
 
-## Colour Palette
+## Tokens — Spacing & Shapes
 
-**Proposed direction: warm neutrals with a single clay accent.**
+**Base unit:** 4px
 
-Reasoning: SG SaaS leans cool-blue (Singpass, Grab, DBS, Carousell). A warm, slightly earthy palette differentiates us in a renovation context (clay, wood, stone are *the* renovation materials) without being twee. One confident accent keeps focus on content.
+**Density:** compact
 
-### Core neutrals (the workhorses)
+### Spacing Scale
 
-| Token | Hex | Use |
-|---|---|---|
-| `ink` | `#161513` | Primary text, primary button background. Near-black with a warm undertone. |
-| `charcoal` | `#3D3A36` | Secondary text, headings on light backgrounds. |
-| `slate` | `#6E6963` | Tertiary text, captions, metadata. |
-| `mist` | `#A8A29B` | Disabled text, placeholders, dividers. |
-| `linen` | `#EFEAE2` | Secondary background, card surfaces on darker pages. |
-| `paper` | `#FAF7F2` | Primary background (warm off-white, not stark). |
-| `white` | `#FFFFFF` | Pure surfaces (modals, input fields). |
+| Name | Value | Token |
+|------|-------|-------|
+| 4 | 4px | `--spacing-4` |
+| 8 | 8px | `--spacing-8` |
+| 12 | 12px | `--spacing-12` |
+| 16 | 16px | `--spacing-16` |
+| 20 | 20px | `--spacing-20` |
+| 24 | 24px | `--spacing-24` |
+| 32 | 32px | `--spacing-32` |
+| 40 | 40px | `--spacing-40` |
+| 48 | 48px | `--spacing-48` |
+| 52 | 52px | `--spacing-52` |
+| 56 | 56px | `--spacing-56` |
+| 60 | 60px | `--spacing-60` |
+| 80 | 80px | `--spacing-80` |
+| 100 | 100px | `--spacing-100` |
+| 128 | 128px | `--spacing-128` |
 
-### Accent: Clay
+### Border Radius
 
-| Token | Hex | Use |
-|---|---|---|
-| `clay` | `#B85C3C` | Primary accent. Use sparingly: CTAs, active states, key emphasis. |
-| `clay-soft` | `#E8C9B8` | Backgrounds for highlight states, badge backgrounds. |
-| `clay-deep` | `#8A4329` | Hover/pressed state for clay surfaces. |
+| Element | Value |
+|---------|-------|
+| cards | 12px |
+| pills | 54px |
+| buttons | 9px |
+| default | 9px |
+| largeCards | 24px |
+| circularElements | 653px |
 
-### Semantic colours (kept muted to fit the palette)
+### Shadows
 
-| Token | Hex | Use |
-|---|---|---|
-| `success` | `#5C7A4F` | Sage green — paid invoices, completed phases, signed-off defects. |
-| `success-soft` | `#D8E4D0` | Success backgrounds. |
-| `warning` | `#C68C3A` | Honey amber — decisions overdue, payments due soon. |
-| `warning-soft` | `#F0E1C2` | Warning backgrounds. |
-| `error` | `#A8453A` | Muted brick — overdue payments, blocked phases. |
-| `error-soft` | `#E8C7C2` | Error backgrounds. |
-| `info` | `#3A6680` | Cool slate-blue — informational tips, audit log entries. |
+| Name | Value | Token |
+|------|-------|-------|
+| subtle | `rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0p...` | `--shadow-subtle` |
+| xl | `rgba(255, 255, 255, 0.08) 0px -32px 64px 0px inset, rgba(...` | `--shadow-xl` |
+| subtle-2 | `rgba(18, 43, 165, 0.04) 0px 1px 1px -0.5px, rgba(18, 43, ...` | `--shadow-subtle-2` |
+| sm | `rgba(13, 21, 48, 0.04) 0px 4px 4px 0px` | `--shadow-sm` |
+| xl-2 | `rgba(255, 255, 255, 0.08) 0px -32px 64px 0px inset` | `--shadow-xl-2` |
 
-### Dark mode (v1.1+, but tokens defined now)
+### Layout
 
-| Token | Hex |
-|---|---|
-| `ink-dark` | `#F2EFE9` (text inverts) |
-| `paper-dark` | `#1A1816` |
-| `linen-dark` | `#26221E` |
-| `slate-dark` | `#9C968E` |
-
----
-
-## Typography
-
-**Proposed: Inter (body) + Fraunces (display).**
-
-Both open-source (free, Google Fonts), high-quality, and pair well. Inter is bulletproof for UI legibility at small sizes. Fraunces (a contemporary serif with variable weight and optical sizes) brings the warmth and "designed object" feel that pure-sans SaaS lacks.
-
-If we want to upgrade later: licensed faces like *Söhne* (body), *General Sans* (display), or *Tiempos* (display serif). But Inter + Fraunces is shippable today.
-
-### Font stacks
-
-```css
---font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
---font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
---font-mono:    "JetBrains Mono", "SF Mono", Menlo, monospace;
-```
-
-### Type scale (mobile-first)
-
-| Token | Size / Line | Use |
-|---|---|---|
-| `display-xl` | 48 / 56 | Landing page hero only. Fraunces, weight 400, optical size 144. |
-| `display-lg` | 36 / 44 | Landing section heads, app major page titles. Fraunces 400. |
-| `display-md` | 28 / 36 | Card titles, modal titles. Fraunces 400. |
-| `heading` | 20 / 28 | Section heads in app. Inter 600. |
-| `body-lg` | 18 / 28 | Landing page body, long-form content. Inter 400. |
-| `body` | 16 / 24 | Default UI body. Inter 400. |
-| `body-sm` | 14 / 20 | Secondary UI. Inter 400. |
-| `caption` | 12 / 16 | Metadata, timestamps, labels. Inter 500, uppercase optional. |
-| `mono-sm` | 13 / 18 | SGD amounts, IDs, timestamps in audit log. JetBrains Mono. |
-
-### Typography rules
-
-- **One display family per surface.** Never mix Fraunces weights wildly — stick to 400 for headings, 500 sparingly for emphasis.
-- **Number alignment.** Use `font-variant-numeric: tabular-nums` on currency, dates, and any column of numbers. Critical for the Money tab.
-- **No all-caps for headings.** Only for `caption` tokens at 12px, where the eye expects them.
-
----
-
-## Spacing and Layout
-
-**4px base unit.** All spacing is a multiple of 4.
-
-| Token | Px |
-|---|---|
-| `space-1` | 4 |
-| `space-2` | 8 |
-| `space-3` | 12 |
-| `space-4` | 16 |
-| `space-5` | 24 |
-| `space-6` | 32 |
-| `space-7` | 48 |
-| `space-8` | 64 |
-| `space-9` | 96 |
-| `space-10` | 128 |
-
-### Layout grid
-
-- **Mobile**: single column, 16px gutters, 16px outer padding.
-- **Web dashboard**: 12-column grid, 24px gutters, max-width 1280px centered.
-- **Landing page**: max-width 1200px content, full-width hero sections.
-
-### Border radius
-
-| Token | Px | Use |
-|---|---|---|
-| `radius-sm` | 4 | Inputs, small badges, tags. |
-| `radius` | 8 | Default — buttons, cards. |
-| `radius-md` | 12 | Modals, large cards. |
-| `radius-lg` | 16 | Photo containers, feature blocks on landing. |
-| `radius-full` | 9999 | Pills, avatars. |
-
-Stay restrained. Don't pile rounded corners everywhere — it makes the product feel cheap.
-
----
+- **Page max-width:** 1px
+- **Section gap:** 24px
+- **Card padding:** 12px
+- **Element gap:** 9px
 
 ## Components
 
-### Buttons
+### Primary Filled Button
+**Role:** Call to action
 
-- **Primary**: `ink` background, `paper` text. Used for the single most important action per screen.
-- **Accent**: `clay` background, `paper` text. Used for **conversion CTAs only** (waitlist signup, "create project"). Limit to one per view.
-- **Secondary**: `paper` background, `ink` text, 1px `mist` border. Default for most actions.
-- **Ghost**: transparent background, `ink` text. Tertiary actions, "Cancel" in dialogs.
-- **Destructive**: `error` text, `paper` background, `error` border on hover. No solid red buttons.
+Filled with Dark Onyx (#202023), text in Canvas White (#ffffff). Rounded with 9px border-radius, using 4px vertical and 12px horizontal padding. Delivers a visually solid, high-priority action indicator.
 
-Padding: 12px vertical, 20px horizontal (default). Touch target ≥44px on mobile.
+### Ghost Button
+**Role:** Secondary action
 
-### Inputs
+Transparent background, text in Midnight Charcoal (#292d34). Features a small 4px border-radius without explicit padding, relying on surrounding layout for spacing, for a subtle interactive element.
 
-- 1px `mist` border, `radius-sm`, 12px vertical / 16px horizontal padding.
-- Focus: 2px `clay` outline, no color shift on the input itself.
-- Label always above input (no floating labels).
-- Helper text below, `body-sm` in `slate`. Errors in `error`.
+### Pill Button
+**Role:** Tertiary action/Tag
 
-### Cards
+Transparent background, text in Charcoal Gray (#646464), with 54px border-radius making them fully rounded. Uses 4px vertical and 12px horizontal padding to create a compact, tag-like appearance.
 
-- `paper` background on `linen` page, OR `white` background on `paper` page.
-- `radius-md`, 1px `mist` border (no shadow by default).
-- Padding 16px (mobile) / 24px (web).
-- Hover state for clickable cards: subtle `linen` background shift, no transform / lift.
+### Outline Button
+**Role:** Bordered action/Navigation element
 
-### Lists
+Transparent background, text in Midnight Charcoal (#000000), bordered by Ash Gray (#000000). Features an 8px border-radius and 4px vertical by 10px horizontal padding, offering a distinct but less assertive interactive state.
 
-- Stacked rows with 1px `mist` divider between (no shadow, no card-per-row).
-- 16px vertical row padding.
-- Tap target: full row width on mobile.
+### Feature Card
+**Role:** Content container
 
-### Tables (web dashboard)
+Canvas White (#ffffff) background with a 12px border-radius and a light shadow (rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px). Includes 12px padding on all sides, providing a clear, visually separated content block.
 
-- Header row in `caption` style on `linen`.
-- Body rows: `body-sm`, 12px vertical padding.
-- Subtle hover state, no zebra striping.
-- Numbers right-aligned, monospaced.
+### Ghost Content Card
+**Role:** Visual content container without explicit bounding
 
-### Status pills
+Fully transparent background (rgba(0, 0, 0, 0)), 20px border-radius, no boxShadow or padding. Designed for content that integrates seamlessly into the background, hinting at a boundary rather than overtly defining one.
 
-| State | Token | Use |
-|---|---|---|
-| Pending | `mist` bg + `charcoal` text | Decisions / defects awaiting action |
-| In progress | `clay-soft` bg + `clay-deep` text | Active work |
-| Done / Paid | `success-soft` bg + `success` text | Closed states |
-| Overdue | `error-soft` bg + `error` text | Needs urgent attention |
-| Info | `linen` bg + `info` text | Neutral metadata |
+### Subtle Badge
+**Role:** Informational tag
 
-### Motion
+Transparent background, text in Midnight Charcoal (#000000). No border-radius or padding. Used for discreet labels or category indicators.
 
-- **Duration**: 150ms for state changes (hover, focus). 250ms for layout shifts (modals, sheets). Never longer than 400ms.
-- **Easing**: `cubic-bezier(0.2, 0, 0, 1)` (a calm ease-out). No spring physics, no bounce.
-- **Reduce motion**: respect `prefers-reduced-motion` everywhere.
+### Pill Badge
+**Role:** Compact informational tag
 
-### Icons
+Background rgba(0,0,0,0.1), text in Midnight Charcoal (#292d34). Features a 12px border-radius, 10px vertical and 12px horizontal padding. Used for highlighting short pieces of information such as 'Super Agent' labels.
 
-- **Set**: Lucide (free, comprehensive, consistent stroke). 24px default, 20px in dense UI, 16px inline.
-- 1.5px stroke weight.
-- Icons never carry colour meaning alone — always paired with text or a status pill.
+## Do's and Don'ts
 
----
+### Do
+- Use Plus Jakarta Sans for all headings and prominent brand statements, leveraging its negative letter-spacing at larger sizes for a premium, condensed feel.
+- Prioritize Canvas White (#ffffff) as the primary background for all page sections and elevated component surfaces to maintain a bright, open aesthetic.
+- Apply Midnight Charcoal (#292d34) for primary body text and main content to ensure readability across all contexts.
+- Utilize Electric Blue (#0091ff) or Deep Violet (#7b68ee) as the primary accent colors for interactive elements, links, and key brand highlights.
+- Employ a 9px border-radius for buttons and a 12px radius for cards, with a 54px radius reserved for pill-shaped elements and tags.
+- Create visual hierarchy and separation using thin, subtle borders in Ash Gray (#e8e8e8) or Dark Onyx (#202023) rather than heavy solid backgrounds.
+- Maintain a compact information density with 12px card padding and 9px element gaps, ensuring UI elements feel connected but not overcrowded.
+
+### Don't
+- Avoid using achromatic grays like #000000 for body text; always prefer Midnight Charcoal (#292d34) for content clarity and consistency.
+- Do not use strong, opaque background colors for action buttons unless explicitly outlined as a Brand or Accent color; prefer Dark Onyx (#202023) for filled primary actions with white text.
+- Do not introduce new shadow styles; stick to the defined, subtle shadows (e.g., rgba(0, 0, 0, 0.1) 0px 1px 3px 0px) to maintain a lightweight elevation philosophy.
+- Refrain from using heavily decorative gradients as primary backgrounds; reserve complex gradients for illustrative and atmospheric elements.
+- Do not extend the use of Sometype Mono beyond code snippets or technical labels; it is not suitable for general body or heading text.
+- Avoid large, unpadded sections; use the defined `elementGap` of 9px and `cardPadding` of 12px to ensure consistent spacing and density.
+- Do not use bold weights indiscriminately; the combination of condensed letter-spacing in Plus Jakarta Sans and Inter provides sufficient visual weight when necessary. 
+
+## Surfaces
+
+| Level | Name | Value | Purpose |
+|-------|------|-------|---------|
+| 0 | Canvas White | `#ffffff` | Primary page background and default container surface. |
+| 1 | Hint of Sky | `#e9ebf0` | Subtle background for alternating content sections, providing a soft shift in visual depth. |
+| 2 | Feature Card Surface | `#ffffff` | Elevated card backgrounds with a soft shadow to indicate interactive or contained content. |
+| 3 | Shadow Tint Blue | `#edf6fd` | Light background for interactive states or subtle focus elements. |
+
+## Elevation
+
+- **Feature Card:** `rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px`
+- **Hover/Interactive Elements:** `rgba(18, 43, 165, 0.04) 0px 1px 1px -0.5px, rgba(18, 43, 165, 0.04) 0px 3px 3px -1.5px, rgba(18, 43, 165, 0.04) 0px 6px 6px -3px, rgba(18, 43, 165, 0.04) 0px 12px 12px -6px`
+- **Button Shadow (subtle):** `rgba(13, 21, 48, 0.04) 0px 4px 4px 0px`
 
 ## Imagery
 
-### Photography
-- **Subject matter**: real Singapore interiors. Materials (wood grain, terrazzo, stone, tile). Hands at work (a carpenter measuring, a designer reviewing a sample). *Avoid* stock photos of generic open-plan living rooms — they read as fake immediately.
-- **Treatment**: natural light, slightly warm white balance. No heavy filters. Real, unfussy.
-- **Use on landing page**: full-bleed sections to anchor each value prop.
+Imagery primarily consists of bright, clean product screenshots embedded within UI mockups, often demonstrating the platform's features. These are typically contained within card-like structures or placed alongside explanatory text. Illustrations are abstract and organic, using fluid shapes and soft gradients, serving as decorative atmosphere rather than direct content explanation. Icons are predominantly outlined, conveying a lightweight feel, with a consistent stroke weight. The overall density is balanced: images punctuate text blocks to illustrate functionality without overwhelming the layout.
 
-### Illustration (if used)
-- Line-style, single-weight strokes, `ink` on `paper`. No gradients, no isometric SaaS art.
-- Use only when a photo isn't possible (abstract concepts: timeline, audit trail).
+## Layout
 
----
+The page maintains a centered, max-width layout, approximately 1200px wide. The hero section is full-bleed, featuring a prominent headline over a product screenshot. Sections alternate between soft white and subtle gray backgrounds, creating a clear visual rhythm. Content is generally arranged in two-column layouts, often with text on the left and visuals or product UI on the right, or centered stacks for feature showcases. Grid patterns are prominent for displaying product capabilities and features, typically in a multi-column card grid. The navigation is a sticky top bar, providing persistent access to global navigation elements.
 
-## Component Library Implementation
+## Agent Prompt Guide
 
-When the build starts:
+### Quick Color Reference
+text: #292d34
+background: #ffffff
+border: #e8e8e8
+accent: #7b68ee
+primary action: #202023 (filled action)
 
-- **Web (landing + dashboard)**: shadcn/ui as the base, restyled with these tokens. Tailwind config exports the palette and spacing.
-- **Mobile (React Native + Expo)**: NativeWind for shared Tailwind tokens, custom RN components matching the web component API.
-- **Token source**: a single `tokens.json` in `packages/ui/` consumed by both platforms (web Tailwind config + RN theme provider).
-- **Font loading**: Inter and Fraunces from Google Fonts on web; bundled via `expo-font` on mobile.
+### 3-5 Example Component Prompts
+1. Create a Primary Action Button: #202023 background, #ffffff text, 9999px radius, compact pill padding. Use this filled treatment for the main CTA.
+2. Design a Feature Card: Canvas White (#ffffff) background, 12px border-radius, shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px. Inside, a heading at 26px Plus Jakarta Sans, weight 700, Deep Space Charcoal (#090c1d), letter-spacing -0.91px, 12px padding. Body text at 16px Inter, weight 400, Midnight Charcoal (#292d34), letter-spacing -0.26px.
+3. Implement a Pill Tag: Transparent background, text in Midnight Charcoal (#292d34) at 14px Inter, weight 500, letter-spacing -0.15px. 12px border-radius, 10px vertical / 12px horizontal padding. Border in Ash Gray (#e8e8e8).
+4. Create a Navigation Link: Text in Midnight Charcoal (#292d34) at 16px Inter, weight 500, letter-spacing -0.26px. On hover, text color changes to Deep Violet (#7b68ee) and an underline appears.
 
----
+## Similar Brands
 
-## Accessibility Baseline
+- **Notion** — Similar focus on white canvas, modular content blocks, and productivity software UI with clear typography.
+- **Asana** — Employs a clean, bright interface with distinct accent colors for task management and status, paired with functional sans-serif typography.
+- **Linear** — Uses a minimalist approach with a strong emphasis on content, subtle elevation, and precise typographic control in software development tools.
+- **Figma** — Leverages a light UI with carefully selected accent colors for interactive elements, featuring clear information hierarchy in a design tool context.
 
-Non-negotiable from v1:
+## Quick Start
 
-- **Colour contrast**: WCAG AA minimum. All body text on `paper` clears 4.5:1. `clay` accent on `paper` checked at minimum 3:1 for large text only — use `clay-deep` for body-size text on `paper`.
-- **Touch targets**: 44px minimum on mobile.
-- **Focus states**: visible 2px `clay` outline on every interactive element.
-- **Screen reader labels**: every icon-only button has an `aria-label` / `accessibilityLabel`.
-- **Form labels**: always visible, never placeholder-only.
+### CSS Custom Properties
 
----
+```css
+:root {
+  /* Colors */
+  --color-canvas-white: #ffffff;
+  --color-midnight-charcoal: #292d34;
+  --color-dark-onyx: #202023;
+  --gradient-dark-onyx: linear-gradient(97deg, rgb(32, 32, 32) 43.17%, rgb(143, 143, 143) 110.86%);
+  --color-ash-gray: #e8e8e8;
+  --color-smoke-gray: #b3b3b3;
+  --color-hint-of-sky: #e9ebf0;
+  --color-shadow-tint-blue: #edf6fd;
+  --color-deep-violet: #7b68ee;
+  --color-electric-blue: #0091ff;
+  --gradient-electric-blue: conic-gradient(rgb(0, 145, 255), rgb(255, 2, 240), rgb(247, 104, 8), rgb(102, 71, 240), rgb(0, 145, 255) 360deg);
+  --color-rich-plum: #514b81;
+  --color-vivid-purple: #6647f0;
+  --color-deep-space-charcoal: #090c1d;
+  --color-warm-fade-gradient: #ff5b36;
+  --gradient-warm-fade-gradient: linear-gradient(rgba(246, 233, 232, 0), rgba(255, 91, 54, 0.23));
 
-## Open Decisions
+  /* Typography — Font Families */
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sometype-mono: 'Sometype Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-These are the calls that need to be made (by you or via user testing) before locking v1:
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.43;
+  --tracking-caption: -0.14px;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.43;
+  --tracking-body-sm: -0.15px;
+  --text-body: 16px;
+  --leading-body: 1.5;
+  --tracking-body: -0.26px;
+  --text-subheading: 26px;
+  --leading-subheading: 1.25;
+  --tracking-subheading: -0.91px;
+  --text-heading-sm: 34px;
+  --leading-heading-sm: 1.18;
+  --tracking-heading-sm: -1.19px;
+  --text-heading: 40px;
+  --leading-heading: 1.14;
+  --tracking-heading: -1.6px;
+  --text-heading-lg: 52px;
+  --leading-heading-lg: 1.12;
+  --tracking-heading-lg: -1.82px;
+  --text-display: 76px;
+  --leading-display: 1.05;
+  --tracking-display: -3.8px;
 
-1. **Accent colour confirmation** — Clay (terracotta) vs. alternatives (Sage green for calm, Deep teal for trust, warm Gold for premium). Sample before committing.
-2. **Display typeface confirmation** — Fraunces (serif, warm) vs. a geometric sans like General Sans (more modern/clean). Fraunces is the proposal; General Sans is the safer-feeling alternative.
-3. **Logo/wordmark direction** — type-only vs. wordmark + symbol. Recommend type-only for v1 to avoid premature brand commitment.
-4. **Photo art direction** — secure a small library of SG-specific shoot or styled stock before landing-page build.
+  /* Typography — Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-w650: 650;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-52: 52px;
+  --spacing-56: 56px;
+  --spacing-60: 60px;
+  --spacing-80: 80px;
+  --spacing-100: 100px;
+  --spacing-128: 128px;
+
+  /* Layout */
+  --page-max-width: 1px;
+  --section-gap: 24px;
+  --card-padding: 12px;
+  --element-gap: 9px;
+
+  /* Border Radius */
+  --radius-lg: 9px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-2xl-2: 20px;
+  --radius-3xl: 24px;
+  --radius-3xl-2: 28px;
+  --radius-3xl-3: 32px;
+  --radius-3xl-4: 39px;
+  --radius-3xl-5: 45px;
+  --radius-full: 54px;
+  --radius-full-2: 653px;
+
+  /* Named Radii */
+  --radius-cards: 12px;
+  --radius-pills: 54px;
+  --radius-buttons: 9px;
+  --radius-default: 9px;
+  --radius-largecards: 24px;
+  --radius-circularelements: 653px;
+
+  /* Shadows */
+  --shadow-subtle: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+  --shadow-xl: rgba(255, 255, 255, 0.08) 0px -32px 64px 0px inset, rgba(255, 255, 255, 0.08) 0px -32px 64px 0px inset;
+  --shadow-subtle-2: rgba(18, 43, 165, 0.04) 0px 1px 1px -0.5px, rgba(18, 43, 165, 0.04) 0px 3px 3px -1.5px, rgba(18, 43, 165, 0.04) 0px 6px 6px -3px, rgba(18, 43, 165, 0.04) 0px 12px 12px -6px;
+  --shadow-sm: rgba(13, 21, 48, 0.04) 0px 4px 4px 0px;
+  --shadow-xl-2: rgba(255, 255, 255, 0.08) 0px -32px 64px 0px inset;
+
+  /* Surfaces */
+  --surface-canvas-white: #ffffff;
+  --surface-hint-of-sky: #e9ebf0;
+  --surface-feature-card-surface: #ffffff;
+  --surface-shadow-tint-blue: #edf6fd;
+}
+```
+
+### Tailwind v4
+
+```css
+@theme {
+  /* Colors */
+  --color-canvas-white: #ffffff;
+  --color-midnight-charcoal: #292d34;
+  --color-dark-onyx: #202023;
+  --color-ash-gray: #e8e8e8;
+  --color-smoke-gray: #b3b3b3;
+  --color-hint-of-sky: #e9ebf0;
+  --color-shadow-tint-blue: #edf6fd;
+  --color-deep-violet: #7b68ee;
+  --color-electric-blue: #0091ff;
+  --color-rich-plum: #514b81;
+  --color-vivid-purple: #6647f0;
+  --color-deep-space-charcoal: #090c1d;
+  --color-warm-fade-gradient: #ff5b36;
+
+  /* Typography */
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sometype-mono: 'Sometype Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.43;
+  --tracking-caption: -0.14px;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.43;
+  --tracking-body-sm: -0.15px;
+  --text-body: 16px;
+  --leading-body: 1.5;
+  --tracking-body: -0.26px;
+  --text-subheading: 26px;
+  --leading-subheading: 1.25;
+  --tracking-subheading: -0.91px;
+  --text-heading-sm: 34px;
+  --leading-heading-sm: 1.18;
+  --tracking-heading-sm: -1.19px;
+  --text-heading: 40px;
+  --leading-heading: 1.14;
+  --tracking-heading: -1.6px;
+  --text-heading-lg: 52px;
+  --leading-heading-lg: 1.12;
+  --tracking-heading-lg: -1.82px;
+  --text-display: 76px;
+  --leading-display: 1.05;
+  --tracking-display: -3.8px;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-52: 52px;
+  --spacing-56: 56px;
+  --spacing-60: 60px;
+  --spacing-80: 80px;
+  --spacing-100: 100px;
+  --spacing-128: 128px;
+
+  /* Border Radius */
+  --radius-lg: 9px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-2xl-2: 20px;
+  --radius-3xl: 24px;
+  --radius-3xl-2: 28px;
+  --radius-3xl-3: 32px;
+  --radius-3xl-4: 39px;
+  --radius-3xl-5: 45px;
+  --radius-full: 54px;
+  --radius-full-2: 653px;
+
+  /* Shadows */
+  --shadow-subtle: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+  --shadow-xl: rgba(255, 255, 255, 0.08) 0px -32px 64px 0px inset, rgba(255, 255, 255, 0.08) 0px -32px 64px 0px inset;
+  --shadow-subtle-2: rgba(18, 43, 165, 0.04) 0px 1px 1px -0.5px, rgba(18, 43, 165, 0.04) 0px 3px 3px -1.5px, rgba(18, 43, 165, 0.04) 0px 6px 6px -3px, rgba(18, 43, 165, 0.04) 0px 12px 12px -6px;
+  --shadow-sm: rgba(13, 21, 48, 0.04) 0px 4px 4px 0px;
+  --shadow-xl-2: rgba(255, 255, 255, 0.08) 0px -32px 64px 0px inset;
+}
+```

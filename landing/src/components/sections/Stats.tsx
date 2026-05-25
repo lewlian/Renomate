@@ -24,10 +24,10 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="py-24 md:py-32 bg-paper border-y border-mist/40">
+    <section className="py-24 md:py-32 bg-canvas border-y border-ash/40">
       <div className="container-page">
         <ScrollReveal className="mb-12">
-          <span className="inline-block text-caption font-medium uppercase tracking-wider text-clay-deep mb-4">
+          <span className="inline-block text-caption font-medium uppercase tracking-wider text-violet mb-4">
             Why this matters
           </span>
         </ScrollReveal>
@@ -36,7 +36,7 @@ export function Stats() {
           {stats.map((s, i) => (
             <ScrollReveal key={i} delay={i * 0.15}>
               <div>
-                <div className="font-display text-[clamp(56px,8vw,96px)] leading-none text-ink mb-4 tabular">
+                <div className="font-heading text-[clamp(56px,8vw,96px)] leading-none text-deep-charcoal mb-4 tabular">
                   <AnimatedNumber
                     value={s.value}
                     prefix={s.prefix ?? ""}
@@ -46,7 +46,7 @@ export function Stats() {
                   />
                 </div>
                 <p className="text-body text-charcoal max-w-[280px] mb-2">{s.caption}</p>
-                <p className="text-[12px] uppercase tracking-wider text-slate font-medium">{s.source}</p>
+                <p className="text-[12px] uppercase tracking-wider text-smoke font-medium">{s.source}</p>
               </div>
             </ScrollReveal>
           ))}

@@ -1,0 +1,16 @@
+export const colors = {
+  canvas: "#ffffff",
+  charcoal: "#292d34",
+  deepCharcoal: "#090c1d",
+  smoke: "#b3b3b3",
+  ash: "#e8e8e8",
+  hintSky: "#e9ebf0",
+  tintBlue: "#edf6fd",
+  onyx: "#202023",
+  violet: "#7b68ee",
+  blue: "#0091ff",
+  plum: "#514b81",
+  vividPurple: "#6647f0",
+  warmOrange: "#ff5b36",
+  white: "#ffffff",
+} as const;

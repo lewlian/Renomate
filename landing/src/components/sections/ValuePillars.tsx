@@ -45,22 +45,21 @@ const pillars = [
 
 export function ValuePillars() {
   return (
-    <section id="product" className="bg-linen py-24 md:py-32">
+    <section id="product" className="bg-hint-sky py-24 md:py-32">
       <div className="container-page">
         <div className="max-w-[700px] mb-12">
           <ScrollReveal>
-            <span className="inline-block text-caption font-medium uppercase tracking-wider text-clay-deep mb-4">
+            <span className="inline-block text-caption font-medium uppercase tracking-wider text-violet mb-4">
               What Renomate gives you
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="font-display text-display-lg text-ink">
+            <h2 className="font-heading text-display-lg text-deep-charcoal">
               A clear view of every project, every day.
             </h2>
           </ScrollReveal>
         </div>
 
-        {/* Bento grid: 2 columns, with size variation */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {pillars.map((p, i) => (
             <ScrollReveal
@@ -71,12 +70,12 @@ export function ValuePillars() {
               <motion.div
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2, ease: [0.2, 0, 0, 1] }}
-                className="bg-paper border border-mist rounded-md p-6 h-full"
+                className="bg-canvas rounded-md p-6 h-full shadow-subtle"
               >
-                <div className="font-mono text-[13px] text-clay-deep tracking-wider mb-3">
+                <div className="font-mono text-[13px] text-violet tracking-wider mb-3">
                   {p.n} &mdash; {p.label}
                 </div>
-                <h3 className="font-display text-[26px] leading-tight text-ink mb-3">{p.title}</h3>
+                <h3 className="font-heading text-[26px] leading-tight text-deep-charcoal mb-3">{p.title}</h3>
                 <p className="text-[15px] leading-6 text-charcoal mb-5">{p.body}</p>
                 <div className="mt-5">{p.visual}</div>
               </motion.div>
@@ -99,21 +98,21 @@ function TimelineMockup() {
     { name: "Handover", status: "pending" },
   ];
   return (
-    <div className="bg-white border border-mist rounded p-4">
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-3 font-medium">Project timeline</div>
+    <div className="bg-canvas rounded-md p-4 shadow-subtle">
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-3 font-medium">Project timeline</div>
       <ul className="space-y-2">
         {phases.map((p, i) => (
           <li key={p.name} className="flex items-center gap-3 text-[13px]">
             <span
               className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${
-                p.status === "done" ? "bg-success" : p.status === "active" ? "bg-clay" : "bg-mist"
+                p.status === "done" ? "bg-violet" : p.status === "active" ? "bg-violet" : "bg-smoke"
               }`}
             />
-            <span className={p.status === "active" ? "text-ink font-semibold" : "text-charcoal"}>
+            <span className={p.status === "active" ? "text-deep-charcoal font-semibold" : "text-charcoal"}>
               {String(i + 1).padStart(2, "0")} &middot; {p.name}
             </span>
             {p.status === "active" && (
-              <span className="ml-auto text-clay-deep text-[11px] uppercase tracking-wider font-medium">
+              <span className="ml-auto text-violet text-[11px] uppercase tracking-wider font-medium">
                 You are here
               </span>
             )}
@@ -126,7 +125,7 @@ function TimelineMockup() {
 
 function DecisionsMockup() {
   return (
-    <div className="bg-white border border-mist rounded p-4 space-y-3">
+    <div className="bg-canvas rounded-md p-4 shadow-subtle space-y-3">
       <Row title="Kitchen handle finish" sub="Due Fri" pill={<Pill variant="pending">Pending</Pill>} />
       <Row title="Floor tile, master bath" sub="Due Mon" pill={<Pill variant="overdue">Overdue</Pill>} />
       <Row title="TV wall finish" sub="Decided 12 May" pill={<Pill variant="done">Decided</Pill>} />
@@ -136,8 +135,8 @@ function DecisionsMockup() {
 
 function QuotationMockup() {
   return (
-    <div className="bg-white border border-mist rounded p-4">
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-3 font-medium">Quotation</div>
+    <div className="bg-canvas rounded-md p-4 shadow-subtle">
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-3 font-medium">Quotation</div>
       <table className="w-full text-[13px]">
         <tbody>
           <Line label="Carpentry" amount="SGD 12,400" />
@@ -153,11 +152,11 @@ function QuotationMockup() {
 
 function MoneyMockup() {
   return (
-    <div className="bg-white border border-mist rounded p-4">
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-3 font-medium">Invoices</div>
+    <div className="bg-canvas rounded-md p-4 shadow-subtle">
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-3 font-medium">Invoices</div>
       <table className="w-full text-[13px]">
         <thead>
-          <tr className="text-left text-[11px] uppercase tracking-wider text-slate font-medium">
+          <tr className="text-left text-[11px] uppercase tracking-wider text-smoke font-medium">
             <th className="pb-2">Invoice</th>
             <th className="pb-2">Phase</th>
             <th className="pb-2 text-right">Amount</th>
@@ -178,8 +177,8 @@ function Row({ title, sub, pill }: { title: string; sub: string; pill: React.Rea
   return (
     <div className="flex items-center justify-between gap-3">
       <div>
-        <div className="text-[14px] font-medium text-ink">{title}</div>
-        <div className="text-[12px] text-slate">{sub}</div>
+        <div className="text-[14px] font-medium text-deep-charcoal">{title}</div>
+        <div className="text-[12px] text-smoke">{sub}</div>
       </div>
       {pill}
     </div>
@@ -188,9 +187,9 @@ function Row({ title, sub, pill }: { title: string; sub: string; pill: React.Rea
 
 function Line({ label, amount, highlight }: { label: string; amount: string; highlight?: boolean }) {
   return (
-    <tr className={`border-t border-linen ${highlight ? "bg-clay-soft/40" : ""}`}>
+    <tr className={`border-t border-hint-sky ${highlight ? "bg-tint-blue/40" : ""}`}>
       <td className="py-2 text-charcoal">{label}</td>
-      <td className="py-2 text-right text-ink font-mono tabular">{amount}</td>
+      <td className="py-2 text-right text-deep-charcoal font-mono tabular">{amount}</td>
     </tr>
   );
 }
@@ -207,10 +206,10 @@ function InvoiceRow({
   pill: React.ReactNode;
 }) {
   return (
-    <tr className="border-t border-linen">
+    <tr className="border-t border-hint-sky">
       <td className="py-2 text-charcoal font-mono">{num}</td>
       <td className="py-2 text-charcoal">{phase}</td>
-      <td className="py-2 text-right text-ink font-mono">{amount}</td>
+      <td className="py-2 text-right text-deep-charcoal font-mono">{amount}</td>
       <td className="py-2 text-right">{pill}</td>
     </tr>
   );

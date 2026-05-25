@@ -28,7 +28,9 @@ Always refer to `Knowledge/` as the source of truth for *why* something is built
 
 ## Current status
 
-Research and design-system phase complete. Building the landing page next; React Native app follows after landing-page validation and founder discovery calls.
+- **Landing page**: built (Next.js + Tailwind + Framer Motion). See [`landing/`](./landing/).
+- **Mobile app**: in progress (React Native + Expo). Foundation complete — scaffolding, design system, all 7 client tabs, auth flow, mock data layer. See [`app/`](./app/) for full details.
+- **Backend**: not yet set up. Mock data layer in place; Supabase integration planned.
 
 ## Built by
 

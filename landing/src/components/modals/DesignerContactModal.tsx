@@ -30,7 +30,7 @@ export function DesignerContactModal({ open, onClose }: Props) {
     <ModalShell open={open} onClose={reset}>
       {submitted ? (
         <div className="py-6">
-          <h2 className="font-display text-display-md text-ink mb-3">Thank you.</h2>
+          <h2 className="font-heading text-display-md text-deep-charcoal mb-3">Thank you.</h2>
           <p className="text-charcoal text-body-lg">
             We&rsquo;ll reply within two working days. &mdash; Sean (founder)
           </p>
@@ -40,8 +40,8 @@ export function DesignerContactModal({ open, onClose }: Props) {
         </div>
       ) : (
         <form onSubmit={onSubmit}>
-          <h2 className="font-display text-display-md text-ink mb-2">Become an early partner firm.</h2>
-          <p className="text-body-sm text-slate mb-5">Tell us about your firm. We&rsquo;ll reply within two working days.</p>
+          <h2 className="font-heading text-display-md text-deep-charcoal mb-2">Become an early partner firm.</h2>
+          <p className="text-body-sm text-smoke mb-5">Tell us about your firm. We&rsquo;ll reply within two working days.</p>
 
           <Field label="Your name" required>
             <input type="text" required className="input" />
@@ -84,18 +84,18 @@ export function DesignerContactModal({ open, onClose }: Props) {
         :global(.input) {
           width: 100%;
           padding: 12px 16px;
-          border: 1px solid #a8a29b;
-          border-radius: 4px;
+          border: 1px solid #e8e8e8;
+          border-radius: 8px;
           background: #ffffff;
           font-family: var(--font-inter);
           font-size: 16px;
-          color: #161513;
+          color: #292d34;
           transition: border-color 150ms;
         }
         :global(.input:focus) {
-          outline: 2px solid #b85c3c;
+          outline: 2px solid #7b68ee;
           outline-offset: -1px;
-          border-color: #b85c3c;
+          border-color: #7b68ee;
         }
       `}</style>
     </ModalShell>
@@ -117,12 +117,12 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2 mb-4">
-      <label className="text-body-sm font-medium text-ink">
+      <label className="text-body-sm font-medium text-deep-charcoal">
         {label}{" "}
-        {optional && <span className="font-normal text-slate">(optional)</span>}
+        {optional && <span className="font-normal text-smoke">(optional)</span>}
       </label>
       {children}
-      {help && <span className="text-[13px] text-slate">{help}</span>}
+      {help && <span className="text-[13px] text-smoke">{help}</span>}
     </div>
   );
 }

@@ -18,30 +18,30 @@ export function Nav() {
     <nav
       className={`sticky top-0 z-50 transition-[border-color,background-color] duration-200 ${
         scrolled
-          ? "bg-paper/85 backdrop-blur-md border-b border-mist"
-          : "bg-paper/0 border-b border-transparent"
+          ? "bg-canvas/85 backdrop-blur-md border-b border-ash"
+          : "bg-canvas/0 border-b border-transparent"
       }`}
     >
       <div className="container-page flex items-center justify-between py-4">
-        <a href="#" className="font-display text-[22px] tracking-tight text-ink no-underline">
+        <a href="#" className="font-heading text-[22px] tracking-tight text-deep-charcoal no-underline">
           renomate
         </a>
         <div className="flex items-center gap-5">
-          <a href="#product" className="hidden md:inline text-body-sm font-medium text-charcoal hover:text-ink no-underline">
+          <a href="#product" className="hidden md:inline text-body-sm font-medium text-charcoal hover:text-deep-charcoal no-underline">
             Product
           </a>
-          <a href="#how" className="hidden md:inline text-body-sm font-medium text-charcoal hover:text-ink no-underline">
+          <a href="#how" className="hidden md:inline text-body-sm font-medium text-charcoal hover:text-deep-charcoal no-underline">
             How it works
           </a>
-          <a href="#designers" className="hidden md:inline text-body-sm font-medium text-charcoal hover:text-ink no-underline">
+          <a href="#designers" className="hidden md:inline text-body-sm font-medium text-charcoal hover:text-deep-charcoal no-underline">
             For designers
           </a>
-          <a href="#faq" className="hidden md:inline text-body-sm font-medium text-charcoal hover:text-ink no-underline">
+          <a href="#faq" className="hidden md:inline text-body-sm font-medium text-charcoal hover:text-deep-charcoal no-underline">
             FAQ
           </a>
           <button
             onClick={() => open("waitlist")}
-            className="inline-flex items-center px-5 py-3 text-[15px] font-medium rounded bg-clay text-paper hover:bg-clay-deep transition-colors ease-brand"
+            className="inline-flex items-center px-5 py-3 text-[15px] font-medium rounded-sm bg-onyx text-white hover:opacity-90 transition-colors ease-brand"
           >
             Join the waitlist
           </button>

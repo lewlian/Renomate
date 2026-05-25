@@ -1,0 +1,131 @@
+import { View, Text, ScrollView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Card } from "@/components/ui/Card";
+import { StatusPill } from "@/components/ui/StatusPill";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
+import { AlertTriangle } from "lucide-react-native";
+import { getMockDefects } from "@/lib/mock-data";
+import type { DefectStatus } from "@/lib/types";
+
+const statusToPill: Record<
+  DefectStatus,
+  { status: "pending" | "active" | "done" | "overdue" | "info"; label: string }
+> = {
+  open: { status: "overdue", label: "Open" },
+  acknowledged: { status: "active", label: "Acknowledged" },
+  scheduled: { status: "active", label: "Scheduled" },
+  fixed: { status: "done", label: "Fixed" },
+  signed_off: { status: "done", label: "Signed off" },
+  wont_fix: { status: "info", label: "Won't fix" },
+};
+
+export default function DefectsScreen() {
+  const defects = getMockDefects();
+  const openCount = defects.filter((d) => d.status === "open" || d.status === "acknowledged" || d.status === "scheduled").length;
+  const fixedCount = defects.filter((d) => d.status === "fixed").length;
+  const signedOffCount = defects.filter((d) => d.status === "signed_off").length;
+
+  const formatDate = (iso: string | null) => {
+    if (!iso) return "";
+    return new Date(iso).toLocaleDateString("en-SG", {
+      day: "numeric",
+      month: "short",
+    });
+  };
+
+  return (
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
+      <ScrollView
+        className="flex-1"
+        contentContainerClassName="px-6 pb-8"
+        showsVerticalScrollIndicator={false}
+      >
+        <View className="mt-4 mb-4">
+          <SectionHeader
+            overline="Defects"
+            title="Snag list"
+            subtitle="Report and track issues found during or after renovation."
+          />
+        </View>
+
+        <View className="flex-row justify-between mb-5 px-2">
+          <View className="items-center">
+            <Text className="font-heading text-2xl text-red-500">{openCount}</Text>
+            <Text className="font-body text-xs text-smoke">Open</Text>
+          </View>
+          <View className="items-center">
+            <Text className="font-heading text-2xl text-green-600">{fixedCount}</Text>
+            <Text className="font-body text-xs text-smoke">Fixed</Text>
+          </View>
+          <View className="items-center">
+            <Text className="font-heading text-2xl text-deep-charcoal">{signedOffCount}</Text>
+            <Text className="font-body text-xs text-smoke">Signed off</Text>
+          </View>
+        </View>
+
+        <Button variant="secondary" size="md" onPress={() => router.push("/defects/create")} className="mb-5">
+          Report a defect
+        </Button>
+
+        {defects.length === 0 ? (
+          <EmptyState
+            icon={AlertTriangle}
+            title="No defects reported"
+            description="When you spot an issue, tap 'Report a defect' to log it with photos."
+          />
+        ) : (
+          <View className="gap-3">
+            {defects.map((defect) => {
+              const pill = statusToPill[defect.status];
+              return (
+                <Card key={defect.id} onPress={() => router.push(`/defects/${defect.id}`)}>
+                  <View className="flex-row items-start justify-between mb-2">
+                    <Text className="font-heading text-base text-deep-charcoal flex-1 mr-3">
+                      {defect.title}
+                    </Text>
+                    <StatusPill variant={pill.status}>{pill.label}</StatusPill>
+                  </View>
+
+                  {defect.location_text && (
+                    <Text className="font-body text-sm text-charcoal mb-2">
+                      {defect.location_text}
+                    </Text>
+                  )}
+
+                  {defect.description && (
+                    <Text
+                      className="font-body text-sm text-smoke mb-2"
+                      numberOfLines={2}
+                    >
+                      {defect.description}
+                    </Text>
+                  )}
+
+                  <View className="flex-row items-center gap-4">
+                    {defect.assigned_trade && (
+                      <Text className="font-body text-xs text-smoke capitalize">
+                        {defect.assigned_trade}
+                      </Text>
+                    )}
+                    <Text className="font-body text-xs text-smoke">
+                      Reported {formatDate(defect.created_at)}
+                    </Text>
+                    {defect.photo_file_ids.length > 0 && (
+                      <Text className="font-body text-xs text-smoke">
+                        {defect.photo_file_ids.length} photo
+                        {defect.photo_file_ids.length > 1 ? "s" : ""}
+                      </Text>
+                    )}
+                  </View>
+                </Card>
+              );
+            })}
+          </View>
+        )}
+      </ScrollView>
+    </SafeAreaView>
+  );
+}

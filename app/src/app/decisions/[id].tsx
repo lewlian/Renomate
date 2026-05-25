@@ -1,0 +1,186 @@
+import { useState } from "react";
+import { View, Text, ScrollView, Pressable, Alert } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useLocalSearchParams, router } from "expo-router";
+import { ArrowLeft } from "lucide-react-native";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Card } from "@/components/ui/Card";
+import { StatusPill } from "@/components/ui/StatusPill";
+import { Button } from "@/components/ui/Button";
+import { ActivityRing } from "@/components/ui/ActivityRing";
+import { ColorCard } from "@/components/ui/ColorCard";
+import { useAuth } from "@/hooks/useAuth";
+import { getMockDecisions } from "@/lib/mock-data";
+import type { DecisionStatus } from "@/lib/types";
+
+const statusToPill: Record<
+  DecisionStatus,
+  { status: "pending" | "active" | "done" | "overdue" | "info"; label: string }
+> = {
+  pending: { status: "pending", label: "Pending" },
+  overdue: { status: "overdue", label: "Overdue" },
+  decided: { status: "done", label: "Decided" },
+  not_needed: { status: "info", label: "Not needed" },
+};
+
+export default function DecisionDetailScreen() {
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const { role } = useAuth();
+  const decisions = getMockDecisions();
+  const decision = decisions.find((d) => d.id === id);
+  const decidedCount = decisions.filter((d) => d.status === "decided").length;
+  const totalDecisions = decisions.length;
+  const completionPct = totalDecisions > 0 ? Math.round((decidedCount / totalDecisions) * 100) : 0;
+
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+
+  if (!decision) {
+    return (
+      <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
+        <View className="px-6 mt-4">
+          <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mb-4">
+            <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
+          </Pressable>
+          <Text className="font-heading text-2xl text-deep-charcoal">
+            Decision not found
+          </Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  const pill = statusToPill[decision.status];
+  const options = (decision.options ?? []) as { label: string; cost_delta?: number }[];
+  const decidedValue = decision.decided_value as { label: string; cost_delta?: number } | null;
+  const canConfirm =
+    role === "client" &&
+    (decision.status === "pending" || decision.status === "overdue");
+
+  const formatDate = (iso: string | null) => {
+    if (!iso) return "";
+    return new Date(iso).toLocaleDateString("en-SG", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  };
+
+  const handleConfirm = () => {
+    if (!selectedOption) {
+      Alert.alert("Select an option", "Please select an option before confirming.");
+      return;
+    }
+    Alert.alert("Decision recorded", "Your decision has been saved.");
+  };
+
+  return (
+    <SafeAreaView className="flex-1 bg-canvas" edges={["top"]}>
+      <ScrollView
+        className="flex-1"
+        contentContainerClassName="px-6 pb-8"
+        showsVerticalScrollIndicator={false}
+      >
+        <Pressable onPress={() => router.back()} className="min-w-[48px] min-h-[48px] items-start justify-center mt-4 mb-4">
+          <ArrowLeft size={24} color="#090c1d" strokeWidth={1.5} />
+        </Pressable>
+
+        <View className="items-center mb-5">
+          <ActivityRing percentage={completionPct} size={100} strokeWidth={8} label="Decided" />
+        </View>
+
+        <View className="mb-4">
+          <SectionHeader overline="Decision" title={decision.title} />
+        </View>
+
+        <View className="mb-4">
+          <StatusPill variant={pill.status}>{pill.label}</StatusPill>
+        </View>
+
+        {decision.description && (
+          <Text className="font-body text-base text-charcoal mb-4">
+            {decision.description}
+          </Text>
+        )}
+
+        {decision.deadline && (
+          <Text className="font-body text-sm text-smoke mb-2">
+            Deadline: {formatDate(decision.deadline)}
+          </Text>
+        )}
+
+        {decision.decided_at && (
+          <Text className="font-body text-sm text-green-600 mb-2">
+            Decided: {formatDate(decision.decided_at)}
+          </Text>
+        )}
+
+        {decidedValue && (
+          <View className="mt-4 mb-4">
+            <Text className="font-body text-sm font-medium text-charcoal mb-2">
+              Selected option
+            </Text>
+            <Card variant="elevated">
+              <Text className="font-body text-base text-deep-charcoal">
+                {decidedValue.label}
+              </Text>
+            </Card>
+          </View>
+        )}
+
+        {options.length > 0 && !decidedValue && (
+          <View className="mt-4 mb-4">
+            <Text className="font-body text-sm font-medium text-charcoal mb-2">
+              Options
+            </Text>
+            <View className="gap-2">
+              {options.map((option, idx) => {
+                const isSelected = selectedOption === option.label;
+                const pastelColors: ("sand" | "lavender" | "peach" | "sage" | "sky" | "coral")[] = ["sand", "lavender", "peach", "sage", "sky", "coral"];
+                const colorForOption = pastelColors[idx % pastelColors.length];
+                return (
+                  <ColorCard
+                    key={option.label}
+                    color={isSelected ? "coral" : colorForOption}
+                    onPress={canConfirm ? () => setSelectedOption(option.label) : undefined}
+                    className={isSelected ? "border-2 border-violet" : ""}
+                  >
+                    <Text className="font-body text-base text-deep-charcoal">
+                      {option.label}
+                    </Text>
+                  </ColorCard>
+                );
+              })}
+            </View>
+          </View>
+        )}
+
+        {options.length > 0 && decidedValue && (
+          <View className="mt-2 mb-4">
+            <Text className="font-body text-sm font-medium text-charcoal mb-2">
+              Other options
+            </Text>
+            <View className="gap-2">
+              {options
+                .filter((o) => o.label !== decidedValue.label)
+                .map((option) => (
+                  <Card key={option.label}>
+                    <Text className="font-body text-base text-smoke">
+                      {option.label}
+                    </Text>
+                  </Card>
+                ))}
+            </View>
+          </View>
+        )}
+
+        {canConfirm && (
+          <View className="mt-4">
+            <Button variant="accent" onPress={handleConfirm}>
+              Confirm decision
+            </Button>
+          </View>
+        )}
+      </ScrollView>
+    </SafeAreaView>
+  );
+}

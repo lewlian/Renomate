@@ -12,22 +12,21 @@ export function BuiltForBoth() {
   const { open } = useModal();
 
   return (
-    <section className="py-24 md:py-32 bg-paper">
+    <section className="py-24 md:py-32 bg-canvas">
       <div className="container-page">
         <div className="max-w-[700px] mb-10">
           <ScrollReveal>
-            <span className="inline-block text-caption font-medium uppercase tracking-wider text-clay-deep mb-4">
+            <span className="inline-block text-caption font-medium uppercase tracking-wider text-violet mb-4">
               Built for both sides
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="font-display text-display-lg text-ink">One workspace, two perspectives.</h2>
+            <h2 className="font-heading text-display-lg text-deep-charcoal">One workspace, two perspectives.</h2>
           </ScrollReveal>
         </div>
 
-        {/* Tab control */}
         <ScrollReveal delay={0.1}>
-          <div className="inline-flex relative bg-linen rounded-full p-1 mb-10">
+          <div className="inline-flex relative bg-hint-sky rounded-full p-1 mb-10">
             <TabButton active={tab === "homeowners"} onClick={() => setTab("homeowners")}>
               For homeowners
             </TabButton>
@@ -48,7 +47,7 @@ export function BuiltForBoth() {
               className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
             >
               <div>
-                <h3 className="font-display text-[28px] leading-tight text-ink mb-4">
+                <h3 className="font-heading text-[28px] leading-tight text-deep-charcoal mb-4">
                   Clarity, without having to ask for it.
                 </h3>
                 <p className="text-body-lg text-charcoal mb-6">
@@ -58,7 +57,7 @@ export function BuiltForBoth() {
                 </p>
                 <button
                   onClick={() => open("waitlist")}
-                  className="inline-flex items-center px-5 py-3 text-[15px] font-medium rounded bg-clay text-paper hover:bg-clay-deep transition-colors"
+                  className="inline-flex items-center px-5 py-3 text-[15px] font-medium rounded-sm bg-onyx text-white hover:opacity-90 transition-colors"
                 >
                   Join the waitlist
                 </button>
@@ -75,7 +74,7 @@ export function BuiltForBoth() {
               className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
             >
               <div>
-                <h3 className="font-display text-[28px] leading-tight text-ink mb-4">
+                <h3 className="font-heading text-[28px] leading-tight text-deep-charcoal mb-4">
                   A workspace that works for your firm.
                 </h3>
                 <p className="text-body-lg text-charcoal mb-5">
@@ -91,7 +90,7 @@ export function BuiltForBoth() {
                 </ul>
                 <button
                   onClick={() => open("designer")}
-                  className="inline-flex items-center px-5 py-3 text-[15px] font-medium rounded bg-clay text-paper hover:bg-clay-deep transition-colors"
+                  className="inline-flex items-center px-5 py-3 text-[15px] font-medium rounded-sm bg-onyx text-white hover:opacity-90 transition-colors"
                 >
                   Talk to us about being an early partner
                 </button>
@@ -118,13 +117,13 @@ function TabButton({
     <button
       onClick={onClick}
       className={`relative px-5 py-2 text-[14px] font-medium rounded-full transition-colors z-10 ${
-        active ? "text-paper" : "text-charcoal hover:text-ink"
+        active ? "text-white" : "text-charcoal hover:text-deep-charcoal"
       }`}
     >
       {active && (
         <motion.span
           layoutId="tab-pill"
-          className="absolute inset-0 bg-ink rounded-full -z-10"
+          className="absolute inset-0 bg-onyx rounded-full -z-10"
           transition={{ duration: 0.25, ease: [0.2, 0, 0, 1] }}
         />
       )}
@@ -136,7 +135,7 @@ function TabButton({
 function Bullet({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex items-start gap-2">
-      <span className="text-clay mt-1.5 flex-shrink-0">
+      <span className="text-violet mt-1.5 flex-shrink-0">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <path d="M20 6 9 17l-5-5" />
         </svg>
@@ -148,21 +147,21 @@ function Bullet({ children }: { children: React.ReactNode }) {
 
 function HomeownerMockup() {
   return (
-    <div className="bg-linen rounded-lg p-6 border border-mist">
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-3 font-medium">
+    <div className="bg-canvas rounded-md p-6 shadow-subtle">
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-3 font-medium">
         Your home view
       </div>
-      <div className="bg-white rounded-md p-5 border border-mist mb-3">
-        <div className="text-[11px] uppercase tracking-wider text-slate font-medium mb-2">This week</div>
-        <div className="font-display text-[20px] leading-tight text-ink mb-1">
+      <div className="bg-canvas rounded-md p-5 shadow-subtle mb-3">
+        <div className="text-[11px] uppercase tracking-wider text-smoke font-medium mb-2">This week</div>
+        <div className="font-heading text-[20px] leading-tight text-deep-charcoal mb-1">
           Carpentry begins Mon 02 Jun
         </div>
-        <div className="text-[13px] text-slate">1 decision needed before then</div>
+        <div className="text-[13px] text-smoke">1 decision needed before then</div>
       </div>
-      <div className="bg-white rounded-md p-5 border border-mist">
-        <div className="text-[11px] uppercase tracking-wider text-slate font-medium mb-2">Awaiting your decision</div>
-        <div className="text-[14px] text-ink font-medium">Kitchen handle finish</div>
-        <div className="text-[12px] text-slate">Brushed brass · Matte black</div>
+      <div className="bg-canvas rounded-md p-5 shadow-subtle">
+        <div className="text-[11px] uppercase tracking-wider text-smoke font-medium mb-2">Awaiting your decision</div>
+        <div className="text-[14px] text-deep-charcoal font-medium">Kitchen handle finish</div>
+        <div className="text-[12px] text-smoke">Brushed brass · Matte black</div>
       </div>
     </div>
   );
@@ -176,21 +175,21 @@ function DesignerMockup() {
     { name: "Wong family · Yishun", phase: "Painting", overdue: 2 },
   ];
   return (
-    <div className="bg-linen rounded-lg p-6 border border-mist">
-      <div className="text-[11px] uppercase tracking-wider text-slate mb-3 font-medium">
+    <div className="bg-canvas rounded-md p-6 shadow-subtle">
+      <div className="text-[11px] uppercase tracking-wider text-smoke mb-3 font-medium">
         Firm dashboard · 4 of 12 active
       </div>
-      <div className="bg-white rounded-md border border-mist divide-y divide-linen">
+      <div className="bg-canvas rounded-md shadow-subtle divide-y divide-hint-sky">
         {projects.map((p, i) => (
           <div key={i} className="px-4 py-3 flex items-center justify-between">
             <div>
-              <div className="text-[14px] font-medium text-ink">{p.name}</div>
-              <div className="text-[12px] text-slate">Phase: {p.phase}</div>
+              <div className="text-[14px] font-medium text-deep-charcoal">{p.name}</div>
+              <div className="text-[12px] text-smoke">Phase: {p.phase}</div>
             </div>
             {p.overdue > 0 ? (
-              <span className="text-[11px] font-medium text-error">{p.overdue} overdue</span>
+              <span className="text-[11px] font-medium text-violet">{p.overdue} overdue</span>
             ) : (
-              <span className="text-[11px] font-medium text-success">On track</span>
+              <span className="text-[11px] font-medium text-violet">On track</span>
             )}
           </div>
         ))}

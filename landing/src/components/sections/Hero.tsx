@@ -9,7 +9,6 @@ export function Hero() {
   const { open } = useModal();
   const prefersReducedMotion = useReducedMotion();
 
-  // Cursor-aware parallax on the device mockup
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const sx = useSpring(mx, { damping: 24, stiffness: 120 });
@@ -18,7 +17,7 @@ export function Hero() {
   useEffect(() => {
     if (prefersReducedMotion) return;
     const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1..1
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * 2;
       mx.set(-x * 6);
       my.set(-y * 6);
@@ -45,7 +44,7 @@ export function Hero() {
             }}
             className="mb-5"
           >
-            <Pill variant="clay">Built in Singapore · for HDB, condo and landed renovations</Pill>
+            <Pill variant="violet">Built in Singapore · for HDB, condo and landed renovations</Pill>
           </motion.div>
 
           <motion.h1
@@ -53,7 +52,7 @@ export function Hero() {
               hidden: { opacity: 0, y: 16 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.2, 0, 0, 1] } },
             }}
-            className="font-display text-display-xl text-ink mb-5 max-w-[900px]"
+            className="font-heading text-display-xl text-deep-charcoal mb-5 max-w-[900px]"
           >
             Your renovation,
             <br />
@@ -81,13 +80,13 @@ export function Hero() {
           >
             <button
               onClick={() => open("waitlist")}
-              className="inline-flex items-center px-7 py-4 text-base font-medium rounded bg-clay text-paper hover:bg-clay-deep transition-colors ease-brand"
+              className="inline-flex items-center px-7 py-4 text-base font-medium rounded-sm bg-onyx text-white hover:opacity-90 transition-colors ease-brand"
             >
               Join the waitlist
             </button>
             <button
               onClick={() => open("designer")}
-              className="inline-flex items-center px-7 py-4 text-base font-medium rounded bg-paper text-ink border border-mist hover:bg-linen transition-colors ease-brand"
+              className="inline-flex items-center px-7 py-4 text-base font-medium rounded-sm bg-canvas text-charcoal border border-ash hover:bg-hint-sky transition-colors ease-brand"
             >
               I&rsquo;m an interior designer &rarr;
             </button>
@@ -98,13 +97,12 @@ export function Hero() {
               hidden: { opacity: 0, y: 16 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.2, 0, 0, 1] } },
             }}
-            className="text-body-sm text-slate mt-5"
+            className="text-body-sm text-smoke mt-5"
           >
             Free during private beta · Launching late 2026
           </motion.p>
         </motion.div>
 
-        {/* Hero visual mockup */}
         <motion.div
           style={{ x: sx, y: sy }}
           initial={{ opacity: 0, y: 32 }}
@@ -120,26 +118,23 @@ export function Hero() {
 }
 
 function HeroMockup() {
-  // Looped subtle motion: every ~4s, advance timeline, decision-made flash, pill flip
   return (
-    <div className="bg-linen rounded-lg p-6 border border-mist">
-      <div className="text-[11px] uppercase tracking-[0.1em] text-slate font-semibold mb-3">
+    <div className="bg-canvas rounded-md p-6 shadow-subtle">
+      <div className="text-[11px] uppercase tracking-[0.1em] text-smoke font-semibold mb-3">
         A glance tells you everything
       </div>
 
-      {/* Card 1: What's next */}
-      <div className="bg-white rounded-md p-5 border border-mist mb-3">
-        <div className="text-[11px] uppercase tracking-[0.08em] text-slate font-medium mb-2">
+      <div className="bg-canvas rounded-md p-5 shadow-subtle mb-3">
+        <div className="text-[11px] uppercase tracking-[0.08em] text-smoke font-medium mb-2">
           What&rsquo;s next
         </div>
-        <div className="font-display text-[22px] leading-tight text-ink mb-2">
+        <div className="font-heading text-[22px] leading-tight text-deep-charcoal mb-2">
           Carpentry starts Mon 02 Jun
         </div>
-        <div className="text-[13px] text-slate tabular">Phase 4 of 7 · 1 decision blocking</div>
-        {/* Timeline progress bar */}
-        <div className="mt-4 h-1 bg-linen rounded-full overflow-hidden">
+        <div className="text-[13px] text-smoke tabular">Phase 4 of 7 · 1 decision blocking</div>
+        <div className="mt-4 h-1 bg-hint-sky rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-clay"
+            className="h-full bg-violet"
             initial={{ width: "45%" }}
             animate={{ width: ["45%", "47%", "45%"] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -147,36 +142,33 @@ function HeroMockup() {
         </div>
       </div>
 
-      {/* Card 2: Decision blocking */}
-      <div className="bg-white rounded-md p-5 border border-mist mb-3">
+      <div className="bg-canvas rounded-md p-5 shadow-subtle mb-3">
         <div className="flex justify-between items-center mb-2">
-          <div className="text-[11px] uppercase tracking-[0.08em] text-slate font-medium">
+          <div className="text-[11px] uppercase tracking-[0.08em] text-smoke font-medium">
             Decision blocking next phase
           </div>
           <DecisionPillFlip />
         </div>
-        <div className="font-display text-[18px] leading-tight text-ink mb-1">
+        <div className="font-heading text-[18px] leading-tight text-deep-charcoal mb-1">
           Kitchen cabinet handle finish
         </div>
-        <div className="text-[13px] text-slate">Brushed brass or matte black</div>
+        <div className="text-[13px] text-smoke">Brushed brass or matte black</div>
       </div>
 
-      {/* Card 3: Outstanding invoice */}
-      <div className="bg-white rounded-md p-5 border border-mist">
+      <div className="bg-canvas rounded-md p-5 shadow-subtle">
         <div className="flex justify-between items-center mb-2">
-          <div className="text-[11px] uppercase tracking-[0.08em] text-slate font-medium">
+          <div className="text-[11px] uppercase tracking-[0.08em] text-smoke font-medium">
             Outstanding invoice
           </div>
           <Pill variant="overdue">Overdue</Pill>
         </div>
-        <div className="font-mono text-[18px] text-ink tabular mb-1">SGD 9,780.00</div>
-        <div className="text-[13px] text-slate tabular">INV-2026-0014 · Carpentry milestone</div>
+        <div className="font-mono text-[18px] text-deep-charcoal tabular mb-1">SGD 9,780.00</div>
+        <div className="text-[13px] text-smoke tabular">INV-2026-0014 · Carpentry milestone</div>
       </div>
     </div>
   );
 }
 
-/** Flips between "Overdue 2d" and "Decided ✓" every 4 seconds. */
 function DecisionPillFlip() {
   return (
     <motion.div

@@ -38,20 +38,20 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24 md:py-32 bg-paper">
+    <section id="faq" className="py-24 md:py-32 bg-canvas">
       <div className="container-narrow">
         <div className="mb-10">
           <ScrollReveal>
-            <span className="inline-block text-caption font-medium uppercase tracking-wider text-clay-deep mb-4">
+            <span className="inline-block text-caption font-medium uppercase tracking-wider text-violet mb-4">
               Common questions
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="font-display text-display-lg text-ink">Questions, answered.</h2>
+            <h2 className="font-heading text-display-lg text-deep-charcoal">Questions, answered.</h2>
           </ScrollReveal>
         </div>
 
-        <div className="border-t border-mist">
+        <div className="border-t border-ash">
           {faqs.map((f, i) => (
             <FAQItem key={i} q={f.q} a={f.a} />
           ))}
@@ -65,14 +65,14 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
     <details
-      className="border-b border-mist py-5 group"
+      className="border-b border-ash py-5 group"
       open={open}
       onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}
     >
       <summary className="flex justify-between items-center gap-4 cursor-pointer list-none">
-        <span className="font-semibold text-[17px] text-ink">{q}</span>
+        <span className="font-semibold text-[17px] text-deep-charcoal">{q}</span>
         <span
-          className={`font-display text-[24px] text-slate transition-transform duration-200 ease-brand ${
+          className={`font-heading text-[24px] text-smoke transition-transform duration-200 ease-brand ${
             open ? "rotate-45" : ""
           }`}
         >
