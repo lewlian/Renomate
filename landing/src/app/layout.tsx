@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-jakarta",
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const sometype = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-sometype",
   weight: ["400", "500"],
   display: "swap",
 });
@@ -34,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrains.variable}`}
+      className={`${jakarta.variable} ${inter.variable} ${sometype.variable}`}
     >
       <body>{children}</body>
     </html>

@@ -10,10 +10,11 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 import {
-  Fraunces_400Regular,
-  Fraunces_500Medium,
-  Fraunces_600SemiBold,
-} from "@expo-google-fonts/fraunces";
+  PlusJakartaSans_500Medium,
+  PlusJakartaSans_600SemiBold,
+  PlusJakartaSans_700Bold,
+  PlusJakartaSans_800ExtraBold,
+} from "@expo-google-fonts/plus-jakarta-sans";
 import {
   JetBrainsMono_400Regular,
   JetBrainsMono_500Medium,
@@ -29,9 +30,10 @@ const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    Fraunces: Fraunces_400Regular,
-    "Fraunces-Medium": Fraunces_500Medium,
-    "Fraunces-SemiBold": Fraunces_600SemiBold,
+    "PlusJakartaSans-Medium": PlusJakartaSans_500Medium,
+    "PlusJakartaSans-SemiBold": PlusJakartaSans_600SemiBold,
+    "PlusJakartaSans-Bold": PlusJakartaSans_700Bold,
+    "PlusJakartaSans-ExtraBold": PlusJakartaSans_800ExtraBold,
     Inter: Inter_400Regular,
     "Inter-Medium": Inter_500Medium,
     "Inter-SemiBold": Inter_600SemiBold,

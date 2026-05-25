@@ -10,16 +10,16 @@
   }
 
   body {
-    background-color: theme(colors.mint-bg);
-    color: theme(colors.ink);
-    font-family: theme(fontFamily.body);
+    background-color: #ffffff;
+    color: #292d34;
+    font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.5;
   }
 
   ::selection {
-    background-color: theme(colors.coral.soft);
-    color: theme(colors.coral.DEFAULT);
+    background-color: #edf6fd;
+    color: #7b68ee;
   }
 
   summary::-webkit-details-marker {
@@ -37,7 +37,7 @@
 
 @layer utilities {
   .container-page {
-    max-width: 1120px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 24px;
